@@ -11,6 +11,9 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        wikoBlue: "#0000FF",
+        wikoGray: "#E5E9EC",
+        wikoBlack: "#21272A ",
       },
     },
   },
