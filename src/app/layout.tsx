@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Lexend, Noto_Sans } from "next/font/google";
 import "./globals.css";
+import SplashScreen from "./components/splashscreen/SplashScreen";
 
 const lexend = Lexend({
   subsets: ["latin"],
@@ -17,6 +18,8 @@ export const metadata: Metadata = {
   },
 };
 
+
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -25,6 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${lexend.className} ${NotoSans.className} antialiased`}>
+        <SplashScreen />
         {children}
       </body>
     </html>
