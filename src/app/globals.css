@@ -21,5 +21,28 @@ body {
 }
 
 .title {
-  @apply text-[16px] font-semibold text-black;
+  @apply text-[16px] font-semibold text-black;}
+
+input[type="checkbox"] {
+  appearance: none;
+  width: 1.25em;
+  height: 1.25em;
+  border: 1px solid white;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* ✅ 체크된 상태 */
+input[type="checkbox"]:checked {
+  @apply bg-white  relative;
+}
+
+input[type="checkbox"]:checked::after {
+  content: "✔"; /* 체크 아이콘 */
+  @apply text-wikoBlue text-lg font-bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+>>>>>>> dev
 }
