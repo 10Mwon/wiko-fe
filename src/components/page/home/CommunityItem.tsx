@@ -10,7 +10,7 @@ export default function CommunityItem({
   return (
     <Link
       href={`/community/${countryName}`}
-      className="rounded-full bg-gray-400 w-[73px] aspect-square shadow-lg overflow-hidden"
+      className="rounded-full bg-gray-400 w-[73px] aspect-square overflow-hidden"
     >
       <Image
         src={image}

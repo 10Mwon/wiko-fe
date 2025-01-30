@@ -10,7 +10,7 @@ export default function ExchangeRate() {
       <ul className="mt-4">
         {exchangeRateData.map((item) => (
           <li
-            className="flex w-full justify-between font-medium mb-4"
+            className="flex w-full justify-between font-medium mb-4 text-black"
             key={item.Currencies}
           >
             <div className="flex gap-2 items-center">
