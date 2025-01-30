@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Lexend, Noto_Sans } from "next/font/google";
+import SplashScreen from "./components/splashScreen/SplashScreen";
 import "./globals.css";
-import SplashScreen from "./components/splashscreen/SplashScreen";
 
 const lexend = Lexend({
   subsets: ["latin"],
@@ -17,8 +17,6 @@ export const metadata: Metadata = {
     icon: "/wTmp-192x192.png",
   },
 };
-
-
 
 export default function RootLayout({
   children,
