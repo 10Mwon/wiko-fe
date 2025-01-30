@@ -1,11 +1,10 @@
 import Alarm from "../../../public/assets/icons/Alarm";
-import Menu from "../../../public/assets/icons/Menu";
 
 export default function Header() {
   return (
-    <header className="flex items-center justify-end gap-4 p-4">
+    <header className="w-full flex items-cen ter justify-end gap-4 p-4 fixed top-0 right-0 bg-wikoBlue">
       <Alarm />
-      <Menu />
+      {/* <Menu /> */}
     </header>
   );
 }
