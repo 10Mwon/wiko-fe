@@ -11,9 +11,13 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        wikoBlue: "#0000FF",
+        wikoBlue: "#6A51E6",
         wikoGray: "#E5E9EC",
         wikoBlack: "#21272A ",
+      },
+      fontFamily: {
+        lexend: ["Lexend", "Noto Sans", "sans-serif"],
+        noto_sans: ["Noto Sans", "sans-serif"],
       },
     },
   },

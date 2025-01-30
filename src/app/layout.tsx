@@ -1,14 +1,20 @@
 import type { Metadata } from "next";
-import { Lexend } from "next/font/google";
+import { Lexend, Noto_Sans } from "next/font/google";
 import "./globals.css";
 
 const lexend = Lexend({
+  subsets: ["latin"],
+});
+const NotoSans = Noto_Sans({
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
   title: "WIKO",
   description: "",
+  icons: {
+    icon: "/wTmp-192x192.png",
+  },
 };
 
 export default function RootLayout({
@@ -18,7 +24,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${lexend.className} antialiased`}>{children}</body>
+      <body className={`${lexend.className} ${NotoSans.className} antialiased`}>
+        {children}
+      </body>
     </html>
   );
 }
