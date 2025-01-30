@@ -3,9 +3,9 @@ import HomeBackground from "@/components/layout/HomeBackground";
 
 export default function Home() {
   return (
-    <main className="w-full h-screen bg-wikoBlue text-white">
+    <main className="w-full h-screen bg-wikoBlue">
       <Header />
-      <h1 className="text-2xl font-semibold mx-3 mb-11">
+      <h1 className="text-2xl font-semibold mx-3 mb-11 text-white">
         Tom,
         <br />
         새로운 도전을 응원해요!
