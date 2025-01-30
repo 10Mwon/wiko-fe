@@ -1,3 +1,4 @@
+import AppBar from "@/components/layout/AppBar";
 import Header from "@/components/layout/Header";
 import HomeBackground from "@/components/layout/HomeBackground";
 
@@ -11,6 +12,7 @@ export default function Home() {
         새로운 도전을 응원해요!
       </h1>
       <HomeBackground />
+      <AppBar />
     </main>
   );
 }

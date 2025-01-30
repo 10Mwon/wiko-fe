@@ -21,7 +21,8 @@ body {
 }
 
 .title {
-  @apply text-[16px] font-semibold text-black;}
+  @apply text-[16px] font-semibold text-black;
+}
 
 input[type="checkbox"] {
   appearance: none;
@@ -44,5 +45,9 @@ input[type="checkbox"]:checked::after {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
->>>>>>> dev
+}
+
+.app-bar {
+  box-shadow: -6px 0px 47px 27px rgba(217, 217, 217, 0.26);
+  @apply fixed bottom-0 flex justify-between w-full py-5 px-10;
 }
