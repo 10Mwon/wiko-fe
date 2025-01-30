@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Lexend, Noto_Sans } from "next/font/google";
-import SplashScreen from "./components/splashscreen/SplashScreen";
+import SplashScreen from "./components/splashScreen/SplashScreen";
 import "./globals.css";
 
 const lexend = Lexend({
