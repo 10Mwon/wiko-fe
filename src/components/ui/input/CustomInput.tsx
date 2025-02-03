@@ -1,13 +1,13 @@
 "use client";
-import { FormValues } from "@/components/forms/auth/SignUpForm";
+import { SignUpFormValues } from "@/types/FormValues";
 import { RegisterOptions, UseFormRegister } from "react-hook-form";
 
 type InputProps = {
   label: string;
-  name: keyof FormValues;
-  register?: UseFormRegister<FormValues>;
+  name: keyof SignUpFormValues;
+  register?: UseFormRegister<SignUpFormValues>;
   type?: string;
-  rules?: RegisterOptions<FormValues>;
+  rules?: RegisterOptions<SignUpFormValues>;
 };
 
 export default function CustomInput({
@@ -21,7 +21,7 @@ export default function CustomInput({
     <label className="flex flex-col">
       {label}
       <input
-        className="border 1px solid"
+        className="rounded-xl  bg-gray-200 p-3"
         {...(register && register(name, rules))}
         type={type}
       />
