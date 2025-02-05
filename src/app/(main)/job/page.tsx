@@ -1,5 +1,6 @@
 "use client";
 import JobFilter from "@/components/ui/custom/JobFilter";
+import PayFilterDrawer from "@/components/ui/custom/PayFilterDrawer";
 import Search from "../../../../public/assets/icons/Search";
 
 export default function page() {
@@ -14,8 +15,10 @@ export default function page() {
           className="absolute top-0 right-2.5 h-[34px]"
           handler={onClickSearchIcon}
         />
-        <section className="mt-14">
+        <section className="mt-14 flex justify-between">
           <JobFilter />
+          <PayFilterDrawer />
+          <PayFilterDrawer />
         </section>
         <section className="bg-white h-[134px] w-full rounded-xl mt-14 p-4">
           한화 오션
