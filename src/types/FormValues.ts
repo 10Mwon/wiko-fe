@@ -4,7 +4,7 @@ export interface SignUpFormValues {
   id: string;
   password: string;
   passwordConfirm: string;
-  birth: string;
+  birth: Date | null;
   phone: string;
   email: string;
   address: string;

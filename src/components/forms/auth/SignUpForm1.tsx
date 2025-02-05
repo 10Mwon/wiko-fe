@@ -6,7 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { signUpSchema } from "./schema";
 
-export default function SignUpForm() {
+export default function SignUpForm1() {
   const {
     register,
     handleSubmit,
@@ -82,11 +82,6 @@ export default function SignUpForm() {
         onChange={(e) => setValue("passwordConfirm", e.target.value)}
         error={errors.passwordConfirm?.message}
       />
-      {errors.passwordConfirm && (
-        <p className="-mt-4 text-xs text-red-500">
-          {errors.passwordConfirm.message}
-        </p>
-      )}
 
       {/* 회원가입 버튼 */}
       <button className="w-full rounded-2xl p-4 text-white bg-wikoBlue">
