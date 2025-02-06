@@ -8,12 +8,27 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
-
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import PriceRangeSlider from "./RangeSlider";
 
-export default function PayFilterDrawer() {
-  const [range, setRange] = useState([0, 5000000]);
+export default function PayFilterDrawer({
+  start,
+  end,
+}: {
+  start: string;
+  end: string;
+}) {
+  const router = useRouter();
+  const [range, setRange] = useState([Number(start), Number(end)]);
+
+  const handleSearch = () => {
+    const newSearchParams = new URLSearchParams(window.location.search);
+    newSearchParams.set("start", range[0].toString());
+    newSearchParams.set("end", range[1].toString());
+
+    router.push(`?${newSearchParams.toString()}`);
+  };
 
   // 입력값 변경 핸들러
   const handleInputChange = (index: number, value: string) => {
@@ -64,7 +79,10 @@ export default function PayFilterDrawer() {
         </div>
         <DrawerFooter className="px-0">
           <DrawerClose asChild>
-            <button className="bg-wikoBlue mx-7 py-3 rounded-xl text-white">
+            <button
+              onClick={handleSearch}
+              className="bg-wikoBlue mx-7 py-3 rounded-xl text-white"
+            >
               적용하기
             </button>
           </DrawerClose>

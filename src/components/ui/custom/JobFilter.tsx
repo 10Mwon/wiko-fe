@@ -10,13 +10,20 @@ import {
 } from "@/components/ui/drawer";
 import { industryData } from "@/store/jobFilterData";
 import { CircleX } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-export default function JobFilter() {
-  // 선택된 업종을 관리할 상태
-  const [selectedIndustries, setSelectedIndustries] = useState<string[]>([]);
+export default function JobFilter({ industry }: { industry: string }) {
+  const data = industry === "" ? [] : industry.split(",");
+  const [selectedIndustries, setSelectedIndustries] = useState<string[]>(data);
+  const router = useRouter();
 
-  // 항목 선택 시 처리 함수
+  const handleSearch = () => {
+    const newSearchParams = new URLSearchParams(window.location.search);
+    newSearchParams.set("industry", selectedIndustries.join(","));
+    router.push(`?${newSearchParams.toString()}`);
+  };
+
   const toggleIndustrySelection = (industryName: string) => {
     setSelectedIndustries(
       (prev) =>
@@ -90,7 +97,10 @@ export default function JobFilter() {
             </ul>
           </div>
           <DrawerClose asChild>
-            <button className="bg-wikoBlue mx-7 py-3 rounded-xl text-white">
+            <button
+              onClick={handleSearch}
+              className="bg-wikoBlue mx-7 py-3 rounded-xl text-white"
+            >
               적용하기
             </button>
           </DrawerClose>

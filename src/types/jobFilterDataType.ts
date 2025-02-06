@@ -3,3 +3,12 @@ export interface industryDataType {
   code: string;
   industryName: string;
 }
+
+export interface JobItemType {
+  id: number;
+  jobName: string;
+  title: string;
+  location: string;
+  pay: string;
+  imgUrl: string;
+}
