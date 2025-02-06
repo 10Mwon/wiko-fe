@@ -1,34 +1,33 @@
-"use client";
 import CustomInput from "@/components/ui/input/CustomInput";
-import PasswordInput from "@/components/ui/input/PasswordInput";
 import { SignUpFormValues } from "@/types/FormValues";
-import { zodResolver } from "@hookform/resolvers/zod";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Controller, useForm } from "react-hook-form";
-import { signUpSchema } from "./schema";
-export default function SignUpForm2() {
+
+export default function SignUpForm2({
+  formData,
+  setFormData,
+}: {
+  formData: SignUpFormValues;
+  setFormData: (data: SignUpFormValues) => void;
+}) {
   const {
     register,
     handleSubmit,
-    setValue,
-    watch,
     control,
     formState: { errors },
   } = useForm<SignUpFormValues>({
-    resolver: zodResolver(signUpSchema),
-    defaultValues: {
-      birth: undefined,
-      phone: "",
-      email: "",
-      address: "",
-      visa: "",
-    },
+    defaultValues: formData,
   });
 
+  const onValid = (data: SignUpFormValues) => {
+    const updatedData = { ...formData, ...data };
+    setFormData(updatedData);
+    console.log("최종 데이터:", updatedData);
+  };
+
   return (
-    <form className="flex flex-col gap-4" onSubmit={handleSubmit(console.log)}>
-      {/* 생년월일 DatePicker 적용 */}
+    <form className="flex flex-col gap-4" onSubmit={handleSubmit(onValid)}>
       <label className="flex flex-col">
         <Controller
           name="birth"
@@ -41,7 +40,7 @@ export default function SignUpForm2() {
               <label className="flex flex-col">
                 생년월일
                 <DatePicker
-                  selected={selectedDate}
+                  selected={field.value ?? new Date()} // 기본값 설정
                   onChange={(date) => field.onChange(date)}
                   dateFormat="yyyy-MM-dd"
                   className="rounded-xl w-full bg-gray-200 p-3"
@@ -51,58 +50,36 @@ export default function SignUpForm2() {
             );
           }}
         />
-        {errors.birth && (
-          <p className="text-xs text-red-500">{errors.birth.message}</p>
-        )}
       </label>
-
-      <CustomInput
-        label="국적"
-        name="nation"
-        register={register}
-        rules={{ required: "국적을 입력해주세요" }}
-      />
-
-      <CustomInput
-        label="아이디"
-        name="id"
-        register={register}
-        rules={{
-          required: "아이디를 입력해주세요",
-          pattern: {
-            value: /^[a-z0-9_-]{6,16}$/,
-            message: "아이디는 6-16자의 소문자, 숫자, '-', '_'만 가능합니다",
-          },
-        }}
-      />
-      {errors.id && (
-        <p className="-mt-4 text-xs text-red-500">{errors.id.message}</p>
+      {errors.birth && (
+        <p className="text-xs text-red-500">{errors.birth.message}</p>
       )}
 
-      {/* 비밀번호 입력 */}
+      <CustomInput label="휴대폰번호" name="phone" register={register} />
+      <CustomInput label="이메일" name="email" register={register} />
+      <CustomInput label="한국주소" name="address" register={register} />
       <label className="flex flex-col">
-        비밀번호
-        <PasswordInput
-          name="password"
-          isSignUp={true}
-          value={watch("password")}
-          onChange={(e) => setValue("password", e.target.value)}
-          error={errors.password?.message}
-        />
+        비자 종류
+        <select
+          {...register("visa", { required: "비자를 선택해주세요." })}
+          className="rounded-xl w-full bg-gray-200 p-3">
+          <option value="">비자 종류 선택</option>
+          <option value="E-7">E-7</option>
+          <option value="E-7-4">E-7-4</option>
+          <option value="E-7-S">E-7-S</option>
+          <option value="E-8">E-8</option>
+          <option value="E-9">E-9</option>
+          <option value="E-10-2">E-10-2</option>
+        </select>
       </label>
+      {errors.visa && (
+        <p className="text-xs text-red-500">{errors.visa.message}</p>
+      )}
 
-      <PasswordInput
-        name="passwordConfirm"
-        value={watch("passwordConfirm")}
-        placeholder="비밀번호 확인"
-        isSignUp={true}
-        onChange={(e) => setValue("passwordConfirm", e.target.value)}
-        error={errors.passwordConfirm?.message}
-      />
-
-      {/* 회원가입 버튼 */}
-      <button className="w-full rounded-2xl p-4 text-white bg-wikoBlue">
-        다음
+      <button
+        type="submit"
+        className="w-full rounded-2xl p-4 text-white bg-wikoBlue">
+        완료
       </button>
     </form>
   );

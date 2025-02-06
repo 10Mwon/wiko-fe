@@ -6,7 +6,15 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { signUpSchema } from "./schema";
 
-export default function SignUpForm1() {
+export default function SignUpForm1({
+  setStep,
+  formData,
+  setFormData,
+}: {
+  setStep: (step: number) => void;
+  formData: SignUpFormValues;
+  setFormData: (data: SignUpFormValues) => void;
+}) {
   const {
     register,
     handleSubmit,
@@ -24,8 +32,14 @@ export default function SignUpForm1() {
     },
   });
 
+  const onValid = (data: SignUpFormValues) => {
+    console.log(data);
+    setFormData({ ...formData, ...data });
+    setStep(2);
+  };
+
   return (
-    <form className="flex flex-col gap-4" onSubmit={handleSubmit(console.log)}>
+    <form className="flex flex-col gap-4" onSubmit={handleSubmit(onValid)}>
       {/* 이름 입력 */}
       <CustomInput
         label="이름"
