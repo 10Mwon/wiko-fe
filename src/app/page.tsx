@@ -11,6 +11,7 @@ export default function Home() {
         <br />
         새로운 도전을 응원해요!
       </h1>
+      <a href="/mypage">마이페이지 이동</a>
       <HomeBackground />
       <AppBar />
     </main>

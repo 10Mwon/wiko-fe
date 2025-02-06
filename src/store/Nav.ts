@@ -3,6 +3,30 @@ export interface NavDataType {
   href: string;
   sub?: NavDataType[];
 }
+
+export const MyPageMenuData: NavDataType[] = [
+  {
+    item: "계약서 보기",
+    href: "/",
+  },
+  {
+    item: "알림 켜기/끄기",
+    href: "/",
+  },
+  {
+    item: "계정 설정",
+    href: "/",
+  },
+  {
+    item: "로그아웃",
+    href: "/",
+  },
+  {
+    item: "서비스 탈퇴",
+    href: "/",
+  },
+];
+
 export const NavData: NavDataType[] = [
   {
     item: "일자리 찾기",
