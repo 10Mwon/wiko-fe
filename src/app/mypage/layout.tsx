@@ -5,7 +5,7 @@ interface LayoutProps {
 }
 
 function layout({ children }: LayoutProps) {
-  return <main className="min-h-screen  bg-wikoBlue">{children}</main>;
+  return <main className="min-h-screen  bg-white">{children}</main>;
 }
 
 export default layout;

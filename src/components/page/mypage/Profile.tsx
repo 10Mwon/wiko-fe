@@ -1,19 +1,22 @@
+import { dummyMyProfile } from "@/store/dummy";
+import { MyProfileType } from "@/types/myPageType";
 import { MapPin } from "lucide-react";
 import Image from "next/image";
 export default function Profile() {
+  const myprofileData: MyProfileType = dummyMyProfile;
   return (
-    <div className=" text-white flex w-full p-4 gap-4 items-center">
+    <div className="text-black flex flex-col items-center gap-4 justify-center">
       <Image
-        className="rounded-full shadow-md"
-        src={"https://picsum.photos/200/200"}
-        width={60}
-        height={60}
+        className="rounded-full justify-center shadow-md border-wikoBlue border-4"
+        src={myprofileData.img}
+        width={100}
+        height={100}
         alt={"프로필 이미지"}></Image>
-      <section className="flex flex-col items-start">
-        <h2>Dong Thu Thao</h2>
+      <section className="flex flex-col items-center ">
+        <h2>{myprofileData.name}</h2>
         <div className="flex items-center text-sm">
           <MapPin size={18} />
-          Geoje Island, Korea
+          {myprofileData.location}
         </div>
       </section>
     </div>

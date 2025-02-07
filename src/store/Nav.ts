@@ -6,11 +6,7 @@ export interface NavDataType {
 
 export const MyPageMenuData: NavDataType[] = [
   {
-    item: "계약서 보기",
-    href: "/",
-  },
-  {
-    item: "알림 켜기/끄기",
+    item: "언어 설정",
     href: "/",
   },
   {
