@@ -78,8 +78,8 @@ export default function SignUpForm2({
 
       <button
         type="submit"
-        className="w-full rounded-2xl p-4 text-white bg-wikoBlue">
-        완료
+        className="absolute bottom-9 left-1/2 -translate-x-1/2 w-[90%] rounded-2xl p-4 text-white bg-wikoBlue">
+        다음
       </button>
     </form>
   );

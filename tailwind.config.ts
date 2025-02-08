@@ -32,6 +32,7 @@ export default {
         wikoBlue: "#6A51E6",
         wikoGray: "#E5E9EC",
         wikoBlack: "#21272A ",
+        wikoYellow: "#CCEA58",
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
