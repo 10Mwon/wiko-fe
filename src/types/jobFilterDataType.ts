@@ -9,6 +9,6 @@ export interface JobItemType {
   jobName: string;
   title: string;
   location: string;
-  pay: string;
+  pay?: string;
   imgUrl: string;
 }

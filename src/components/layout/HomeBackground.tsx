@@ -1,6 +1,6 @@
-import Community from "../page/home/Community";
 import ExchangeRate from "../page/home/ExchangeRate";
 import JobMenuGrid from "../page/home/JobMenuGrid";
+import Community from "../page/home/JobNotice";
 
 export default function HomeBackground() {
   return (

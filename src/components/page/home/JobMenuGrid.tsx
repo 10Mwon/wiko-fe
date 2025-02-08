@@ -5,16 +5,16 @@ export default function JobMenuGrid() {
   const menuItems = [
     {
       id: 1,
-      img: job,
+      img: resume,
       text: `일자리\n정보`,
       href: "/find-job",
       position: "top-left" as const,
     },
-    { id: 2, img: resume, text: `이력서\n작성`, href: "/job-matching" },
+    { id: 2, img: job, text: `이력서\n작성`, href: "/job-matching" },
   ];
 
   return (
-    <section className="grid grid-cols-2 gap-4 px-5">
+    <section className="grid grid-cols-2 gap-4">
       {menuItems.map((item) => (
         <MenuItem
           key={item.id}
