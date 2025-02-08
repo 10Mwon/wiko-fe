@@ -1,5 +1,7 @@
 import { communityDataType, exchangeRateDataType } from "@/types/communityType";
 import { JobItemType } from "@/types/jobFilterDataType";
+import { MyKeywordType } from "@/types/myKeywordType";
+import { MyProfileType } from "@/types/myPageType";
 import kazakhstan from "../../public/assets/dummy/kazakhstan.png";
 import vnIcon from "../../public/assets/dummy/VN.png";
 
@@ -137,3 +139,28 @@ export const dummyJobItems: JobItemType[] = [
       "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
   },
 ];
+
+export const keywordData: MyKeywordType[] = [
+  {
+    label: "나이",
+    value: ["20~30", "31~40", "41~50", "51이상"],
+  },
+  {
+    label: "학력",
+    value: ["고졸", "초대졸", "대졸이상"],
+  },
+  {
+    label: "경험",
+    value: ["운전", "식당", "공장", "농업", "건설", "통역", "기타"],
+  },
+  {
+    label: "한국어능력",
+    value: ["입문", "초급", "중급", "고급"],
+  },
+];
+
+export const dummyMyProfile: MyProfileType = {
+  img: "https://picsum.photos/200/200",
+  name: "Dong Thu Thao",
+  location: "Geoje Island, Korea",
+};
