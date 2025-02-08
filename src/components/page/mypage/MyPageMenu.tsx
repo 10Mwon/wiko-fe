@@ -13,7 +13,9 @@ export default function MyPageMenu() {
       {menuData.map((item, index) => (
         <li key={index} className="flex justify-between text-xl">
           <p>{item.item}</p>
-          <ChevronRight href={item.href}></ChevronRight>
+          <a href={`mypage/${item.href}`}>
+            <ChevronRight></ChevronRight>
+          </a>
         </li>
       ))}
     </ul>

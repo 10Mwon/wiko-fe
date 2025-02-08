@@ -3,12 +3,11 @@ import Profile from "@/components/page/mypage/Profile";
 
 export default function Page() {
   return (
-    <div className="flex flex-col gap-12 min-h-screen text-black">
-      <header className="mx-8 mt-16">
+    <div className="flex flex-col  gap-12 min-h-screen text-black">
+      <header className=" py-20 bg-wikoBlue">
         <Profile />
       </header>
-      <hr className=" mx-4" />
-      <section className=" mx-12 mt-6">
+      <section className=" mx-8 mt-6">
         <MyPageMenu />
       </section>
     </div>

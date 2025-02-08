@@ -7,7 +7,7 @@ export interface NavDataType {
 export const MyPageMenuData: NavDataType[] = [
   {
     item: "언어 설정",
-    href: "/",
+    href: "/lang",
   },
   {
     item: "계정 설정",
