@@ -4,14 +4,15 @@ import ResumeStep2 from "@/components/page/resume/ResumeStep2";
 export default async function Page({
   searchParams,
 }: {
-  searchParams: { step: string };
+  searchParams: Promise<{ step?: string }>;
 }) {
-  const data = await searchParams.step;
+  const params = await searchParams; // searchParams 자체를 await로 해결
+  const step = params.step ?? "1"; // 기본값 설정
 
   return (
     <div>
-      {data === "1" && <ResumeStep1 />}
-      {data === "2" && <ResumeStep2 />}
+      {step === "1" && <ResumeStep1 />}
+      {step === "2" && <ResumeStep2 />}
     </div>
   );
 }
