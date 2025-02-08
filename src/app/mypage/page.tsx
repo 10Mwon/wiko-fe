@@ -4,10 +4,10 @@ import Profile from "@/components/page/mypage/Profile";
 export default function Page() {
   return (
     <div className="flex flex-col  gap-12 min-h-screen text-black">
-      <header className=" py-20 bg-wikoBlue">
+      <header className=" py-14 bg-wikoBlue">
         <Profile />
       </header>
-      <section className=" mx-8 mt-6">
+      <section className="mx-8 ">
         <MyPageMenu />
       </section>
     </div>
