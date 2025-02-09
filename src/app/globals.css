@@ -35,7 +35,7 @@ input[type="checkbox"]:checked::after {
 
 .app-bar {
   box-shadow: -6px 0px 47px 27px rgba(217, 217, 217, 0.26);
-  @apply fixed bottom-0 flex justify-between w-full py-3 px-10 items-center;
+  @apply fixed bottom-[-1px] flex justify-between w-full py-3 px-10 items-center;
 }
 
 @layer base {
@@ -101,4 +101,22 @@ input[type="checkbox"]:checked::after {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@layer components {
+  .custom-input-container {
+    @apply w-[128px] bg-white shadow-[2px_2px_3px_#D9D9D9] relative rounded-2xl overflow-hidden;
+  }
+
+  .custom-input {
+    @apply h-full w-full py-3 px-3 text-right pr-8 focus:ring-0 focus:outline-none;
+  }
+
+  .custom-input-unit {
+    @apply absolute right-3 top-2.5;
+  }
+}
+
+.custom-shadow {
+  @apply shadow-[2px_2px_3px_#D9D9D9];
 }

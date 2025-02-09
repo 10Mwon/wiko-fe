@@ -14,7 +14,8 @@ function SignInForm() {
       onSubmit={(e) => {
         e.preventDefault();
         console.log(`아이디: ${id}, 비밀번호: ${password}`);
-      }}>
+      }}
+    >
       <label htmlFor="id" className="flex flex-col gap-2">
         아이디
         <input
@@ -56,7 +57,8 @@ function SignInForm() {
 
       <button
         className="px-3 py-4 rounded-[0.625rem] bg-white text-black"
-        type="submit">
+        type="submit"
+      >
         로그인
       </button>
     </form>

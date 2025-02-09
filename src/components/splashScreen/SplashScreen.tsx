@@ -28,7 +28,7 @@ export default function SplashScreen() {
   if (isVisible === null || !isVisible) return null;
 
   return (
-    <div className="font-lexend flex-col text-white font-bold fixed inset-0 flex items-center justify-center bg-[#6A51E6] min-h-screen">
+    <div className="font-lexend flex-col text-white font-bold fixed inset-0 flex items-center justify-center bg-[#6A51E6] min-h-screen z-20">
       <h1 className="text-[64px] items-center tracking-widest">WIKO</h1>
       <h2 className="text-[15px] animate-fade-in">한국에 오신걸 환영합니다</h2>
       <h3 className="font-light animate-fade-in-delay">Work + Korea</h3>

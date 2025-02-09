@@ -8,13 +8,15 @@ export default function CommunityItem({
   title,
   location,
 }: JobItemType) {
+  const defaultImg =
+    "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg";
   return (
     <Link
       href={`/job/detail/${id}`}
       className="rounded-[20px] bg-[#F6F7F9] w-[114px] h-[114px] aspect-square flex flex-col p-3 basis-0 flex-grow min-w-0 shadow-[4px_4px_4px_rgba(218,218,218,0.5)]"
     >
       <Image
-        src={imgUrl}
+        src={imgUrl ? imgUrl : defaultImg}
         alt={jobName}
         width={100}
         height={20}

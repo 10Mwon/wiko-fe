@@ -36,6 +36,21 @@ export const industryData: industryDataType[] = [
     industryName: "생산·건설·노무",
     code: "7",
   },
+  {
+    id: 8,
+    industryName: "통역·번역",
+    code: "8",
+  },
+  {
+    id: 9,
+    industryName: "운전·배달",
+    code: "9",
+  },
+  {
+    id: 10,
+    industryName: "교육·강사",
+    code: "10",
+  },
 ];
 
 interface RegionDataType {

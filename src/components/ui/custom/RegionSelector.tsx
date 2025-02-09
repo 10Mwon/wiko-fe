@@ -63,16 +63,16 @@ export default function RegionSelector({
   };
 
   return (
-    <div className="w-full max-w-3xl mx-auto p-4">
-      <div className="border rounded-lg">
+    <div className="w-full max-w-3xl mx-auto py -4">
+      <div className="border-b rounded-lg">
         <div className="grid grid-cols-2 h-[400px]">
           {/* 시/도 선택 */}
           <ScrollArea className="h-full border-r overflow-y-auto">
             {Object.keys(regionData).map((city) => (
               <div
                 key={city}
-                className={`p-3 cursor-pointer hover:bg-gray-50 ${
-                  selectedCity === city ? "bg-[#F7F4FC] text-[#78767E]" : ""
+                className={`p-3 cursor-pointer ${
+                  selectedCity === city ? " bg-wikoGreen/50 font-semibold" : ""
                 }`}
                 onClick={() => {
                   setSelectedCity(city);
@@ -84,22 +84,30 @@ export default function RegionSelector({
           </ScrollArea>
 
           {/* 시/구/군 선택 */}
-          <ScrollArea className="h-full border-r overflow-y-auto">
+          <ScrollArea className="h-full overflow-y-auto">
             {selectedCity &&
-              regionData[selectedCity].map((district) => (
-                <div
-                  key={district}
-                  className={`p-3 cursor-pointer hover:bg-gray-50`}
-                  onClick={() => handleSelection(district)}
-                >
-                  {district}
-                </div>
-              ))}
+              regionData[selectedCity].map((district) => {
+                const isSelected = selections.includes(
+                  `${selectedCity} ${district}`
+                ); // 선택 여부 확인
+
+                return (
+                  <div
+                    key={district}
+                    className={`p-3 cursor-pointer ${
+                      isSelected ? "bg-wikoGreen/50 font-semibold" : ""
+                    }`}
+                    onClick={() => handleSelection(district)}
+                  >
+                    {district}
+                  </div>
+                );
+              })}
           </ScrollArea>
         </div>
       </div>
 
-      <div className="mt-4">
+      <div className="mt-4 mx-3">
         <p className="text-sm text-gray-500 mb-2">
           최대 10개까지 선택할 수 있어요.
         </p>
@@ -107,7 +115,7 @@ export default function RegionSelector({
           {selections.map((selection) => (
             <li
               key={selection}
-              className="bg-[#E2DCF9] py-1 px-3 rounded-xl text-sm flex items-center gap-1.5 flex-shrink-0"
+              className="bg-wikoGreen/30 py-1 px-3 rounded-xl text-sm flex items-center gap-1.5 flex-shrink-0"
             >
               {selection}
               <button onClick={() => handleRemoveSelection(selection)}>
