@@ -1,51 +1,7 @@
-import { communityDataType, exchangeRateDataType } from "@/types/communityType";
+import { jobDetailType } from "@/types/jobDetailType";
 import { JobItemType } from "@/types/jobFilterDataType";
 import { MyKeywordType } from "@/types/myKeywordType";
 import { MyProfileType } from "@/types/myPageType";
-import kazakhstan from "../../public/assets/dummy/kazakhstan.png";
-import vnIcon from "../../public/assets/dummy/VN.png";
-
-export const communityData: communityDataType[] = [
-  {
-    image: kazakhstan,
-    countryName: "china",
-  },
-  {
-    image: kazakhstan,
-    countryName: "kazakhstan",
-  },
-  {
-    image: kazakhstan,
-    countryName: "philippines",
-  },
-  {
-    image: kazakhstan,
-    countryName: "vietnam",
-  },
-];
-
-export const exchangeRateData: exchangeRateDataType[] = [
-  {
-    icon: vnIcon,
-    Currencies: "베트남 동",
-    exchangeRate: "5.87",
-  },
-  {
-    icon: vnIcon,
-    Currencies: "중국 위안",
-    exchangeRate: "198.96",
-  },
-  {
-    icon: vnIcon,
-    Currencies: "필리핀 페소",
-    exchangeRate: "24.78",
-  },
-  {
-    icon: vnIcon,
-    Currencies: "태국 바트",
-    exchangeRate: "37.86",
-  },
-];
 
 export const dummyJobItems: JobItemType[] = [
   {
@@ -163,4 +119,18 @@ export const dummyMyProfile: MyProfileType = {
   img: "https://picsum.photos/200/200",
   name: "Dong Thu Thao",
   location: "Geoje Island, Korea",
+};
+
+export const dummyDetail: jobDetailType = {
+  imgUrl: "https://picsum.photos/200/200",
+  company: "한화오션 거제/옥포/통영",
+  location: "경상남도 거제시 아주동",
+  companyInfo: "조선소와 차별화된 근무환경 단열박스 가공조립",
+  responsibilities: "LNG선 단열박스(목재상자) 가공/조립",
+  qualifications: "만 20세 이상/초보자 가능",
+  pay: "협의 후 결정",
+  employmentType: "정규직",
+  workPeriod: "6개월 이상",
+  workHours: "주 40시간 (월~금, 09:00~18:00)",
+  preferredQualifications: "거제 지역 거주자",
 };

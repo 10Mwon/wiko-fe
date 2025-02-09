@@ -102,3 +102,7 @@ input[type="checkbox"]:checked::after {
     @apply bg-background text-foreground;
   }
 }
+
+.table_css {
+  @apply text-[14px];
+}
