@@ -1,8 +1,12 @@
 "use client";
-import { useState } from "react";
+import { useResumeStore } from "@/store/zustand/resumeStore";
 
 export default function LanguageSkill({ data }: { data: string[] }) {
-  const [selected, setSelected] = useState<string | null>(null);
+  const { resumeData, setLanguageSkill } = useResumeStore();
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setLanguageSkill(event.target.value);
+  };
 
   return (
     <li className="flex flex-col gap-4">
@@ -15,8 +19,8 @@ export default function LanguageSkill({ data }: { data: string[] }) {
                 type="radio"
                 name="langSkill"
                 value={item}
-                checked={selected === item}
-                onChange={() => setSelected(item)}
+                checked={resumeData.languageSkill === item}
+                onChange={handleChange}
                 className="mr-2"
               />
               {item}

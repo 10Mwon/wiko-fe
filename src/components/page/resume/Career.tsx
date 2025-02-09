@@ -1,10 +1,17 @@
 "use client";
+import { useResumeStore } from "@/store/zustand/resumeStore";
 import { useState } from "react";
 import CareerDetail from "./CareerDetail";
 
 export default function Career({ data }: { data: string[] }) {
   const [selected, setSelected] = useState<string | null>(null);
+  const { setCareerType } = useResumeStore();
 
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const item = event.target.value;
+    setSelected(item);
+    setCareerType(item);
+  };
   return (
     <>
       <li className="flex flex-col gap-4">
@@ -18,10 +25,10 @@ export default function Career({ data }: { data: string[] }) {
                 }`}>
                 <input
                   type="radio"
-                  name="education"
+                  name="career"
                   value={item}
                   checked={selected === item}
-                  onChange={() => setSelected(item)}
+                  onChange={handleChange}
                   className="hidden"
                 />
                 {item}

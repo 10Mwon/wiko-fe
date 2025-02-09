@@ -78,7 +78,7 @@ export default function MonthPicker({
           </div>
           <hr />
           <div
-            className="grid w-full grid-cols-3 gap-2"
+            className="grid w-64 grid-cols-3 gap-2"
             role="grid"
             aria-labelledby="month-picker">
             {months.map((month) => (
@@ -88,7 +88,7 @@ export default function MonthPicker({
                 role="presentation">
                 <button
                   name="day"
-                  className={`inline-flex h-9 w-16 items-center justify-center rounded-md p-0 text-sm font-normal ring-offset-white transition-colors 
+                  className={`inline-flex h-9 w-14 items-center justify-center rounded-md p-0 text-sm font-normal ring-offset-white transition-colors 
                   hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 
                   disabled:pointer-events-none disabled:opacity-50 ${
                     isEqual(month, currentMonth)
@@ -114,4 +114,5 @@ export default function MonthPicker({
     </div>
   );
 }
+// 참고용
 //https://gist.github.com/mattstobbs/1d7d2396a8c1a7ee6811d0be6e6e49dd
