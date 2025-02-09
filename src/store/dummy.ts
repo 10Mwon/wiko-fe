@@ -52,8 +52,8 @@ export const dummyJobItems: JobItemType[] = [
   {
     id: 1,
     jobName: "한화 오션",
-    title: "제조 생산직",
-    location: "경상남도 거제시 아주동",
+    title: "제조 생산직제조생",
+    location: "경상남도 거제시",
     pay: "42000000",
     imgUrl:
       "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
