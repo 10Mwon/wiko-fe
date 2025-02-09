@@ -1,4 +1,4 @@
-import { resumePostType } from "@/types/RequestType";
+import { CareerDetailType, resumePostType } from "@/types/RequestType";
 import { create } from "zustand";
 
 interface ResumeState {
@@ -6,22 +6,42 @@ interface ResumeState {
   setEducation: (education: resumePostType["education"]) => void;
   setLanguageSkill: (languageSkill: resumePostType["languageSkill"]) => void;
   setCareerType: (careerType: resumePostType["careerType"]) => void;
-  setCareerDetail: (careerDetail: resumePostType["careerDetail"]) => void;
+  setCareerDetail: <K extends keyof CareerDetailType>(
+    key: K,
+    value: CareerDetailType[K]
+  ) => void;
   setStrength: (strength: resumePostType["strength"]) => void;
   setJobSkill: (jobSkill: resumePostType["jobSkill"]) => void;
   setIntroduction: (introduction: resumePostType["introduction"]) => void;
 }
 
 export const useResumeStore = create<ResumeState>((set) => ({
-  resumeData: {},
+  resumeData: {
+    careerDetail: {
+      company: "",
+      joinedAt: "",
+      leavedAt: "",
+      joinedAtMonth: "",
+      isWorking: false,
+      position: "",
+    },
+  },
   setEducation: (education) =>
     set((state) => ({ resumeData: { ...state.resumeData, education } })),
   setLanguageSkill: (languageSkill) =>
     set((state) => ({ resumeData: { ...state.resumeData, languageSkill } })),
   setCareerType: (careerType) =>
     set((state) => ({ resumeData: { ...state.resumeData, careerType } })),
-  setCareerDetail: (careerDetail) =>
-    set((state) => ({ resumeData: { ...state.resumeData, careerDetail } })),
+  setCareerDetail: (key, value) =>
+    set((state) => ({
+      resumeData: {
+        ...state.resumeData,
+        careerDetail: {
+          ...(state.resumeData.careerDetail || {}), // ✅ undefined 방지
+          [key]: value, // ✅ 특정 필드만 업데이트
+        },
+      },
+    })),
   setStrength: (strength) =>
     set((state) => ({ resumeData: { ...state.resumeData, strength } })),
   setJobSkill: (jobSkill) =>

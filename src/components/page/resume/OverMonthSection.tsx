@@ -1,9 +1,12 @@
 "use client";
+
 import MonthPicker from "@/components/ui/custom/CustomMonthPicker";
+import { useResumeStore } from "@/store/zustand/resumeStore";
 import { format } from "date-fns";
 import { useRef, useState } from "react";
 
 export default function OverMonthSection() {
+  const { resumeData, setCareerDetail } = useResumeStore();
   const [isPickerOpen, setIsPickerOpen] = useState<{
     start: boolean;
     end: boolean;
@@ -11,16 +14,15 @@ export default function OverMonthSection() {
     start: false,
     end: false,
   });
-  const [selectedStartMonth, setSelectedStartMonth] = useState<string>("");
-  const [selectedEndMonth, setSelectedEndMonth] = useState<string>("");
   const pickerRef = useRef<HTMLDivElement>(null);
 
   const handleMonthChange = (newMonth: Date, type: "start" | "end") => {
+    const formattedDate = format(newMonth, "yyyy-MM");
     if (type === "start") {
-      setSelectedStartMonth(format(newMonth, "yyyy-MM"));
+      setCareerDetail("joinedAt", formattedDate);
       setIsPickerOpen({ start: false, end: false });
     } else {
-      setSelectedEndMonth(format(newMonth, "yyyy-MM"));
+      setCareerDetail("leavedAt", formattedDate);
       setIsPickerOpen({ start: false, end: false });
     }
   };
@@ -33,12 +35,13 @@ export default function OverMonthSection() {
 
   return (
     <div className="mt-1 flex items-center justify-around gap-2">
+      {/* ✅ 입사 연월 선택 */}
       <div className="relative">
         <input
           type="text"
           readOnly
           placeholder="입사 연월"
-          value={selectedStartMonth}
+          value={resumeData.careerDetail?.joinedAt || ""}
           className="p-1 w-24 border-wikoGray border-[1px] rounded-xl cursor-pointer bg-white text-center"
           onFocus={() => setIsPickerOpen({ start: true, end: false })}
           onBlur={() => handleBlur("start")}
@@ -54,16 +57,27 @@ export default function OverMonthSection() {
           </div>
         )}
       </div>
+
       <p>~</p>
+
       <div className="relative">
         <input
           type="text"
           readOnly
           placeholder="퇴사 연월"
-          value={selectedEndMonth}
+          value={
+            resumeData.careerDetail?.isWorking
+              ? ""
+              : resumeData.careerDetail?.leavedAt || ""
+          }
           className="p-1 w-24 border-wikoGray border-[1px] rounded-xl cursor-pointer bg-white text-center"
-          onFocus={() => setIsPickerOpen({ start: false, end: true })}
+          onFocus={() => {
+            if (!resumeData.careerDetail?.isWorking) {
+              setIsPickerOpen({ start: false, end: true });
+            }
+          }}
           onBlur={() => handleBlur("end")}
+          disabled={resumeData.careerDetail?.isWorking}
         />
         {isPickerOpen.end && (
           <div

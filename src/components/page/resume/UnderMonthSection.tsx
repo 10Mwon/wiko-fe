@@ -1,17 +1,19 @@
 "use client";
 
 import MonthPicker from "@/components/ui/custom/CustomMonthPicker";
+import { useResumeStore } from "@/store/zustand/resumeStore";
 import { format } from "date-fns";
 import { useRef, useState } from "react";
 
 export default function UnderMonthSection() {
+  const { resumeData, setCareerDetail } = useResumeStore();
   const [isPickerOpen, setIsPickerOpen] = useState<boolean>(false);
-  const [selectedStartMonth, setSelectedStartMonth] = useState<string>("");
-  const [workDays, setWorkDays] = useState<string>("");
   const pickerRef = useRef<HTMLDivElement>(null);
 
+  // ✅ 입사 연월 변경 핸들러
   const handleMonthChange = (newMonth: Date) => {
-    setSelectedStartMonth(format(newMonth, "yyyy-MM"));
+    const formattedDate = format(newMonth, "yyyy-MM");
+    setCareerDetail("joinedAt", formattedDate);
     setIsPickerOpen(false);
   };
 
@@ -22,17 +24,19 @@ export default function UnderMonthSection() {
           type="text"
           readOnly
           placeholder="입사 연월"
-          value={selectedStartMonth}
+          value={resumeData.careerDetail?.joinedAt || ""}
           className="p-1 w-24 border-wikoGray border-[1px] rounded-xl cursor-pointer bg-white text-center"
           onClick={() => setIsPickerOpen(true)}
         />
+
         <input
           type="text"
           placeholder="일"
-          value={workDays}
-          onChange={(e) => setWorkDays(e.target.value)}
+          value={resumeData.careerDetail?.joinedAtMonth || ""}
+          onChange={(e) => setCareerDetail("joinedAtMonth", e.target.value)}
           className="p-1 w-12 border-wikoGray border-[1px] rounded-xl text-center"
         />
+
         {isPickerOpen && (
           <div
             ref={pickerRef}

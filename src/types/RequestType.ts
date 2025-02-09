@@ -10,10 +10,10 @@ export interface resumePostType {
 }
 
 export interface CareerDetailType {
-  company: string;
-  joinedAt: string;
-  leavedAt: string;
-  joinedAtMonth: string;
-  isWorking: boolean;
-  postion: string;
+  company?: string;
+  joinedAt?: string;
+  leavedAt?: string;
+  joinedAtMonth?: string;
+  isWorking?: boolean;
+  position?: string;
 }
