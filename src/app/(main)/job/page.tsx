@@ -2,7 +2,7 @@ import JobItem from "@/components/page/job/JobItem";
 import JobFilter from "@/components/ui/custom/JobFilter";
 import LocationFilterDrawer from "@/components/ui/custom/LocationFilterDrawer";
 import PayFilterDrawer from "@/components/ui/custom/PayFilterDrawer";
-import SearchInput from "@/components/ui/Input/SearchInput";
+import SearchInput from "@/components/ui/input/SearchInput";
 import { dummyJobItems } from "@/store/dummy";
 
 type SearchParams = Promise<{
