@@ -51,7 +51,7 @@ export const dummyJobItems: JobItemType[] = [
   {
     id: 1,
     jobName: "한화 오션",
-    title: "제조 생산직제조생",
+    title: "한화 오션, 삼성 중공업 현장업무",
     location: "경상남도 거제시",
     pay: "42000000",
     imgUrl:
@@ -63,8 +63,7 @@ export const dummyJobItems: JobItemType[] = [
     title: "용접 기술자",
     location: "경상남도 거제시",
     pay: "45000000",
-    imgUrl:
-      "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
+    imgUrl: "",
   },
   {
     id: 3,
