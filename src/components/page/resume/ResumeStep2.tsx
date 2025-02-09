@@ -1,7 +1,6 @@
 import { ResumeData } from "@/store/dummy";
 import { ResumeDataType } from "@/types/resumeType";
 import Career from "./Career";
-import CareerDetail from "./CareerDetail";
 import Education from "./Education";
 import LanguageSkill from "./LanguageSkill";
 
@@ -16,7 +15,6 @@ export default function ResumeStep2() {
         <LanguageSkill data={data.langSkill} />
         <hr />
         <Career data={data.career} />
-        <CareerDetail></CareerDetail>
       </ul>
     </div>
   );
