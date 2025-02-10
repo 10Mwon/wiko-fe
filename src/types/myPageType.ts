@@ -1,5 +1,8 @@
 export interface MyProfileType {
-  img: string;
+  img?: string;
   name: string;
-  location: string;
+  nation: string;
+  email?: string;
+  phone?: string;
+  visa?: string;
 }

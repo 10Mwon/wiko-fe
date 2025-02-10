@@ -10,7 +10,7 @@ export default function JobMenuGrid() {
       href: "/job",
       position: "top-left" as const,
     },
-    { id: 2, img: job, text: `이력서\n작성`, href: "/job-matching" },
+    { id: 2, img: job, text: `이력서\n작성`, href: "/resume/create" },
   ];
 
   return (
