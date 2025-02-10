@@ -9,6 +9,7 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 import { industryData } from "@/store/jobFilterData";
+import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -31,15 +32,17 @@ export default function JobFilter({ industry }: { industry: string }) {
           : [...prev, industryName] // 선택되지 않은 항목은 추가
     );
   };
-
+  const t = useTranslations("job");
+  const i = useTranslations("industryData");
+  const b = useTranslations("button");
   return (
     <Drawer>
       <DrawerTrigger className=" py-1.5 px-7 text-[#4C4C4C] font-semibold rounded-3xl shadow-xl bg-white">
-        업종
+        {t("industry")}
       </DrawerTrigger>
       <DrawerContent>
         <DrawerHeader>
-          <DrawerTitle>업종</DrawerTitle>
+          <DrawerTitle>{t("industry")}</DrawerTitle>
         </DrawerHeader>
         <div className="bg-[#F9FAFC]">
           <ul className="flex flex-wrap gap-4 justify-center mt-9 ">
@@ -51,25 +54,22 @@ export default function JobFilter({ industry }: { industry: string }) {
                     ? "bg-wikoGreen font-semibold"
                     : ""
                 }`}
-                onClick={() => toggleIndustrySelection(item.industryName)}
-              >
-                {item.industryName}
+                onClick={() => toggleIndustrySelection(item.industryName)}>
+                {i(item.industryName)}
               </li>
             ))}
           </ul>
           <DrawerFooter className="flex-row px-8 gap-5 mb-8 mt-14 pt-7 pb-0 border-t-[1px] border-[#F0F1F5]">
             <button
               onClick={() => setSelectedIndustries([])}
-              className="font-semibold bg-[#F0F1F5]  px-6 py-3 rounded-xl flex-1 "
-            >
-              초기화
+              className="font-semibold bg-[#F0F1F5]  px-6 py-3 rounded-xl flex-1 ">
+              {b("reset")}
             </button>
             <DrawerClose asChild>
               <button
                 onClick={handleSearch}
-                className="bg-wikoGreen px-6 py-3 rounded-xl font-semibold flex-1 "
-              >
-                적용하기
+                className="bg-wikoGreen px-6 py-3 rounded-xl font-semibold flex-1 ">
+                {b("apply")}
               </button>
             </DrawerClose>
           </DrawerFooter>

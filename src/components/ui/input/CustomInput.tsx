@@ -1,5 +1,6 @@
 "use client";
 import { SignUpFormValues } from "@/types/FormValues";
+import { useTranslations } from "next-intl";
 import { RegisterOptions, UseFormRegister } from "react-hook-form";
 
 type InputProps = {
@@ -17,9 +18,10 @@ export default function CustomInput({
   type = "text",
   rules,
 }: InputProps) {
+  const t = useTranslations("input");
   return (
     <label className="flex flex-col">
-      {label}
+      {t(label)}
       <input
         className="rounded-xl  bg-gray-200 p-3"
         {...(register && register(name, rules))}

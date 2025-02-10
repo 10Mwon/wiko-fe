@@ -8,6 +8,7 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
+import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import PayRangeButton from "./PayRangeButton";
@@ -47,19 +48,20 @@ export default function PayFilterDrawer({
     setRange([numPay, range[1]]);
     setSelectedPay(minPay); // 선택된 버튼 업데이트
   };
-
+  const b = useTranslations("button");
+  const p = useTranslations("pay");
   return (
     <Drawer>
       <DrawerTrigger className="py-1.5 px-7 text-[#4C4C4C] font-semibold rounded-3xl shadow-xl bg-white">
-        급여
+        {p("pay")}
       </DrawerTrigger>
       <DrawerContent>
         <DrawerHeader>
-          <DrawerTitle>급여</DrawerTitle>
+          <DrawerTitle>{p("pay")}</DrawerTitle>
         </DrawerHeader>
         <div className="bg-[#F9FAFC]">
           <div className="px-5">
-            <h1 className="mt-12 mb-4 font-semibold">급여 범위 설정</h1>
+            <h1 className="mt-12 mb-4 font-semibold">{p("setPayRange")}</h1>
             <div className="flex items-center justify-between mb-14">
               <div className="custom-input-container">
                 <input
@@ -67,7 +69,7 @@ export default function PayFilterDrawer({
                   value={range[0].toLocaleString()} // 천 단위 콤마 추가
                   onChange={(e) => handleInputChange(0, e.target.value)}
                 />
-                <span className="custom-input-unit">원</span>
+                <span className="custom-input-unit">{p("won")}</span>
               </div>
 
               <span className="text-3xl font-lexend">~</span>
@@ -78,7 +80,7 @@ export default function PayFilterDrawer({
                   value={range[1].toLocaleString()} // 천 단위 콤마 추가
                   onChange={(e) => handleInputChange(1, e.target.value)}
                 />
-                <span className="custom-input-unit">원</span>
+                <span className="custom-input-unit">{p("won")}</span>
               </div>
             </div>
 
@@ -106,16 +108,14 @@ export default function PayFilterDrawer({
                 setRange([Number(start), Number(end)]); // 기본 값으로 초기화
                 setSelectedPay(null); // 선택된 버튼 초기화
               }}
-              className="font-semibold bg-[#F0F1F5]  px-6 py-3 rounded-xl flex-1 "
-            >
-              초기화
+              className="font-semibold bg-[#F0F1F5]  px-6 py-3 rounded-xl flex-1 ">
+              {b("reset")}
             </button>
             <DrawerClose asChild>
               <button
                 onClick={handleSearch}
-                className="bg-wikoGreen px-6 py-3 rounded-xl font-semibold flex-1 "
-              >
-                적용하기
+                className="bg-wikoGreen px-6 py-3 rounded-xl font-semibold flex-1 ">
+                {b("apply")}
               </button>
             </DrawerClose>
           </DrawerFooter>

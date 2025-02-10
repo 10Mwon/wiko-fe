@@ -6,19 +6,19 @@ export interface NavDataType {
 
 export const MyPageMenuData: NavDataType[] = [
   {
-    item: "언어 설정",
+    item: "languageSetting",
     href: "/lang",
   },
   {
-    item: "계정 설정",
+    item: "accountSetting",
     href: "/",
   },
   {
-    item: "로그아웃",
+    item: "logout",
     href: "/",
   },
   {
-    item: "서비스 탈퇴",
+    item: "quit",
     href: "/",
   },
 ];

@@ -3,6 +3,7 @@
 import { regionData } from "@/store/jobFilterData";
 import { ScrollArea } from "@radix-ui/react-scroll-area";
 import { CircleX } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { useCallback, useState } from "react";
 
 export default function RegionSelector({
@@ -13,7 +14,7 @@ export default function RegionSelector({
   setSelections: React.Dispatch<React.SetStateAction<string[]>>;
 }) {
   const [selectedCity, setSelectedCity] = useState<string | null>(null);
-
+  const l = useTranslations("location");
   // 선택 처리 함수
   const handleSelection = useCallback(
     (neighborhood: string) => {
@@ -32,7 +33,7 @@ export default function RegionSelector({
           const newSelections = prev.filter(
             (selection) => !selection.startsWith(city || "")
           );
-          data = `${city} 전체`;
+          data = `${city} ${l("entire")}`;
           return [...newSelections, data];
         }
 
@@ -76,8 +77,7 @@ export default function RegionSelector({
                 }`}
                 onClick={() => {
                   setSelectedCity(city);
-                }}
-              >
+                }}>
                 {city}
               </div>
             ))}
@@ -97,8 +97,7 @@ export default function RegionSelector({
                     className={`p-3 cursor-pointer ${
                       isSelected ? "bg-wikoGreen/50 font-semibold" : ""
                     }`}
-                    onClick={() => handleSelection(district)}
-                  >
+                    onClick={() => handleSelection(district)}>
                     {district}
                   </div>
                 );
@@ -115,8 +114,7 @@ export default function RegionSelector({
           {selections.map((selection) => (
             <li
               key={selection}
-              className="bg-wikoGreen/30 py-1 px-3 rounded-xl text-sm flex items-center gap-1.5 flex-shrink-0"
-            >
+              className="bg-wikoGreen/30 py-1 px-3 rounded-xl text-sm flex items-center gap-1.5 flex-shrink-0">
               {selection}
               <button onClick={() => handleRemoveSelection(selection)}>
                 <CircleX size={16} />

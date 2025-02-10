@@ -21,8 +21,8 @@ export default function PasswordInput({
         type={showPassword ? "text" : "password"}
         name={name}
         placeholder={placeholder}
-        value={value} // ✅ Controlled Component 적용
-        onChange={onChange} // ✅ 이벤트 핸들러 추가
+        value={value}
+        onChange={onChange}
       />
       <button
         className="absolute inset-y-0 right-3 text-gray-500"
