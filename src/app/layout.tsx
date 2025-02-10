@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { NextIntlClientProvider } from "next-intl";
 import { Lexend, Noto_Sans } from "next/font/google";
+import { cookies } from "next/headers";
 import SplashScreen from "../components/splashScreen/SplashScreen";
 import "./globals.css";
 
@@ -18,16 +20,25 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const userLanguage = (await cookies()).get("NEXT_LOCALE")?.value || "ko";
+  let messages;
+  try {
+    messages = (await import(`./messages/${userLanguage}.json`)).default;
+  } catch (e) {
+    console.log(e);
+  }
   return (
     <html lang="en">
       <body className={`${lexend.className} ${NotoSans.className} antialiased`}>
-        <SplashScreen />
-        {children}
+        <NextIntlClientProvider messages={messages} locale={userLanguage}>
+          <SplashScreen />
+          {children}
+        </NextIntlClientProvider>
       </body>
     </html>
   );
