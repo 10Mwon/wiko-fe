@@ -1,5 +1,6 @@
+import ContactDrawer from "@/components/ui/custom/ContactDrawer";
 import { dummyDetail } from "@/store/dummy";
-import { ChevronLeft, Phone } from "lucide-react";
+import { ChevronLeft } from "lucide-react";
 import Image from "next/image";
 
 export default function Page() {
@@ -27,10 +28,10 @@ export default function Page() {
       </header>
 
       {/* Content */}
-      <section className="">
+      <section>
         <div className="px-4 py-6 bg-white rounded-2xl z-10">
           {/* Job Details Card */}
-          <div className=" p-4 shadow-sm mb-6 border border-[#999999] rounded-sm flex flex-col gap-4">
+          <div className=" p-4 shadow-sm mb-6 border border-[#999999] rounded-lg flex flex-col gap-4">
             <section>
               <h2 className="title">회사 소개</h2>
               <ul className="text-sm space-y-1 text-gray-600">
@@ -55,26 +56,26 @@ export default function Page() {
 
           <h1 className="title px-2">근무조건</h1>
           <table className="w-full border-separate border-spacing-y-2.5 px-2">
-            <tbody className="[&>tr>td]:text-sm [&>tr]:mb-2.5">
+            <tbody className="[&>tr>td]:text-sm [&>tr>td]:text-[#4C4C4C] [&>tr]:mb-2.5">
               <tr>
                 <td className="w-24">월급</td>
-                <td className="">{data.pay}</td>
+                <td>{data.pay}</td>
               </tr>
               <tr>
-                <td className="">채용유형</td>
-                <td className="">{data.employmentType}</td>
+                <td>채용유형</td>
+                <td>{data.employmentType}</td>
               </tr>
               <tr>
-                <td className="">근무기간</td>
-                <td className="">{data.workPeriod}</td>
+                <td>근무기간</td>
+                <td>{data.workPeriod}</td>
               </tr>
               <tr>
-                <td className="">근무시간</td>
-                <td className="">{data.workHours}</td>
+                <td>근무시간</td>
+                <td>{data.workHours}</td>
               </tr>
               <tr>
-                <td className="">우대사항</td>
-                <td className="">{data.preferredQualifications}</td>
+                <td>우대사항</td>
+                <td>{data.preferredQualifications}</td>
               </tr>
             </tbody>
           </table>
@@ -82,10 +83,12 @@ export default function Page() {
       </section>
       {/* Bottom Buttons */}
       <div className="fixed bottom-0 left-0 right-0 p-4 flex gap-3 bg-white border-t">
-        <button className="flex items-center justify-center w-12 h-12 rounded-lg bg-[#6B54EA]">
-          <Phone className="w-5 h-5 text-white" />
-        </button>
-        <button className="flex-1 h-12 rounded-lg bg-[#6B54EA] text-white font-medium">
+        <ContactDrawer
+          owner="김예진"
+          phone="010-1234-1234"
+          email="ajaa@naver.com"
+        />
+        <button className="flex-1 h-12 rounded-lg bg-wikoBlue text-white font-medium">
           지원하기
         </button>
       </div>

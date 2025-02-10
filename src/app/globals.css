@@ -103,6 +103,9 @@ input[type="checkbox"]:checked::after {
   }
 }
 
-.table_css {
-  @apply text-[14px];
+.contact_li {
+  @apply flex items-center bg-wikoBlue text-white p-4 rounded-2xl;
+}
+.contact_category {
+  @apply w-[55px] ml-2 text-[11px] font-semibold;
 }
