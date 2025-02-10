@@ -29,7 +29,7 @@ export default async function page(props: { searchParams: SearchParams }) {
         <PayFilterDrawer start={start} end={end} />
         <LocationFilterDrawer location={location} />
       </section>
-      <section className="mt-14">
+      <section className="mt-9 grid grid-cols-2 gap-5">
         {dummyJobItems.map((item) => (
           <JobItem key={item.id} props={item} />
         ))}

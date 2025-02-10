@@ -9,7 +9,6 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 import { industryData } from "@/store/jobFilterData";
-import { CircleX } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -33,78 +32,48 @@ export default function JobFilter({ industry }: { industry: string }) {
     );
   };
 
-  // 선택된 업종 삭제 함수
-  const removeIndustry = (industryName: string) => {
-    setSelectedIndustries((prev) =>
-      prev.filter((item) => item !== industryName)
-    );
-  };
-
   return (
     <Drawer>
-      <DrawerTrigger className="bg-[#F0EDFC] py-1.5 px-7 text-[#4C4C4C] font-semibold rounded-3xl shadow-xl">
+      <DrawerTrigger className=" py-1.5 px-7 text-[#4C4C4C] font-semibold rounded-3xl shadow-xl bg-white">
         업종
       </DrawerTrigger>
       <DrawerContent>
-        <DrawerHeader className="border-b-[1.5px] border-b-[#DED1EB] relative">
+        <DrawerHeader>
           <DrawerTitle>업종</DrawerTitle>
-          <button
-            onClick={() => setSelectedIndustries([])}
-            className="absolute right-5 top-3 font-bold font-lexend text-[#757575]"
-          >
-            Clear
-          </button>
         </DrawerHeader>
-        <ul>
-          {industryData.map((item) => (
-            <li
-              key={item.code}
-              className={`py-2 px-5 cursor-pointer ${
-                selectedIndustries.includes(item.industryName)
-                  ? "bg-[#F0EDFC] text-[#605F65]"
-                  : ""
-              }`}
-              onClick={() => toggleIndustrySelection(item.industryName)}
-            >
-              {item.industryName}
-            </li>
-          ))}
-        </ul>
-        <DrawerFooter className="px-0">
-          <div
-            className="bg-[#F0EDFC] px-5 pb-8 overflow-hidden"
-            style={{
-              maxHeight:
-                selectedIndustries.length > 0
-                  ? `${selectedIndustries.length * 48 + 32}px`
-                  : "80px",
-              transition: "max-height 0.3s ease-out", // 부드러운 높이 변화
-            }}
-          >
-            <h1 className="font-extrabold py-2">선택한 업종</h1>
-            <ul className="flex flex-wrap gap-4">
-              {selectedIndustries.map((industry, index) => (
-                <li
-                  key={index}
-                  className="bg-[#E2DCF9] py-1 px-3 rounded-xl text-sm flex items-center gap-1.5"
-                >
-                  {industry}
-                  <button onClick={() => removeIndustry(industry)}>
-                    <CircleX size={16} />
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <DrawerClose asChild>
+        <div className="bg-[#F9FAFC]">
+          <ul className="flex flex-wrap gap-4 justify-center mt-9 ">
+            {industryData.map((item) => (
+              <li
+                key={item.code}
+                className={`py-2 px-5 rounded-full shadow-[2px_2px_3px_#D9D9D9] bg-white ${
+                  selectedIndustries.includes(item.industryName)
+                    ? "bg-wikoGreen font-semibold"
+                    : ""
+                }`}
+                onClick={() => toggleIndustrySelection(item.industryName)}
+              >
+                {item.industryName}
+              </li>
+            ))}
+          </ul>
+          <DrawerFooter className="flex-row px-8 gap-5 mb-8 mt-14 pt-7 pb-0 border-t-[1px] border-[#F0F1F5]">
             <button
-              onClick={handleSearch}
-              className="bg-wikoBlue mx-7 py-3 rounded-xl text-white"
+              onClick={() => setSelectedIndustries([])}
+              className="font-semibold bg-[#F0F1F5]  px-6 py-3 rounded-xl flex-1 "
             >
-              적용하기
+              초기화
             </button>
-          </DrawerClose>
-        </DrawerFooter>
+            <DrawerClose asChild>
+              <button
+                onClick={handleSearch}
+                className="bg-wikoGreen px-6 py-3 rounded-xl font-semibold flex-1 "
+              >
+                적용하기
+              </button>
+            </DrawerClose>
+          </DrawerFooter>
+        </div>
       </DrawerContent>
     </Drawer>
   );

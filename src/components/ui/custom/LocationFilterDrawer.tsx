@@ -29,24 +29,37 @@ export default function LocationFilterDrawer({
 
   return (
     <Drawer>
-      <DrawerTrigger className="bg-[#F0EDFC] py-1.5 px-7 text-[#4C4C4C] font-semibold rounded-3xl shadow-xl">
+      <DrawerTrigger className="bg-white py-1.5 px-7 text-[#4C4C4C] font-semibold rounded-3xl shadow-xl">
         지역
       </DrawerTrigger>
       <DrawerContent>
-        <DrawerHeader className="border-b-[1.5px] border-b-[#DED1EB] relative">
+        <DrawerHeader className="">
           <DrawerTitle>희망근로지 </DrawerTitle>
         </DrawerHeader>
-        <RegionSelector selections={selections} setSelections={setSelections} />
-        <DrawerFooter className="px-0">
-          <DrawerClose asChild>
+        <div className="bg-[#F9FAFC]">
+          <RegionSelector
+            selections={selections}
+            setSelections={setSelections}
+          />
+          <DrawerFooter className="flex-row px-8 gap-5 mb-8 pt-7 pb-0 border-[#F0F1F5]">
             <button
-              onClick={handleSearch}
-              className="bg-wikoBlue mx-7 py-3 rounded-xl text-white"
+              onClick={() => {
+                setSelections([]); // 기본 값으로 초기화
+              }}
+              className="font-semibold bg-[#F0F1F5]  px-6 py-3 rounded-xl flex-1 "
             >
-              적용하기
+              초기화
             </button>
-          </DrawerClose>
-        </DrawerFooter>
+            <DrawerClose asChild>
+              <button
+                onClick={handleSearch}
+                className="bg-wikoGreen px-6 py-3 rounded-xl font-semibold flex-1 "
+              >
+                적용하기
+              </button>
+            </DrawerClose>
+          </DrawerFooter>
+        </div>
       </DrawerContent>
     </Drawer>
   );

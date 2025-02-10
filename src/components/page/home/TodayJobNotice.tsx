@@ -1,7 +1,7 @@
 import { dummyJobItems } from "@/store/dummy";
 import CommunityItem from "./JobNoticeItem";
 
-export default function Community() {
+export default function TodayJobNotice() {
   return (
     <section className="my-10 px-[11px]">
       <h1 className="text-xl font-semibold font-lexend pl-1">Today 공고</h1>
