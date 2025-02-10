@@ -1,9 +1,10 @@
 "use client";
 
+import { useClickOutside } from "@/app/hooks/useClickOutside";
 import MonthPicker from "@/components/ui/custom/CustomMonthPicker";
 import { useResumeStore } from "@/store/zustand/resumeStore";
 import { format } from "date-fns";
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 export default function OverMonthSection() {
   const { resumeData, setCareerDetail } = useResumeStore();
@@ -14,41 +15,40 @@ export default function OverMonthSection() {
     start: false,
     end: false,
   });
-  const pickerRef = useRef<HTMLDivElement>(null);
+
+  const startPickerRef = useClickOutside(() =>
+    setIsPickerOpen((prev) => ({ ...prev, start: false }))
+  );
+  const endPickerRef = useClickOutside(() =>
+    setIsPickerOpen((prev) => ({ ...prev, end: false }))
+  );
 
   const handleMonthChange = (newMonth: Date, type: "start" | "end") => {
     const formattedDate = format(newMonth, "yyyy-MM");
     if (type === "start") {
       setCareerDetail("joinedAt", formattedDate);
-      setIsPickerOpen({ start: false, end: false });
+      setIsPickerOpen((prev) => ({ ...prev, start: false }));
     } else {
       setCareerDetail("leavedAt", formattedDate);
-      setIsPickerOpen({ start: false, end: false });
+      setIsPickerOpen((prev) => ({ ...prev, end: false }));
     }
-  };
-
-  const handleBlur = (type: "start" | "end") => {
-    setTimeout(() => {
-      setIsPickerOpen((prev) => ({ ...prev, [type]: false }));
-    }, 200);
   };
 
   return (
     <div className="mt-1 flex items-center justify-around gap-2">
-      {/* ✅ 입사 연월 선택 */}
+      {/* 입사 연월 */}
       <div className="relative">
         <input
           type="text"
           readOnly
           placeholder="입사 연월"
           value={resumeData.careerDetail?.joinedAt || ""}
-          className="p-1 w-24 border-wikoGray border-[1px] rounded-xl cursor-pointer bg-white text-center"
-          onFocus={() => setIsPickerOpen({ start: true, end: false })}
-          onBlur={() => handleBlur("start")}
+          className="p-1 w-24 border-gray-400 border-[1px] rounded-xl cursor-pointer bg-white text-center"
+          onFocus={() => setIsPickerOpen((prev) => ({ ...prev, start: true }))}
         />
         {isPickerOpen.start && (
           <div
-            ref={pickerRef}
+            ref={startPickerRef} // useClickOutside 훅 적용
             className="absolute z-10 bg-white border border-gray-300 shadow-md rounded-lg mt-1">
             <MonthPicker
               currentMonth={new Date()}
@@ -60,6 +60,7 @@ export default function OverMonthSection() {
 
       <p>~</p>
 
+      {/* 퇴사 연월 */}
       <div className="relative">
         <input
           type="text"
@@ -70,18 +71,17 @@ export default function OverMonthSection() {
               ? ""
               : resumeData.careerDetail?.leavedAt || ""
           }
-          className="p-1 w-24 border-wikoGray border-[1px] rounded-xl cursor-pointer bg-white text-center"
+          className="p-1 w-24 border-gray-400 border-[1px] rounded-xl cursor-pointer bg-white text-center"
           onFocus={() => {
             if (!resumeData.careerDetail?.isWorking) {
-              setIsPickerOpen({ start: false, end: true });
+              setIsPickerOpen((prev) => ({ ...prev, end: true }));
             }
           }}
-          onBlur={() => handleBlur("end")}
           disabled={resumeData.careerDetail?.isWorking}
         />
         {isPickerOpen.end && (
           <div
-            ref={pickerRef}
+            ref={endPickerRef}
             className="absolute z-10 right-6 bg-white border border-gray-300 shadow-md rounded-lg mt-1">
             <MonthPicker
               currentMonth={new Date()}

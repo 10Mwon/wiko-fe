@@ -1,19 +1,19 @@
 "use client";
 
+import { useClickOutside } from "@/app/hooks/useClickOutside";
 import MonthPicker from "@/components/ui/custom/CustomMonthPicker";
 import { useResumeStore } from "@/store/zustand/resumeStore";
 import { format } from "date-fns";
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 export default function UnderMonthSection() {
   const { resumeData, setCareerDetail } = useResumeStore();
   const [isPickerOpen, setIsPickerOpen] = useState<boolean>(false);
-  const pickerRef = useRef<HTMLDivElement>(null);
+  const pickerRef = useClickOutside(() => setIsPickerOpen(false));
 
-  // ✅ 입사 연월 변경 핸들러
   const handleMonthChange = (newMonth: Date) => {
     const formattedDate = format(newMonth, "yyyy-MM");
-    setCareerDetail("joinedAt", formattedDate);
+    setCareerDetail("joinedAtMonth", formattedDate);
     setIsPickerOpen(false);
   };
 
