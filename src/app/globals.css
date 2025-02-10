@@ -103,6 +103,12 @@ input[type="checkbox"]:checked::after {
   }
 }
 
+.contact_li {
+  @apply flex items-center bg-wikoBlue text-white p-4 rounded-2xl;
+}
+.contact_category {
+  @apply w-[55px] ml-2 text-[11px] font-semibold;
+}
 @layer components {
   .custom-input-container {
     @apply w-[128px] bg-white shadow-[2px_2px_3px_#D9D9D9] relative rounded-2xl overflow-hidden;
