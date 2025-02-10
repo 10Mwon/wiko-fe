@@ -26,7 +26,7 @@ export default function ProfileImageUpload({
         <Image
           src={image}
           alt="Profile Preview"
-          className="object-cover rounded-lg"
+          className="w-full  rounded-lg"
           width={64}
           height={64}
         />
