@@ -2,7 +2,7 @@ import JobItem from "@/components/page/job/JobItem";
 import JobFilter from "@/components/ui/custom/JobFilter";
 import LocationFilterDrawer from "@/components/ui/custom/LocationFilterDrawer";
 import PayFilterDrawer from "@/components/ui/custom/PayFilterDrawer";
-import SearchInput from "@/components/ui/Input/SearchInput";
+import SearchInput from "@/components/ui/input/SearchInput";
 import { dummyJobItems } from "@/store/dummy";
 
 type SearchParams = Promise<{
@@ -29,7 +29,7 @@ export default async function page(props: { searchParams: SearchParams }) {
         <PayFilterDrawer start={start} end={end} />
         <LocationFilterDrawer location={location} />
       </section>
-      <section className="mt-14">
+      <section className="mt-9 grid grid-cols-2 gap-5">
         {dummyJobItems.map((item) => (
           <JobItem key={item.id} props={item} />
         ))}

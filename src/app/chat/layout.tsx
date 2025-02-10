@@ -8,9 +8,7 @@ interface LayoutProps {
 function layout({ children }: LayoutProps) {
   return (
     <>
-      <main className="min-h-screen bg-wikoBlue px-6 pt-8 pb-20">
-        {children}
-      </main>
+      <main className="min-h-screen bg-white px-6 pt-8 pb-20">{children}</main>
       <AppBar />
     </>
   );
