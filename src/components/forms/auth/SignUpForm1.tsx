@@ -98,7 +98,7 @@ export default function SignUpForm1({
       />
 
       {/* 회원가입 버튼 */}
-      <button className="w-full rounded-2xl p-4 text-white bg-wikoBlue">
+      <button className="absolute bottom-9 left-1/2 -translate-x-1/2 w-[90%] rounded-2xl p-4 text-white bg-wikoBlue">
         다음
       </button>
     </form>

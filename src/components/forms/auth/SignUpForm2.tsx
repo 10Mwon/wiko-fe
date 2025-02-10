@@ -62,8 +62,7 @@ export default function SignUpForm2({
         비자 종류
         <select
           {...register("visa", { required: "비자를 선택해주세요." })}
-          className="rounded-xl w-full bg-gray-200 p-3"
-        >
+          className="rounded-xl w-full bg-gray-200 p-3">
           <option value="">비자 종류 선택</option>
           <option value="E-7">E-7</option>
           <option value="E-7-4">E-7-4</option>
@@ -79,9 +78,8 @@ export default function SignUpForm2({
 
       <button
         type="submit"
-        className="w-full rounded-2xl p-4 text-white bg-wikoBlue"
-      >
-        완료
+        className="absolute bottom-9 left-1/2 -translate-x-1/2 w-[90%] rounded-2xl p-4 text-white bg-wikoBlue">
+        다음
       </button>
     </form>
   );
