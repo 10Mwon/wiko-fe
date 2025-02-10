@@ -1,10 +1,14 @@
 import { JobItemType } from "@/types/jobFilterDataType";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function JobItem({ props }: { props: JobItemType }) {
   const formattedPay = Number(props.pay);
   return (
-    <div className="bg-white min-h-[134px]  rounded-xl px-3 py-4">
+    <Link
+      href={`job/detail/${props.id}`}
+      className="bg-white min-h-[134px]  rounded-xl px-3 py-4"
+    >
       {props.imgUrl ? (
         <div className="relative mx-auto h-[50px] w-auto aspect-square overflow-hidden rounded-lg">
           <Image src={props.imgUrl} alt="" fill />
@@ -30,6 +34,6 @@ export default function JobItem({ props }: { props: JobItemType }) {
           {formattedPay.toLocaleString()}
         </li>
       </ul>
-    </div>
+    </Link>
   );
 }

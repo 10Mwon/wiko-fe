@@ -1,6 +1,6 @@
+import BackButton from "@/components/ui/button/BackButton";
 import ContactDrawer from "@/components/ui/custom/ContactDrawer";
 import { dummyDetail } from "@/store/dummy";
-import { ChevronLeft } from "lucide-react";
 import Image from "next/image";
 
 export default function Page() {
@@ -9,7 +9,7 @@ export default function Page() {
     <div className="max-w-md mx-auto min-h-screen">
       {/* Header */}
       <header className="bg-wikoGreen px-4 pt-6 pb-8 ring-[40px] ring-wikoGreen">
-        <ChevronLeft className="w-6 h-6" />
+        <BackButton />
         <div className="flex-1 flex justify-center mb-4">
           <Image
             src={data.imgUrl}
