@@ -1,3 +1,4 @@
+import { signUp } from "@/actions/auth/signUp";
 import CustomInput from "@/components/ui/input/CustomInput";
 import { SignUpFormValues } from "@/types/FormValues";
 import { useTranslations } from "next-intl";
@@ -24,7 +25,8 @@ export default function SignUpForm2({
   const onValid = (data: SignUpFormValues) => {
     const updatedData = { ...formData, ...data };
     setFormData(updatedData);
-    console.log("최종 데이터:", updatedData);
+    console.log("최종 데이터:", data);
+    signUp(data);
   };
   const t = useTranslations("input");
   const v = useTranslations("validation");

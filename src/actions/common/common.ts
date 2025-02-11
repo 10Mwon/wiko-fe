@@ -62,7 +62,13 @@ export async function requestWithoutAuth<T>(
     fetchOptions.next = { tags: [tag] };
   }
   const res = await fetch(`${process.env.BACKEND_URL}${apiUrl}`, fetchOptions);
+  // 만약 res가 json이 아니면 console로 res값 출력
+  if (res.headers.get("content-type") !== "application/json") {
+    console.log(res);
+    return res as T;
+  } else {
+    const data = (await res.json()) as T;
 
-  const data = (await res.json()) as T;
-  return data;
+    return data;
+  }
 }
