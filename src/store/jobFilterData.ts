@@ -3,52 +3,52 @@ import { industryDataType } from "@/types/jobFilterDataType";
 export const industryData: industryDataType[] = [
   {
     id: 1,
-    industryName: "외식·음료",
+    industryName: "food_beverage",
     code: "1",
   },
   {
     id: 2,
-    industryName: "유통·판매·영업",
+    industryName: "sales",
     code: "2",
   },
   {
     id: 3,
-    industryName: "문화·여가·생활",
+    industryName: "leisure",
     code: "3",
   },
   {
     id: 4,
-    industryName: "서비스",
+    industryName: "service",
     code: "4",
   },
   {
     id: 5,
-    industryName: "사무·회계",
+    industryName: "office",
     code: "5",
   },
   {
     id: 6,
-    industryName: "고객 상담·리서치",
+    industryName: "consulting",
     code: "6",
   },
   {
     id: 7,
-    industryName: "생산·건설·노무",
+    industryName: "production",
     code: "7",
   },
   {
     id: 8,
-    industryName: "통역·번역",
+    industryName: "translation",
     code: "8",
   },
   {
     id: 9,
-    industryName: "운전·배달",
+    industryName: "delivery",
     code: "9",
   },
   {
     id: 10,
-    industryName: "교육·강사",
+    industryName: "education",
     code: "10",
   },
 ];

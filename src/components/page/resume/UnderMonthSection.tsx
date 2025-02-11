@@ -4,6 +4,7 @@ import { useClickOutside } from "@/app/hooks/useClickOutside";
 import MonthPicker from "@/components/ui/custom/CustomMonthPicker";
 import { useResumeStore } from "@/store/zustand/resumeStore";
 import { format } from "date-fns";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 
 export default function UnderMonthSection() {
@@ -16,14 +17,14 @@ export default function UnderMonthSection() {
     setCareerDetail("joinedAtMonth", formattedDate);
     setIsPickerOpen(false);
   };
-
+  const t = useTranslations("createResume");
   return (
     <div className="flex items-center gap-1">
       <div className="relative flex items-center gap-1">
         <input
           type="text"
           readOnly
-          placeholder="입사 연월"
+          placeholder={t("입사연월")}
           value={resumeData.careerDetail?.joinedAt || ""}
           className="p-1 w-24 border-wikoGray border-[1px] rounded-xl cursor-pointer bg-white text-center"
           onClick={() => setIsPickerOpen(true)}
@@ -31,7 +32,7 @@ export default function UnderMonthSection() {
 
         <input
           type="text"
-          placeholder="일"
+          placeholder={t("day")}
           value={resumeData.careerDetail?.joinedAtMonth || ""}
           onChange={(e) => setCareerDetail("joinedAtMonth", e.target.value)}
           className="p-1 w-12 border-wikoGray border-[1px] rounded-xl text-center"
@@ -49,7 +50,7 @@ export default function UnderMonthSection() {
         )}
       </div>
 
-      <p className="whitespace-nowrap text-sm">일 동안 근무</p>
+      <p className="whitespace-nowrap text-sm">{t("workDayPer")}</p>
     </div>
   );
 }

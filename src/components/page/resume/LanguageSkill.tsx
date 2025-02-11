@@ -1,5 +1,6 @@
 "use client";
 import { useResumeStore } from "@/store/zustand/resumeStore";
+import { useTranslations } from "next-intl";
 
 export default function LanguageSkill({ data }: { data: string[] }) {
   const { resumeData, setLanguageSkill } = useResumeStore();
@@ -7,10 +8,10 @@ export default function LanguageSkill({ data }: { data: string[] }) {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setLanguageSkill(event.target.value);
   };
-
+  const t = useTranslations("createResume");
   return (
     <li className="flex flex-col gap-4">
-      <h2 className="font-semibold text-base">어학 능력</h2>
+      <h2 className="font-semibold text-base">{t("langSkill")}</h2>
       <ul className="grid grid-cols-2 gap-2">
         {data.map((item, index) => (
           <li key={index}>
@@ -23,7 +24,7 @@ export default function LanguageSkill({ data }: { data: string[] }) {
                 onChange={handleChange}
                 className="mr-2"
               />
-              {item}
+              {t(item)}
             </label>
           </li>
         ))}

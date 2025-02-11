@@ -4,6 +4,7 @@ import { useClickOutside } from "@/app/hooks/useClickOutside";
 import MonthPicker from "@/components/ui/custom/CustomMonthPicker";
 import { useResumeStore } from "@/store/zustand/resumeStore";
 import { format } from "date-fns";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 
 export default function OverMonthSection() {
@@ -33,7 +34,7 @@ export default function OverMonthSection() {
       setIsPickerOpen((prev) => ({ ...prev, end: false }));
     }
   };
-
+  const t = useTranslations("createResume");
   return (
     <div className="mt-1 flex items-center justify-around gap-2">
       {/* 입사 연월 */}
@@ -41,7 +42,7 @@ export default function OverMonthSection() {
         <input
           type="text"
           readOnly
-          placeholder="입사 연월"
+          placeholder={t("입사연월")}
           value={resumeData.careerDetail?.joinedAt || ""}
           className="p-1 w-24 border-gray-400 border-[1px] rounded-xl cursor-pointer bg-white text-center"
           onFocus={() => setIsPickerOpen((prev) => ({ ...prev, start: true }))}
@@ -65,7 +66,7 @@ export default function OverMonthSection() {
         <input
           type="text"
           readOnly
-          placeholder="퇴사 연월"
+          placeholder={t("퇴사연월")}
           value={
             resumeData.careerDetail?.isWorking
               ? ""

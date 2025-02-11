@@ -3,6 +3,7 @@
 import { regionData } from "@/store/jobFilterData";
 import { ScrollArea } from "@radix-ui/react-scroll-area";
 import { CircleX } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { useCallback, useState } from "react";
 
 export default function RegionSelector({
@@ -13,11 +14,12 @@ export default function RegionSelector({
   setSelections: React.Dispatch<React.SetStateAction<string[]>>;
 }) {
   const [selectedCity, setSelectedCity] = useState<string | null>(null);
-
+  const l = useTranslations("location");
+  const k = useTranslations("koreanMap");
   // 선택 처리 함수
   const handleSelection = useCallback(
     (neighborhood: string) => {
-      let data = `${selectedCity} ${neighborhood}`;
+      let data = `${k(selectedCity)} ${k(neighborhood)}`;
 
       setSelections((prev) => {
         // 이미 선택된 항목이라면 삭제
@@ -30,23 +32,23 @@ export default function RegionSelector({
           const city = selectedCity;
           // 해당 시에 대한 구들을 모두 삭제하고 "전체"만 추가
           const newSelections = prev.filter(
-            (selection) => !selection.startsWith(city || "")
+            (selection) => !selection.startsWith(k(city) || "")
           );
-          data = `${city} 전체`;
+          data = `${k(city)} ${l("entire")}`;
           return [...newSelections, data];
         }
 
         // "전체"가 선택된 상태에서 구를 선택하면 "전체"를 제거하고 구를 추가
-        if (prev.includes(`${selectedCity} 전체`)) {
+        if (prev.includes(`${k(selectedCity)} ${l("entire")}`)) {
           const newSelections = prev.filter(
-            (selection) => selection !== `${selectedCity} 전체`
+            (selection) => selection !== `${k(selectedCity)} ${l("entire")}`
           );
           return [...newSelections, data];
         }
 
         // 최대 10개까지 선택 가능
         if (prev.length >= 10) {
-          alert("최대 10개까지 선택할 수 있습니다.");
+          alert(l("maxSelectDescription"));
           return prev;
         }
 
@@ -76,9 +78,8 @@ export default function RegionSelector({
                 }`}
                 onClick={() => {
                   setSelectedCity(city);
-                }}
-              >
-                {city}
+                }}>
+                {k(city)}
               </div>
             ))}
           </ScrollArea>
@@ -97,9 +98,8 @@ export default function RegionSelector({
                     className={`p-3 cursor-pointer ${
                       isSelected ? "bg-wikoGreen/50 font-semibold" : ""
                     }`}
-                    onClick={() => handleSelection(district)}
-                  >
-                    {district}
+                    onClick={() => handleSelection(district)}>
+                    {k(district)}
                   </div>
                 );
               })}
@@ -109,14 +109,13 @@ export default function RegionSelector({
 
       <div className="mt-4 mx-3">
         <p className="text-sm text-gray-500 mb-2">
-          최대 10개까지 선택할 수 있어요.
+          {l("maxSelectDescription")}
         </p>
         <div className="flex gap-2 overflow-x-auto w-full scrollbar-hide">
           {selections.map((selection) => (
             <li
               key={selection}
-              className="bg-wikoGreen/30 py-1 px-3 rounded-xl text-sm flex items-center gap-1.5 flex-shrink-0"
-            >
+              className="bg-wikoGreen/30 py-1 px-3 rounded-xl text-sm flex items-center gap-1.5 flex-shrink-0">
               {selection}
               <button onClick={() => handleRemoveSelection(selection)}>
                 <CircleX size={16} />

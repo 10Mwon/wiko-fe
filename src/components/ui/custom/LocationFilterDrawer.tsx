@@ -8,6 +8,7 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
+import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import RegionSelector from "./RegionSelector";
@@ -26,15 +27,16 @@ export default function LocationFilterDrawer({
     newSearchParams.set("location", selections.join(","));
     router.push(`?${newSearchParams.toString()}`);
   };
-
+  const l = useTranslations("location");
+  const b = useTranslations("button");
   return (
     <Drawer>
       <DrawerTrigger className="bg-white py-1.5 px-7 text-[#4C4C4C] font-semibold rounded-3xl shadow-xl">
-        지역
+        {l("location")}
       </DrawerTrigger>
       <DrawerContent>
         <DrawerHeader className="">
-          <DrawerTitle>희망근로지 </DrawerTitle>
+          <DrawerTitle>{l("wishLocation")} </DrawerTitle>
         </DrawerHeader>
         <div className="bg-[#F9FAFC]">
           <RegionSelector
@@ -46,16 +48,14 @@ export default function LocationFilterDrawer({
               onClick={() => {
                 setSelections([]); // 기본 값으로 초기화
               }}
-              className="font-semibold bg-[#F0F1F5]  px-6 py-3 rounded-xl flex-1 "
-            >
-              초기화
+              className="font-semibold bg-[#F0F1F5]  px-6 py-3 rounded-xl flex-1 ">
+              {b("reset")}
             </button>
             <DrawerClose asChild>
               <button
                 onClick={handleSearch}
-                className="bg-wikoGreen px-6 py-3 rounded-xl font-semibold flex-1 "
-              >
-                적용하기
+                className="bg-wikoGreen px-6 py-3 rounded-xl font-semibold flex-1 ">
+                {b("apply")}
               </button>
             </DrawerClose>
           </DrawerFooter>

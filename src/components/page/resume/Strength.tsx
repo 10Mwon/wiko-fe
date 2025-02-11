@@ -1,5 +1,6 @@
 "use client";
 import { useResumeStore } from "@/store/zustand/resumeStore";
+import { useTranslations } from "next-intl";
 
 export default function Strength({ data }: { data: string[] }) {
   const { resumeData, setStrength } = useResumeStore();
@@ -11,12 +12,12 @@ export default function Strength({ data }: { data: string[] }) {
       ? currentStrength.filter((s) => s !== item)
       : [...currentStrength, item];
 
-    setStrength(newSelection); 
+    setStrength(newSelection);
   };
-
+  const t = useTranslations("createResume");
   return (
     <li className="flex flex-col gap-4">
-      <h2 className="font-semibold text-base">나의 강점</h2>
+      <h2 className="font-semibold text-base">{t("strength")}</h2>
       <ul className="flex flex-wrap justify-center text-xs gap-2 gap-y-6">
         {data.map((item, index) => (
           <li key={index}>
@@ -34,7 +35,7 @@ export default function Strength({ data }: { data: string[] }) {
                 onChange={() => handleSelect(item)}
                 className="hidden"
               />
-              {item}
+              {t(item)}
             </label>
           </li>
         ))}

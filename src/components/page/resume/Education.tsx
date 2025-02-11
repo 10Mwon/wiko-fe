@@ -1,5 +1,6 @@
 "use client";
 import { useResumeStore } from "@/store/zustand/resumeStore";
+import { useTranslations } from "next-intl";
 
 export default function Education({ data }: { data: string[] }) {
   const { resumeData, setEducation } = useResumeStore();
@@ -7,10 +8,10 @@ export default function Education({ data }: { data: string[] }) {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEducation(event.target.value);
   };
-
+  const t = useTranslations("createResume");
   return (
     <li className="flex flex-col gap-4">
-      <h2 className="font-semibold text-base">최종 학력</h2>
+      <h2 className="font-semibold text-base">{t("education")}</h2>
       <ul className="flex flex-wrap gap-2">
         {data.map((item, index) => (
           <li key={index}>
@@ -28,7 +29,7 @@ export default function Education({ data }: { data: string[] }) {
                 onChange={handleChange}
                 className="hidden"
               />
-              {item}
+              {t(item)}
             </label>
           </li>
         ))}
