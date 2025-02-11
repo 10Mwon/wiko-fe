@@ -13,7 +13,14 @@ export interface CareerDetailType {
   company?: string;
   joinedAt?: string;
   leavedAt?: string;
-  joinedAtMonth?: string;
   isWorking?: boolean;
   position?: string;
+}
+
+export interface commonResponse<T> {
+  httpStatus: string;
+  isSuccess: boolean;
+  message: string;
+  code: number;
+  result: T;
 }

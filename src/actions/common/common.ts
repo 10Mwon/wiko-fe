@@ -3,6 +3,8 @@
 import { options } from "@/app/api/auth/[...nextauth]";
 import { Session } from "next-auth";
 import { getServerSession } from "next-auth/next";
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+require("dotenv").config();
 
 type HttpMethod = "GET" | "POST" | "PUT" | "DELETE";
 
@@ -21,7 +23,6 @@ export async function requestWithAuth<T>(
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
-      uuid: session?.user.uuid || "",
     },
     cache,
   };
@@ -31,7 +32,7 @@ export async function requestWithAuth<T>(
   if (tag) {
     fetchOptions.next = { tags: [tag] };
   }
-  const res = await fetch(`${process.env.BACKEND_URL}/${apiUrl}`, fetchOptions);
+  const res = await fetch(`${process.env.BACKEND_URL}${apiUrl}`, fetchOptions);
 
   const data = (await res.json()) as T;
   return data;
@@ -59,7 +60,7 @@ export async function requestWithoutAuth<T>(
   if (tag) {
     fetchOptions.next = { tags: [tag] };
   }
-  const res = await fetch(`${process.env.BACKEND_URL}/${apiUrl}`, fetchOptions);
+  const res = await fetch(`${process.env.BACKEND_URL}${apiUrl}`, fetchOptions);
 
   const data = (await res.json()) as T;
   return data;
