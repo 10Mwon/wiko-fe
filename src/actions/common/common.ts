@@ -17,7 +17,7 @@ export async function requestWithAuth<T>(
 ): Promise<T> {
   const session: Session | null = await getServerSession(options);
   console.log("세션정보:", session);
-  const token: string = session ? session.user.accessToken : "";
+  const token: string = session ? session.user.jwtToken : "";
   const cache = requestCache || "no-cache";
   const fetchOptions: RequestInit = {
     method,
