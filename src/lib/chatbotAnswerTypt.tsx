@@ -1,6 +1,6 @@
 import ChatRegionSelector from "@/components/page/chat/ChatRegionSelector";
-import { Message } from "@/components/page/chat/Example";
 import SubQuestions from "@/components/page/chat/Subquestions";
+import { Message } from "@/types/chatbotType";
 
 export const returnMessageByInput = (input: string): string => {
   if (input == "근로 비자 정보")
