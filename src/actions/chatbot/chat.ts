@@ -1,10 +1,10 @@
-import { requestWithoutAuth } from "../common/common";
+import { requestWikoAI } from "../common/common";
 
 export async function postChatting(
   question: string
 ): Promise<chatbotAnswerType> {
   try {
-    const data = await requestWithoutAuth<chatbotAnswerType>(
+    const data = await requestWikoAI<chatbotAnswerType>(
       `chatbot`,
       "POST",
       { question: question },
