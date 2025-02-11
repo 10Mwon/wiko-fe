@@ -1,5 +1,6 @@
-import AppBar from "@/components/layout/AppBar";
+// import AppBar from "@/components/layout/AppBar";
 import { ReactNode } from "react";
+import ChatRoomHeader from "./ChatRoomHeader";
 
 interface LayoutProps {
   children: ReactNode;
@@ -8,8 +9,9 @@ interface LayoutProps {
 function layout({ children }: LayoutProps) {
   return (
     <>
+      <ChatRoomHeader />
       <main className="min-h-screen bg-white px-6 pt-8 pb-20">{children}</main>
-      <AppBar />
+      {/* <AppBar /> */}
     </>
   );
 }
