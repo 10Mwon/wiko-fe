@@ -9,7 +9,6 @@ export default function LanguageRadioGroup() {
   const [selectedLanguage, setSelectedLanguage] = useState<string | null>(null);
   const router = useRouter();
 
-  // ✅ 앱 실행 시 쿠키에서 언어 설정 불러오기
   useEffect(() => {
     const storedLanguage = document.cookie.replace(
       /(?:(?:^|.*;\s*)NEXT_LOCALE\s*=\s*([^;]*).*$)|^.*$/,
@@ -20,12 +19,11 @@ export default function LanguageRadioGroup() {
     }
   }, []);
 
-  // ✅ 언어 변경 시 `NEXT_LOCALE` 쿠키 저장 후 새로고침
   const handleLanguageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newLanguage = e.target.value;
     setSelectedLanguage(newLanguage);
     document.cookie = `NEXT_LOCALE=${newLanguage}; path=/; max-age=31536000`; // 1년 유지
-    router.refresh(); // ✅ 페이지 새로고침하여 번역 적용
+    router.refresh();
   };
 
   return (

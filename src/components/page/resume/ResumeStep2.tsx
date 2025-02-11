@@ -2,6 +2,7 @@
 import { ResumeData } from "@/store/dummy";
 import { useResumeStore } from "@/store/zustand/resumeStore";
 import { ResumeDataType } from "@/types/resumeType";
+import { useTranslations } from "next-intl";
 import Career from "./Career";
 import Education from "./Education";
 import LanguageSkill from "./LanguageSkill";
@@ -11,6 +12,7 @@ import Strength from "./Strength";
 
 export default function ResumeStep2() {
   const data: ResumeDataType = ResumeData;
+  const t = useTranslations("createResume");
   const { resumeData } = useResumeStore();
   return (
     <div className="text-sm pt-12 flex flex-col  px-4">
@@ -29,7 +31,7 @@ export default function ResumeStep2() {
         <button
           onClick={() => console.log(resumeData)}
           className="w-4/5 mb-12 text-lg rounded-2xl p-3 mx-auto font-extrabold text-white bg-wikoBlue">
-          저 장 
+          {t("save")}
         </button>
       </ul>
     </div>

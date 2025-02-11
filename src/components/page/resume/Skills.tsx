@@ -1,6 +1,7 @@
 "use client";
 import { useResumeStore } from "@/store/zustand/resumeStore";
 import { RotateCw, X } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function Skills({ data }: { data: string[] }) {
   const { resumeData, setJobSkill } = useResumeStore();
@@ -13,10 +14,10 @@ export default function Skills({ data }: { data: string[] }) {
 
     setJobSkill(newSelection);
   };
-
+  const t = useTranslations("createResume");
   return (
     <li className="flex flex-col  gap-4">
-      <h2 className="font-semibold text-base">업무 스킬</h2>
+      <h2 className="font-semibold text-base">{t("skills")}</h2>
       <ul className="flex flex-wrap justify-center text-xs gap-2 gap-y-6">
         {data.map((item, index) => (
           <li key={index}>
@@ -34,17 +35,17 @@ export default function Skills({ data }: { data: string[] }) {
                 onChange={() => handleSelect(item)}
                 className="hidden"
               />
-              {item}
+              {t(item)}
             </label>
           </li>
         ))}
       </ul>
       <section className="w-full min-h-32 p-2 border-[1px] rounded-xl border-wikoGray">
         <h3 className="mb-2 flex justify-between">
-          <p className="font-extrabold text-sm ">내가 선택한 스킬</p>
+          <p className="font-extrabold text-sm ">{t("selectedSkill")}</p>
           <p className="text-xs gap-0.5 flex items-center text-gray-400">
             <RotateCw onClick={() => setJobSkill([])} size={10} />
-            초기화
+            {t("reset")}
           </p>
         </h3>
 
@@ -55,7 +56,7 @@ export default function Skills({ data }: { data: string[] }) {
                 <li
                   className="rounded-md flex items-center gap-2 p-2 font-semibold bg-wikoYellow"
                   key={index}>
-                  {item}
+                  {t(item)}
                   <X
                     onClick={() => handleSelect(item)}
                     size={15}

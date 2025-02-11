@@ -1,4 +1,5 @@
 "use client";
+import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import ProfileBaseInfo from "./ProfileBaseInfo";
@@ -11,6 +12,7 @@ export default function ResumeStep1() {
     sessionStorage.setItem("resumeData", JSON.stringify({ image: image }));
     router.push("/resume/create?step=2");
   };
+  const t = useTranslations("input");
   return (
     <div className="flex flex-col items-center px-4 my-2 gap-6 w-full">
       <ProfileImageUpload image={image} setImage={setImage} />
@@ -19,7 +21,7 @@ export default function ResumeStep1() {
       <button
         onClick={handleNext}
         className="absolute bottom-9 left-1/2 -translate-x-1/2 w-[90%] rounded-2xl p-4 text-white bg-wikoBlue">
-        다음
+        {t("next")}
       </button>
     </div>
   );
