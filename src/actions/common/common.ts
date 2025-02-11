@@ -1,6 +1,6 @@
 "use server";
 
-import { options } from "@/app/api/auth/[...nextauth]";
+import { options } from "@/app/api/auth/[...nextauth]/options";
 import { Session } from "next-auth";
 import { getServerSession } from "next-auth/next";
 // eslint-disable-next-line @typescript-eslint/no-require-imports
@@ -16,6 +16,7 @@ export async function requestWithAuth<T>(
   tag?: string
 ): Promise<T> {
   const session: Session | null = await getServerSession(options);
+  console.log("세션정보:", session);
   const token: string = session ? session.user.accessToken : "";
   const cache = requestCache || "no-cache";
   const fetchOptions: RequestInit = {
