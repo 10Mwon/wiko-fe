@@ -54,6 +54,21 @@
     "salary": "ish haqi",
     "location": "mintaqa"
   },
+  "jobDetail": {
+    "introduction": "Biz haqimizda",
+    "position": "Vazifalar",
+    "required": "Malakalar",
+    "condition": "Ish sharoitlari",
+    "salary": "ish haqi",
+    "recruitType": "Ishga qabul qilish turi",
+    "duration": "sayohat",
+    "time": "vaqt",
+    "preferred": "Imtiyozli davolanish",
+    "apply": "Murojaat qiling",
+    "owner": "egasi",
+    "phone": "telefon",
+    "email": "elektron pochta"
+  },
   "industryData": {
     "food_beverage": "Ovqatlanish va ichimliklar",
     "sales": "Tarqatish, sotish va biznes",
@@ -69,7 +84,7 @@
   "pay": {
     "pay": "ish haqi",
     "setPayRange": "Ish haqi oralig'ini belgilash",
-    "won": "bitta"
+    "won": "₩"
   },
   "button": {
     "reset": "qayta o'rnatish",
@@ -361,7 +376,14 @@
     "reset": "qayta o'rnatish",
     "selfIntroduction": "O'zini tanishtirish",
     "selfIntroductionPlaceholder": "Iltimos, oʻzingizni tanishtiring",
-    "save": "saqlash"
+    "save": "saqlash",
+    "over1": "1 oydan ortiq ishlagan",
+    "under1": "Ish vaqti 1 oydan kam",
+    "isWorking": "Ofisda",
+    "입사연월": "Qo'shilish sanasi",
+    "퇴사연월": "Pensiya yili va oyi",
+    "workDayPer": "Vaqtida ishlash",
+    "day": "kun"
   },
   "langSetting": "Til sozlamalari"
 }

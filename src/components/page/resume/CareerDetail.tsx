@@ -1,5 +1,6 @@
 "use client";
 import { useResumeStore } from "@/store/zustand/resumeStore";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 import OverMonthSection from "./OverMonthSection";
 import UnderMonthSection from "./UnderMonthSection";
@@ -7,12 +8,13 @@ import UnderMonthSection from "./UnderMonthSection";
 export default function CareerDetail() {
   const { resumeData, setCareerDetail } = useResumeStore();
   const [overMonth, setOverMonth] = useState<boolean>(true);
+  const t = useTranslations("createResume");
   return (
     <li className="pt-2 text-base flex flex-col gap-4">
-      <h2 className="font-bold">나의 경력</h2>
+      <h2 className="font-bold">{t("careerDetail")}</h2>
       <ul className="flex flex-col gap-4">
         <li className="flex items-center justify-between gap-2">
-          <h3>회사명</h3>
+          <h3>{t("회사명")}</h3>
           <input
             type="text"
             className="w-[80%] p-2 border-[1px] border-wikoGray rounded-lg"
@@ -22,7 +24,7 @@ export default function CareerDetail() {
         </li>
 
         <li className="flex items-start gap-6">
-          <h4 className="whitespace-nowrap">근무기간</h4>
+          <h4 className="whitespace-nowrap">{t("근무기간")}</h4>
           <div className="flex flex-col gap-2">
             <section>
               <div className="flex items-center gap-2 ">
@@ -36,7 +38,7 @@ export default function CareerDetail() {
                   }}
                   className="w-5 h-5 accent-wikoBlue cursor-pointer"
                 />
-                <label>1개월 이상 근무</label>
+                <label>{t("over1")}</label>
                 <label className="flex items-center space-x-1 cursor-pointer">
                   <input
                     type="checkbox"
@@ -49,7 +51,7 @@ export default function CareerDetail() {
                   <div className="w-5 h-5 border-[1px] border-gray-400 rounded-md flex items-center justify-center  peer-checked:border-wikoBlue">
                     {resumeData.careerDetail?.isWorking ? "✔" : ""}
                   </div>
-                  <span className="text-sm ">재직중</span>
+                  <span className="text-sm ">{t("isWorking")}</span>
                 </label>
               </div>
               {overMonth && <OverMonthSection />}
@@ -66,14 +68,14 @@ export default function CareerDetail() {
                 }}
                 className="w-5 h-5 accent-wikoBlue cursor-pointer"
               />
-              1개월 미만 근무
+              {t("under1")}
             </div>
             {!overMonth && <UnderMonthSection />}
           </div>
         </li>
 
         <li className="flex gap-4">
-          <h3 className="whitespace-nowrap">담당업무</h3>
+          <h3 className="whitespace-nowrap">{t("담당업무")}</h3>
           <textarea
             rows={5}
             className="w-full p-2 border-[1px] border-wikoGray rounded-lg"

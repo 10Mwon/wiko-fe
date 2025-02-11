@@ -54,6 +54,21 @@
     "salary": "lương",
     "location": "vùng đất"
   },
+  "jobDetail": {
+    "introduction": "Giới thiệu về chúng tôi",
+    "position": "Nhiệm vụ",
+    "required": "Bằng cấp",
+    "condition": "Điều kiện làm việc",
+    "salary": "lương",
+    "recruitType": "Loại tuyển dụng",
+    "duration": "chuyến du lịch",
+    "time": "thời gian",
+    "preferred": "Đối xử ưu đãi",
+    "apply": "Áp dụng",
+    "owner": "người sở hữu",
+    "phone": "điện thoại",
+    "email": "e-mail"
+  },
   "industryData": {
     "food_beverage": "Ăn uống & Đồ uống",
     "sales": "Phân phối, bán hàng và kinh doanh",
@@ -69,7 +84,7 @@
   "pay": {
     "pay": "lương",
     "setPayRange": "Thiết lập mức lương",
-    "won": "một"
+    "won": "₩"
   },
   "button": {
     "reset": "cài lại",
@@ -361,7 +376,14 @@
     "reset": "cài lại",
     "selfIntroduction": "Tự giới thiệu",
     "selfIntroductionPlaceholder": "Vui lòng nhập phần giới thiệu bản thân của bạn",
-    "save": "cứu"
+    "save": "cứu",
+    "over1": "Đã làm việc hơn 1 tháng",
+    "under1": "Làm việc ít hơn 1 tháng",
+    "isWorking": "Trong văn phòng",
+    "입사연월": "Ngày tham gia",
+    "퇴사연월": "Năm và tháng nghỉ hưu",
+    "workDayPer": "Làm việc trong",
+    "day": "Ngày"
   },
   "langSetting": "Cài đặt ngôn ngữ"
 }

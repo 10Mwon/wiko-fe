@@ -1,5 +1,5 @@
 {
-  "langSetting":"언어 설정",
+  "langSetting": "언어 설정",
   "home": {
     "chat": "chat",
     "greeting": "새로운 도전을 응원해요!",
@@ -70,7 +70,7 @@
   "pay": {
     "pay": "급여",
     "setPayRange": "급여 범위 설정",
-    "won": "원"
+    "won": "원원"
   },
   "button": {
     "reset": "초기화",
@@ -362,6 +362,28 @@
     "reset": "초기화",
     "selfIntroduction": "자기소개",
     "selfIntroductionPlaceholder": "자기소개를 입력해주세요",
-    "save": "저 장"
+    "save": "저 장",
+    "over1": "1개월 이상 근무",
+    "under1": "1개월 미만 근무",
+    "isWorking": "재직중",
+    "입사연월": "입사 연월",
+    "퇴사연월": "퇴사 연월",
+    "workDayPer": "동안 근무",
+    "day": "일"
+  },
+  "jobDetail": {
+    "introduction": "회사 소개",
+    "position": "담당 업무",
+    "required": "자격 요건",
+    "condition": "근무 조건",
+    "salary": "급여",
+    "recruitType": "채용 유형",
+    "duration": "근무 기간",
+    "time": "근무 시간",
+    "preferred": "우대사항",
+    "apply": "지원하기",
+    "owner": "owner",
+    "phone": "phone",
+    "email": "email"
   }
 }

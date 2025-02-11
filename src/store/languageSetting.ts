@@ -6,6 +6,16 @@ export interface LanguageSetting {
 
 export const languageSetting: LanguageSetting[] = [
   {
+    nation: "한국어",
+    image: "/assets/nations/korea.png",
+    code: "ko",
+  },
+  {
+    nation: "English",
+    image: "/assets/nations/us.png",
+    code: "en",
+  },
+  {
     nation: "Tiếng Việt",
     image: "/assets/nations/vietnam.png",
     code: "vi",

@@ -54,6 +54,21 @@
     "salary": "薪水",
     "location": "地区"
   },
+  "jobDetail": {
+    "introduction": "关于我们",
+    "position": "职责",
+    "required": "资格",
+    "condition": "工作条件",
+    "salary": "薪水",
+    "recruitType": "招聘类型",
+    "duration": "旅游",
+    "time": "时间",
+    "preferred": "优惠待遇",
+    "apply": "申请",
+    "owner": "所有者",
+    "phone": "电话",
+    "email": "电子邮件"
+  },
   "industryData": {
     "food_beverage": "餐饮",
     "sales": "分销、销售和业务",
@@ -69,7 +84,7 @@
   "pay": {
     "pay": "薪水",
     "setPayRange": "设定薪资范围",
-    "won": "一"
+    "won": "₩"
   },
   "button": {
     "reset": "重置",
@@ -361,7 +376,14 @@
     "reset": "重置",
     "selfIntroduction": "自我介绍",
     "selfIntroductionPlaceholder": "请输入你的自我介绍",
-    "save": "节省"
+    "save": "节省",
+    "over1": "工作1个月以上",
+    "under1": "工作时间不足 1 个月",
+    "isWorking": "在办公室",
+    "입사연월": "加入日期",
+    "퇴사연월": "退休年份和月份",
+    "workDayPer": "工作期间",
+    "day": "天"
   },
   "langSetting": "语言设置"
 }

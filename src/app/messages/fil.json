@@ -54,6 +54,21 @@
     "salary": "suweldo",
     "location": "rehiyon"
   },
+  "jobDetail": {
+    "introduction": "Tungkol sa Amin",
+    "position": "Mga tungkulin",
+    "required": "Mga kwalipikasyon",
+    "condition": "Mga kondisyon sa pagtatrabaho",
+    "salary": "suweldo",
+    "recruitType": "Uri ng Recruitment",
+    "duration": "paglilibot",
+    "time": "oras",
+    "preferred": "Preferential na paggamot",
+    "apply": "Mag-apply",
+    "owner": "may-ari",
+    "phone": "telepono",
+    "email": "email"
+  },
   "industryData": {
     "food_beverage": "Kainan at Inumin",
     "sales": "Distribusyon, benta, at negosyo",
@@ -69,7 +84,7 @@
   "pay": {
     "pay": "suweldo",
     "setPayRange": "Pagtatakda ng hanay ng suweldo",
-    "won": "isa"
+    "won": "₩"
   },
   "button": {
     "reset": "i-reset",
@@ -361,7 +376,14 @@
     "reset": "i-reset",
     "selfIntroduction": "Pagpapakilala sa sarili",
     "selfIntroductionPlaceholder": "Mangyaring ipasok ang iyong pagpapakilala sa sarili",
-    "save": "iligtas"
+    "save": "iligtas",
+    "over1": "Nagtrabaho ng higit sa 1 buwan",
+    "under1": "Wala pang 1 buwang trabaho",
+    "isWorking": "Sa opisina",
+    "입사연월": "Petsa ng pagsali",
+    "퇴사연월": "Taon at buwan ng pagreretiro",
+    "workDayPer": "Nagtatrabaho sa panahon",
+    "day": "Araw"
   },
   "langSetting": "Mga setting ng wika"
 }

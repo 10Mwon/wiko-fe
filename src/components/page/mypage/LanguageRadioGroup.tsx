@@ -31,7 +31,13 @@ export default function LanguageRadioGroup() {
       {data.map((item, index) => (
         <li key={index} className="flex items-center justify-between gap-4">
           <div className="flex items-center gap-4">
-            <Image src={item.image} alt={item.nation} width={69} height={69} />
+            <Image
+              objectFit="contain"
+              src={item.image}
+              alt={item.nation}
+              width={69}
+              height={69}
+            />
             <span className="text-lg">{item.nation}</span>
           </div>
           <input

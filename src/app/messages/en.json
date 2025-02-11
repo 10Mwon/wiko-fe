@@ -69,7 +69,7 @@
   "pay": {
     "pay": "salary",
     "setPayRange": "Setting salary range",
-    "won": "one"
+    "won": "₩"
   },
   "button": {
     "reset": "reset",
@@ -361,7 +361,29 @@
     "reset": "reset",
     "selfIntroduction": "Self introduction",
     "selfIntroductionPlaceholder": "Please enter your self-introduction",
-    "save": "save"
+    "save": "save",
+    "over1": "Worked for more than 1 month",
+    "under1": "Less than 1 month of work",
+    "isWorking": "In office",
+    "입사연월": "Date of joining",
+    "퇴사연월": "Year and month of retirement",
+    "workDayPer": "Working during",
+    "day": "Day"
   },
-  "langSetting": "Language settings"
+  "langSetting": "Language settings",
+  "jobDetail": {
+    "introduction": "About Us",
+    "position": "Duties",
+    "required": "Qualifications",
+    "condition": "Working conditions",
+    "salary": "salary",
+    "recruitType": "Recruitment Type",
+    "duration": "tour",
+    "time": "time",
+    "preferred": "Preferential treatment",
+    "apply": "Apply",
+    "owner": "owner",
+    "phone": "phone",
+    "email": "email"
+  }
 }

@@ -1,10 +1,12 @@
 import BackButton from "@/components/ui/button/BackButton";
 import ContactDrawer from "@/components/ui/custom/ContactDrawer";
 import { dummyDetail } from "@/store/dummy";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 export default function Page() {
   const data = dummyDetail;
+  const t = useTranslations("jobDetail");
   return (
     <div className="max-w-md mx-auto min-h-screen">
       {/* Header */}
@@ -33,48 +35,48 @@ export default function Page() {
           {/* Job Details Card */}
           <div className=" p-4 shadow-sm mb-6 border border-[#999999] rounded-lg flex flex-col gap-4">
             <section>
-              <h2 className="title">회사 소개</h2>
+              <h2 className="title">{t("introduction")}</h2>
               <ul className="text-sm space-y-1 text-gray-600">
                 <li> {data.companyInfo}</li>
               </ul>
             </section>
 
             <section>
-              <h2 className="title">담당업무</h2>
+              <h2 className="title">{t("position")}</h2>
               <ul className="text-sm space-y-1 text-gray-600">
                 <li> {data.responsibilities}</li>
               </ul>
             </section>
 
             <section>
-              <h2 className="title">자격 요건</h2>
+              <h2 className="title">{t("required")}</h2>
               <ul className="text-sm space-y-1 text-gray-600">
                 <li>• {data.qualifications}</li>
               </ul>
             </section>
           </div>
 
-          <h1 className="title px-2">근무조건</h1>
+          <h1 className="title px-2">{t("condition")}</h1>
           <table className="w-full border-separate border-spacing-y-2.5 px-2">
             <tbody className="[&>tr>td]:text-sm [&>tr>td]:text-[#4C4C4C] [&>tr]:mb-2.5">
               <tr>
-                <td className="w-24">월급</td>
+                <td className="w-24">{t("salary")}</td>
                 <td>{data.pay}</td>
               </tr>
               <tr>
-                <td>채용유형</td>
+                <td>{t("recruitType")}</td>
                 <td>{data.employmentType}</td>
               </tr>
               <tr>
-                <td>근무기간</td>
+                <td>{t("duration")}</td>
                 <td>{data.workPeriod}</td>
               </tr>
               <tr>
-                <td>근무시간</td>
+                <td>{t("time")}</td>
                 <td>{data.workHours}</td>
               </tr>
               <tr>
-                <td>우대사항</td>
+                <td>{t("preferred")}</td>
                 <td>{data.preferredQualifications}</td>
               </tr>
             </tbody>
@@ -89,7 +91,7 @@ export default function Page() {
           email="ajaa@naver.com"
         />
         <button className="flex-1 h-12 rounded-lg bg-wikoBlue text-white font-medium">
-          지원하기
+          {t("apply")}
         </button>
       </div>
     </div>

@@ -85,21 +85,17 @@ export default function PayFilterDrawer({
             </div>
 
             <div className="flex flex-wrap gap-3 justify-center">
-              {[
-                "2,500만원 이상",
-                "3,000만원 이상",
-                "3,500만원 이상",
-                "4,000만원 이상",
-                "4,500만원 이상",
-              ].map((pay) => (
-                <PayRangeButton
-                  key={pay}
-                  minPay={pay}
-                  setRange={setRange}
-                  selected={selectedPay === pay} // 현재 선택된 버튼 여부
-                  onClick={() => handlePayRangeClick(pay)} // 클릭 이벤트 전달
-                />
-              ))}
+              {["2,500₩ ↑", "3,000₩ ↑", "3,500₩ ↑", "4,000₩ ↑", "4,500₩ ↑"].map(
+                (pay) => (
+                  <PayRangeButton
+                    key={pay}
+                    minPay={pay}
+                    setRange={setRange}
+                    selected={selectedPay === pay} // 현재 선택된 버튼 여부
+                    onClick={() => handlePayRangeClick(pay)} // 클릭 이벤트 전달
+                  />
+                )
+              )}
             </div>
           </div>
           <DrawerFooter className="flex-row px-8 gap-5 mb-8 mt-14 pt-7 pb-0 border-t-[1px] border-[#F0F1F5]">
