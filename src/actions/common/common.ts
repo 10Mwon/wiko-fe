@@ -9,7 +9,7 @@ type HttpMethod = "GET" | "POST" | "PUT" | "DELETE";
 export async function requestWithAuth<T>(
   apiUrl: string,
   method: HttpMethod = "GET",
-  body?: any,
+  body?: unknown,
   requestCache?: RequestCache,
   tag?: string
 ): Promise<T> {
@@ -40,7 +40,7 @@ export async function requestWithAuth<T>(
 export async function requestWithoutAuth<T>(
   apiUrl: string,
   method: HttpMethod = "GET",
-  body?: any,
+  body?: unknown,
   requestCache?: RequestCache,
   tag?: string
 ): Promise<T> {

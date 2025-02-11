@@ -1,7 +1,6 @@
 "use client";
-
 import { useRouter } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 export function LinkToChat() {
   const [isDragging, setIsDragging] = useState(false);
@@ -14,17 +13,20 @@ export function LinkToChat() {
     setIsDragging(true);
   };
 
-  const handleMove = (clientX: number) => {
-    if (isDragging && containerRef.current && dragRef.current) {
-      const containerRect = containerRef.current.getBoundingClientRect();
-      const dragRect = dragRef.current.getBoundingClientRect();
-      const newPosition = clientX - containerRect.left - dragRect.width / 2;
-      const maxPosition = containerRect.width - dragRect.width;
-      setPosition(Math.max(0, Math.min(newPosition, maxPosition)));
-    }
-  };
+  const handleMove = useCallback(
+    (clientX: number) => {
+      if (isDragging && containerRef.current && dragRef.current) {
+        const containerRect = containerRef.current.getBoundingClientRect();
+        const dragRect = dragRef.current.getBoundingClientRect();
+        const newPosition = clientX - containerRect.left - dragRect.width / 2;
+        const maxPosition = containerRect.width - dragRect.width;
+        setPosition(Math.max(0, Math.min(newPosition, maxPosition)));
+      }
+    },
+    [isDragging]
+  ); // ✅ useCallback으로 최적화
 
-  const handleEnd = () => {
+  const handleEnd = useCallback(() => {
     setIsDragging(false);
     if (
       containerRef.current &&
@@ -33,7 +35,7 @@ export function LinkToChat() {
       handleClick();
     }
     setPosition(0);
-  };
+  }, [position]); // ✅ useCallback 사용
 
   const handleClick = () => {
     router.push("/chat");
@@ -58,7 +60,7 @@ export function LinkToChat() {
     }
 
     return cleanup;
-  }, [isDragging, handleEnd]); // Added handleEnd to dependencies
+  }, [isDragging, handleMove, handleEnd]); // ✅ handleMove과 handleEnd 추가
 
   return (
     <div
