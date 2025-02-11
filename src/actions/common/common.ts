@@ -1,8 +1,10 @@
 "use server";
 
-import { options } from "@/app/api/auth/[...nextauth]";
+import { options } from "@/app/api/auth/[...nextauth]/options";
 import { Session } from "next-auth";
 import { getServerSession } from "next-auth/next";
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+require("dotenv").config();
 
 type HttpMethod = "GET" | "POST" | "PUT" | "DELETE";
 
@@ -14,14 +16,14 @@ export async function requestWithAuth<T>(
   tag?: string
 ): Promise<T> {
   const session: Session | null = await getServerSession(options);
-  const token: string = session ? session.user.accessToken : "";
+  console.log("세션정보:", session);
+  const token: string = session ? session.user.jwtToken : "";
   const cache = requestCache || "no-cache";
   const fetchOptions: RequestInit = {
     method,
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
-      uuid: session?.user.uuid || "",
     },
     cache,
   };
@@ -31,7 +33,7 @@ export async function requestWithAuth<T>(
   if (tag) {
     fetchOptions.next = { tags: [tag] };
   }
-  const res = await fetch(`${process.env.BACKEND_URL}/${apiUrl}`, fetchOptions);
+  const res = await fetch(`${process.env.BACKEND_URL}${apiUrl}`, fetchOptions);
 
   const data = (await res.json()) as T;
   return data;
@@ -59,8 +61,14 @@ export async function requestWithoutAuth<T>(
   if (tag) {
     fetchOptions.next = { tags: [tag] };
   }
-  const res = await fetch(`${process.env.BACKEND_URL}/${apiUrl}`, fetchOptions);
+  const res = await fetch(`${process.env.BACKEND_URL}${apiUrl}`, fetchOptions);
+  // 만약 res가 json이 아니면 console로 res값 출력
+  if (res.headers.get("content-type") !== "application/json") {
+    console.log(res);
+    return res as T;
+  } else {
+    const data = (await res.json()) as T;
 
-  const data = (await res.json()) as T;
-  return data;
+    return data;
+  }
 }

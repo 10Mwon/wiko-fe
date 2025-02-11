@@ -11,10 +11,10 @@ export default function UnderMonthSection() {
   const { resumeData, setCareerDetail } = useResumeStore();
   const [isPickerOpen, setIsPickerOpen] = useState<boolean>(false);
   const pickerRef = useClickOutside(() => setIsPickerOpen(false));
-
+  const [number, setNumber] = useState<number>(0);
   const handleMonthChange = (newMonth: Date) => {
     const formattedDate = format(newMonth, "yyyy-MM");
-    setCareerDetail("joinedAtMonth", formattedDate);
+    setCareerDetail("joinedAt", formattedDate);
     setIsPickerOpen(false);
   };
   const t = useTranslations("createResume");
@@ -33,8 +33,8 @@ export default function UnderMonthSection() {
         <input
           type="text"
           placeholder={t("day")}
-          value={resumeData.careerDetail?.joinedAtMonth || ""}
-          onChange={(e) => setCareerDetail("joinedAtMonth", e.target.value)}
+          value={number}
+          onChange={(e) => setNumber(+e.target.value)}
           className="p-1 w-12 border-wikoGray border-[1px] rounded-xl text-center"
         />
 

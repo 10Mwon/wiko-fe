@@ -21,7 +21,6 @@ export const useResumeStore = create<ResumeState>((set) => ({
       company: "",
       joinedAt: "",
       leavedAt: "",
-      joinedAtMonth: "",
       isWorking: false,
       position: "",
     },
