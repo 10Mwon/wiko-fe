@@ -12,8 +12,8 @@ export async function postChatting(
     );
     return data;
   } catch (error) {
-    console.error("채팅방 목록 조회 중 오류 발생:", error);
-    throw new Error(`채팅방 목록 조회 실패: ${error}`);
+    console.error("챗봇 응답 에러", error);
+    throw new Error(`챗봇 응답 에러 ${error}`);
   }
 }
 

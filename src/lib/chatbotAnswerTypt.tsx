@@ -51,10 +51,7 @@ export const returnComponent = ({
       // component: <InfoAndLink data={question} />,
     };
   else {
-    console.log(returnMessageByInput(messageText), "------------------------");
-    console.log(messageText);
     const aboutWorkingVisa = messageText.includes("근로 비자 정보");
-    console.log(aboutWorkingVisa);
     return {
       sender: "bot",
       text: returnMessageByInput(messageText),
