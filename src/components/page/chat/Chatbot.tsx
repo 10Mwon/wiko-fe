@@ -1,26 +1,15 @@
 "use client";
-import { centerDataType, postChatting } from "@/actions/chatbot/chat";
+
 import { returnComponent } from "@/lib/chatbotAnswerTypt";
 import { useEffect, useRef, useState } from "react";
 
+import { postChatting } from "@/actions/chatbot/chat";
+import { centerDataType, Message } from "@/types/chatbotType";
 import WikoChatBot from "../../../../public/assets/icons/WikoChatBot";
 import CategorySelector from "./CategorySelector";
 import ChatInput from "./ChatInput";
 import UserBubble from "./UserBubble";
 import WikoBubble from "./WikoBubble";
-
-// Updated Message interface
-export interface Message {
-  sender: "user" | "bot";
-  text: string;
-  component?: React.ReactNode;
-}
-
-// Define response types more explicitly
-export interface ChatbotResponse {
-  answer: string;
-  sub_questions: string[] | centerDataType | null;
-}
 
 export default function Chatbot() {
   const [messages, setMessages] = useState<Message[]>([]);
