@@ -1,8 +1,9 @@
 export interface resumePostType {
-  resumeImgUrl: string;
+  resumeImage: string;
   education: string;
   languageSkill: string;
   careerType: string;
+  joinedAtMonth: string;
   careerDetail: CareerDetailType;
   strength: string[];
   jobSkill: string[];

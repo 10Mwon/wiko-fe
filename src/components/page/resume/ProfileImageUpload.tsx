@@ -1,8 +1,9 @@
 "use client";
+import { useResumeStore } from "@/store/zustand/resumeStore";
 import { Camera } from "lucide-react";
+import { useS3Upload } from "next-s3-upload";
 import Image from "next/image";
 import { useRef } from "react";
-
 export default function ProfileImageUpload({
   image,
   setImage,
@@ -10,14 +11,19 @@ export default function ProfileImageUpload({
   image: string | null;
   setImage: React.Dispatch<React.SetStateAction<string | null>>;
 }) {
+  const { uploadToS3 } = useS3Upload();
   const fileInputRef = useRef<HTMLInputElement>(null);
-
-  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const { setResumeImage, resumeData } = useResumeStore();
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
-    if (file) {
-      const imageUrl = URL.createObjectURL(file);
-      setImage(imageUrl);
+    if (!file) {
+      return;
     }
+    const data = await uploadToS3(file);
+    console.log(data.url);
+    setResumeImage(data.url);
+    const imageUrl = URL.createObjectURL(file);
+    setImage(imageUrl);
   };
 
   return (
