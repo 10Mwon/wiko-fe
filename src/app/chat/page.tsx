@@ -10,12 +10,7 @@ import Chatbot from "@/components/page/chat/Chatbot";
 export default async function page() {
   return (
     <>
-      <section className="mt-9">
-        <h1 className="text-center font-semibold font-lexend mb-6">
-          Liu Hongfei님
-          <br />
-          반가워요,Wiko봇이에요!
-        </h1>
+      <section className="mt-[80px] z-20">
         <Chatbot />
       </section>
     </>

@@ -77,7 +77,7 @@ export default function Chatbot() {
 
   return (
     <div className="h-full flex flex-col justify-between">
-      <div className="flex-grow overflow-y-auto p-4">
+      <div className="flex-grow overflow-y-auto">
         <div className="flex gap-2">
           <WikoChatBot className="shrink-0" />
           <div className="mt-6">
