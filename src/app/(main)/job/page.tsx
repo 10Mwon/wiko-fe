@@ -4,7 +4,7 @@ import CustomPagination from "@/components/ui/custom/CustomPagination";
 import JobFilter from "@/components/ui/custom/JobFilter";
 import LocationFilterDrawer from "@/components/ui/custom/LocationFilterDrawer";
 import PayFilterDrawer from "@/components/ui/custom/PayFilterDrawer";
-import SearchInput from "@/components/ui/Input/SearchInput";
+import SearchInput from "@/components/ui/custom/SearchInput";
 
 type SearchParams = Promise<{
   industry: string;

@@ -25,7 +25,7 @@ const CustomPagination: React.FC<PaginationProps> = ({
     const pageNumbers = [];
     const maxPageToShow = 3;
     let startPage = Math.max(1, currentPage - Math.floor(maxPageToShow / 2));
-    let endPage = Math.min(totalPages, startPage + maxPageToShow - 1);
+    const endPage = Math.min(totalPages, startPage + maxPageToShow - 1);
 
     if (endPage - startPage < maxPageToShow - 1) {
       startPage = Math.max(1, endPage - maxPageToShow + 1);

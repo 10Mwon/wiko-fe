@@ -5,12 +5,8 @@ import RecruitDetailHeader from "@/components/page/job/RecruitDetailHeader";
 import ApplyButton from "@/components/ui/button/ApplyButton";
 import ContactDrawer from "@/components/ui/custom/ContactDrawer";
 
-export default async function Page({ params }: { params: { id: string } }) {
-  if (!params?.id) {
-    return <div>잘못된 접근입니다.</div>;
-  }
-
-  const data = await getRecruitDetail(params.id);
+export default async function Page() {
+  const data = await getRecruitDetail("1");
   return (
     <div className="max-w-md mx-auto min-h-screen">
       {/* Header */}

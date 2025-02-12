@@ -43,6 +43,6 @@ export interface JobQueryParams {
   endAddress?: string; // 종료 주소 (선택적)
   minSalary?: number; // 최소 급여 (선택적)
   maxSalary?: number; // 최대 급여 (선택적)
-  page?: number; // 페이지 번호 (기본값 0)
-  size?: number; // 페이지 크기 (기본값 10)
+  page: string; // 페이지 번호 (기본값 0)
+  size?: string; // 페이지 크기 (기본값 10)
 }
