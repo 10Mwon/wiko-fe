@@ -7,7 +7,7 @@ interface LayoutProps {
 
 function layout({ children }: LayoutProps) {
   return (
-    <main className="min-h-screen   bg-[#f0f0f0]">
+    <main className="min-h-screen   bg-white">
       {children}
       <AppBar />
     </main>

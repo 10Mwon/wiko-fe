@@ -2,6 +2,7 @@ import { signUp } from "@/actions/auth/signUp";
 import CustomInput from "@/components/ui/input/CustomInput";
 import { SignUpFormValues } from "@/types/FormValues";
 import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Controller, useForm } from "react-hook-form";
@@ -21,12 +22,18 @@ export default function SignUpForm2({
   } = useForm<SignUpFormValues>({
     defaultValues: formData,
   });
-
-  const onValid = (data: SignUpFormValues) => {
+  const router = useRouter();
+  const onValid = async (data: SignUpFormValues) => {
     const updatedData = { ...formData, ...data };
     setFormData(updatedData);
     console.log("최종 데이터:", data);
-    signUp(data);
+    const result = await signUp(data);
+    if (result) {
+      alert("회원가입 성공");
+      router.push("/signin");
+    } else {
+      alert("회원가입 실패");
+    }
   };
   const t = useTranslations("input");
   const v = useTranslations("validation");

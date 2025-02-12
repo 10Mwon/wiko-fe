@@ -45,7 +45,7 @@ export default function PayFilterDrawer({
 
   const handlePayRangeClick = (minPay: string) => {
     const numPay = Number(minPay.replace(/\D/g, "")); // 숫자만 추출
-    setRange([numPay, range[1]]);
+    setRange([numPay * 10000, range[1]]);
     setSelectedPay(minPay); // 선택된 버튼 업데이트
   };
   const b = useTranslations("button");
@@ -85,17 +85,21 @@ export default function PayFilterDrawer({
             </div>
 
             <div className="flex flex-wrap gap-3 justify-center">
-              {["2,500₩ ↑", "3,000₩ ↑", "3,500₩ ↑", "4,000₩ ↑", "4,500₩ ↑"].map(
-                (pay) => (
-                  <PayRangeButton
-                    key={pay}
-                    minPay={pay}
-                    setRange={setRange}
-                    selected={selectedPay === pay} // 현재 선택된 버튼 여부
-                    onClick={() => handlePayRangeClick(pay)} // 클릭 이벤트 전달
-                  />
-                )
-              )}
+              {[
+                "2,500M₩ ↑",
+                "3,000M₩ ↑",
+                "3,500M₩ ↑",
+                "4,000M₩ ↑",
+                "4,500M₩ ↑",
+              ].map((pay) => (
+                <PayRangeButton
+                  key={pay}
+                  minPay={pay}
+                  setRange={setRange}
+                  selected={selectedPay === pay} // 현재 선택된 버튼 여부
+                  onClick={() => handlePayRangeClick(pay)} // 클릭 이벤트 전달
+                />
+              ))}
             </div>
           </div>
           <DrawerFooter className="flex-row px-8 gap-5 mb-8 mt-14 pt-7 pb-0 border-t-[1px] border-[#F0F1F5]">
@@ -104,13 +108,15 @@ export default function PayFilterDrawer({
                 setRange([Number(start), Number(end)]); // 기본 값으로 초기화
                 setSelectedPay(null); // 선택된 버튼 초기화
               }}
-              className="font-semibold bg-[#F0F1F5]  px-6 py-3 rounded-xl flex-1 ">
+              className="font-semibold bg-[#F0F1F5]  px-6 py-3 rounded-xl flex-1 "
+            >
               {b("reset")}
             </button>
             <DrawerClose asChild>
               <button
                 onClick={handleSearch}
-                className="bg-wikoGreen px-6 py-3 rounded-xl font-semibold flex-1 ">
+                className="bg-wikoGreen px-6 py-3 rounded-xl font-semibold flex-1 "
+              >
                 {b("apply")}
               </button>
             </DrawerClose>

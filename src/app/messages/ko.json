@@ -3,7 +3,7 @@
   "home": {
     "chat": "chat",
     "greeting": "새로운 도전을 응원해요!",
-    "jobInfo": "일자리 정보",
+    "jobInfo": "일자리\n정보",
     "createResume": "이력서\n작성",
     "todayRecruit": "Today 공고"
   },
@@ -70,7 +70,7 @@
   "pay": {
     "pay": "급여",
     "setPayRange": "급여 범위 설정",
-    "won": "원원"
+    "won": "원"
   },
   "button": {
     "reset": "초기화",

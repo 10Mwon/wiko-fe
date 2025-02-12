@@ -3,6 +3,7 @@ import { create } from "zustand";
 
 interface ResumeState {
   resumeData: Partial<resumePostType>;
+  setResumeImage: (resumeImage: resumePostType["resumeImage"]) => void;
   setEducation: (education: resumePostType["education"]) => void;
   setLanguageSkill: (languageSkill: resumePostType["languageSkill"]) => void;
   setCareerType: (careerType: resumePostType["careerType"]) => void;
@@ -24,6 +25,7 @@ export const useResumeStore = create<ResumeState>((set) => ({
       isWorking: false,
       position: "",
     },
+    resumeImage: "",
   },
   setEducation: (education) =>
     set((state) => ({ resumeData: { ...state.resumeData, education } })),
@@ -47,4 +49,6 @@ export const useResumeStore = create<ResumeState>((set) => ({
     set((state) => ({ resumeData: { ...state.resumeData, jobSkill } })),
   setIntroduction: (introduction) =>
     set((state) => ({ resumeData: { ...state.resumeData, introduction } })),
+  setResumeImage: (resumeImage) =>
+    set((state) => ({ resumeData: { ...state.resumeData, resumeImage } })),
 }));

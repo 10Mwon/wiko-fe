@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 export function middleware(req: NextRequest) {
-  const locale = req.cookies.get("NEXT_LOCALE")?.value || "ko"; // 기본값: 한국어
+  const locale = req.cookies.get("NEXT_LOCALE")?.value || "en"; // 기본값: 한국어
 
   const response = NextResponse.next();
   response.cookies.set("NEXT_LOCALE", locale, { path: "/", maxAge: 31536000 }); // 1년 유지

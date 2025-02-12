@@ -1,10 +1,6 @@
+import { ChatInputProps } from "@/types/chatbotType";
 import PaperPlane from "../../../../public/assets/icons/PaperPlane";
-interface ChatInputProps {
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void;
-  onClick: () => void;
-}
+
 export default function ChatInput({
   value,
   onChange,

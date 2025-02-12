@@ -12,7 +12,6 @@ export default function SubQuestions({
     element.classList.add("bg-wikoYellow", "border-[#E3F3A3]", "font-semibold");
     sendMessage(item);
   };
-  console.log("className???", className);
   return (
     <div className={`${className}`}>
       <ul className={`flex flex-wrap gap-1 justify-center text-xs mt-2`}>
