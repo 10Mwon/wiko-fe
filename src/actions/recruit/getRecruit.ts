@@ -4,29 +4,29 @@ import { JobQueryParams, JobResponse } from "@/types/RecruitDataType";
 import { requestWithoutAuth } from "../common/common";
 
 //검색조회
-export async function getSearchedRecruitList({
-  keyword,
-  page,
-}: {
-  keyword: string;
-  page: string;
-}): Promise<JobResponse> {
-  try {
-    const endpoint = `recruit/search?keyword=${keyword}&page=${page}}`;
+// export async function getSearchedRecruitList({
+//   keyword,
+//   page,
+// }: {
+//   keyword: string;
+//   page: string;
+// }): Promise<JobResponse> {
+//   try {
+//     const endpoint = `recruit/search?keyword=${keyword}&page=${page}}`;
 
-    const data = await requestWithoutAuth<JobResponse>(
-      endpoint,
-      "GET",
-      undefined,
-      "no-cache"
-    );
-
-    return data;
-  } catch (error) {
-    console.error("채용공고 검색 중 오류 발생:", error);
-    throw new Error(`채용공고 검색 실패: ${error}`);
-  }
-}
+//     const data = await requestWithoutAuth<JobResponse>(
+//       endpoint,
+//       "GET",
+//       undefined,
+//       "no-cache"
+//     );
+//     const res = data as commonResType<JobResponse>;
+//     return res.result;
+//   } catch (error) {
+//     console.error("채용공고 검색 중 오류 발생:", error);
+//     throw new Error(`채용공고 검색 실패: ${error}`);
+//   }
+// }
 
 export async function getFilteredRecruitList({
   industryTypeList = [],
@@ -46,7 +46,6 @@ export async function getFilteredRecruitList({
     newSearchParams.set("page", page.toString());
     // const queryString = createQueryString(question);
     const endpoint = `recruit/search?${newSearchParams}`;
-    console.log(endpoint);
 
     // const data = await requestWithoutAuth<JobResponse>(
     //   endpoint,
@@ -72,15 +71,16 @@ export async function getRecruitList(page: string): Promise<JobResponse> {
       undefined,
       "no-cache"
     );
-    console.log(data.result);
-    return data.result;
+    const res = data as commonResType<JobResponse>;
+    // console.log(res.result);
+    return res.result;
   } catch (error) {
     console.error("채용공고 리스트 오류:", error);
     throw new Error(`채용공고 리스트 오류: ${error}`);
   }
 }
 
-//공고 상세 페이지
+//공고 상세
 export async function getRecruitDetail(
   recruitId: string
 ): Promise<jobDetailType> {
@@ -93,8 +93,8 @@ export async function getRecruitDetail(
       undefined,
       "no-cache"
     );
-    // console.log(data.result);
-    return data.result;
+    const res = data as commonResType<jobDetailType>;
+    return res.result;
   } catch (error) {
     console.error("채용공고 상세페이지 오류:", error);
     throw new Error(`채용공고 상세페이지 오류: ${error}`);
