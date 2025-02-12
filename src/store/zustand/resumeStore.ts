@@ -2,7 +2,9 @@ import { CareerDetailType, resumePostType } from "@/types/RequestType";
 import { create } from "zustand";
 
 interface ResumeState {
-  resumeData: Partial<resumePostType>;
+  resumeData: Partial<resumePostType> & {
+    resumeImage?: string | null;
+  };
   setEducation: (education: resumePostType["education"]) => void;
   setLanguageSkill: (languageSkill: resumePostType["languageSkill"]) => void;
   setCareerType: (careerType: resumePostType["careerType"]) => void;
@@ -13,6 +15,7 @@ interface ResumeState {
   setStrength: (strength: resumePostType["strength"]) => void;
   setJobSkill: (jobSkill: resumePostType["jobSkill"]) => void;
   setIntroduction: (introduction: resumePostType["introduction"]) => void;
+  setResumeImage: (resumeImage: string | null) => void;
 }
 
 export const useResumeStore = create<ResumeState>((set) => ({
@@ -24,6 +27,7 @@ export const useResumeStore = create<ResumeState>((set) => ({
       isWorking: false,
       position: "",
     },
+    resumeImage: null, // ✅ 추가된 필드
   },
   setEducation: (education) =>
     set((state) => ({ resumeData: { ...state.resumeData, education } })),
@@ -47,4 +51,6 @@ export const useResumeStore = create<ResumeState>((set) => ({
     set((state) => ({ resumeData: { ...state.resumeData, jobSkill } })),
   setIntroduction: (introduction) =>
     set((state) => ({ resumeData: { ...state.resumeData, introduction } })),
+  setResumeImage: (resumeImage) =>
+    set((state) => ({ resumeData: { ...state.resumeData, resumeImage } })), // ✅ 추가된 setter
 }));

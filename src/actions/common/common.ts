@@ -33,6 +33,8 @@ export async function requestWithAuth<T>(
   if (tag) {
     fetchOptions.next = { tags: [tag] };
   }
+  console.log("요청 헤더:", fetchOptions.headers);
+
   const res = await fetch(`${process.env.BACKEND_URL}${apiUrl}`, fetchOptions);
 
   const data = (await res.json()) as T;

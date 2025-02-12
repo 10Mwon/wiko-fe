@@ -2,13 +2,14 @@ import { commonResponse, resumePostType } from "@/types/RequestType";
 import { requestWithAuth } from "../common/common";
 
 export async function postResume(resumeData: resumePostType): Promise<unknown> {
+  console.log("들어갈 데이터", resumeData);
   try {
     const data = await requestWithAuth<commonResponse<unknown>>(
-      "api/v1/resume",
+      "resume",
       "POST",
       resumeData
     );
-    console.log(resumeData);
+    console.log(data);
     return data;
   } catch (error) {
     console.log("에러발생", error);

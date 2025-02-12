@@ -18,14 +18,17 @@ export default function ResumeStep2() {
   const handleSubmit = () => {
     const completeResumeData = {
       ...resumeData,
-      resumeImgUrl: resumeData.resumeImgUrl || "",
-      education: resumeData.education || "",
-      languageSkill: resumeData.languageSkill || "",
-      careerType: resumeData.careerType || "",
+      resumeImage:
+        resumeData.resumeImage ||
+        "https://rootimpact7.s3.ap-northeast-2.amazonaws.com/profileImg/defaultImage.png",
+      education: resumeData.education || "비공개",
+      languageSkill: resumeData.languageSkill || "초급",
+      careerType: resumeData.careerType || "비공개",
+      joinedAtMonth: resumeData.joinedAtMonth || "1",
       careerDetail: resumeData.careerDetail || {},
       strength: resumeData.strength || [],
       jobSkill: resumeData.jobSkill || [],
-      introduction: resumeData.introduction || "",
+      introduction: resumeData.introduction || "자기소개",
     };
     postResume(completeResumeData);
   };
