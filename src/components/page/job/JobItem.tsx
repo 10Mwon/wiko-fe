@@ -1,13 +1,14 @@
-import { JobItemType } from "@/types/jobFilterDataType";
+import { JobPosting } from "@/types/RecruitDataType";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function JobItem({ props }: { props: JobItemType }) {
+export default function JobItem({ props }: { props: JobPosting }) {
   const formattedPay = Number(props.pay);
   return (
     <Link
       href={`job/detail/${props.id}`}
-      className="bg-white min-h-[134px]  rounded-xl px-3 py-4">
+      className="bg-white min-h-[134px]  rounded-xl px-3 py-4"
+    >
       {props.imgUrl ? (
         <div className="relative mx-auto h-[50px] w-auto aspect-square overflow-hidden rounded-lg">
           <Image src={props.imgUrl} alt="" fill />
@@ -15,7 +16,8 @@ export default function JobItem({ props }: { props: JobItemType }) {
       ) : (
         <div
           className="h-[50px] text-center flex items-center justify-center text-xl font-bold text-[#999999]
-        ">
+        "
+        >
           {props.jobName}
         </div>
       )}

@@ -13,13 +13,14 @@ interface Pageable {
   unpaged: boolean;
 }
 
-interface JobPosting {
+export interface JobPosting {
+  id: string;
   title: string;
-  companyLogo: string;
-  companyName: string;
-  companyAddress: string;
-  salaryType: string; // "월급" 등의 급여 유형
-  salary: number;
+  imgUrl: string;
+  jobName: string;
+  location: string;
+  payType: string; // "월급" 등의 급여 유형
+  pay: number;
 }
 
 export interface JobResponse {

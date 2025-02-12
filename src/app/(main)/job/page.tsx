@@ -1,10 +1,10 @@
+import { getRecruitList } from "@/actions/recruit/getRecruit";
 import JobItem from "@/components/page/job/JobItem";
 import CustomPagination from "@/components/ui/custom/CustomPagination";
 import JobFilter from "@/components/ui/custom/JobFilter";
 import LocationFilterDrawer from "@/components/ui/custom/LocationFilterDrawer";
 import PayFilterDrawer from "@/components/ui/custom/PayFilterDrawer";
 import SearchInput from "@/components/ui/Input/SearchInput";
-import { dummyJobItems } from "@/store/dummy";
 
 type SearchParams = Promise<{
   industry: string;
@@ -23,6 +23,7 @@ export default async function page(props: { searchParams: SearchParams }) {
   const industry = searchParams.industry ?? "";
   const page = searchParams.page ?? "1";
 
+  const recruitList = await getRecruitList("1");
   console.log(searchParams);
   return (
     <>
@@ -33,7 +34,7 @@ export default async function page(props: { searchParams: SearchParams }) {
         <LocationFilterDrawer location={location} />
       </section>
       <section className="mt-9 grid grid-cols-2 gap-5">
-        {dummyJobItems.map((item) => (
+        {recruitList.content.map((item) => (
           <JobItem key={item.id} props={item} />
         ))}
       </section>
