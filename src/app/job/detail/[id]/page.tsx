@@ -4,9 +4,16 @@ import RecruitDetailCard from "@/components/page/job/RecruitDetailCard";
 import RecruitDetailHeader from "@/components/page/job/RecruitDetailHeader";
 import ApplyButton from "@/components/ui/button/ApplyButton";
 import ContactDrawer from "@/components/ui/custom/ContactDrawer";
-
-export default async function Page() {
-  const data = await getRecruitDetail("1");
+interface ProductPageProps {
+  params: { id: string };
+}
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const PageParams = await params;
+  const data = await getRecruitDetail(PageParams.id);
   return (
     <div className="max-w-md mx-auto min-h-screen">
       {/* Header */}
