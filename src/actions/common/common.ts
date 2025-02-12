@@ -72,3 +72,36 @@ export async function requestWithoutAuth<T>(
     return data;
   }
 }
+export async function requestWikoAI<T>(
+  apiUrl: string,
+  method: HttpMethod = "GET",
+  body?: unknown,
+  requestCache?: RequestCache,
+  tag?: string
+): Promise<T> {
+  "use server";
+  const cache = requestCache || "no-cache";
+  const fetchOptions: RequestInit = {
+    method,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    cache,
+  };
+  if (body) {
+    fetchOptions.body = JSON.stringify(body);
+  }
+  if (tag) {
+    fetchOptions.next = { tags: [tag] };
+  }
+  const res = await fetch(`${process.env.WIKO_AI_URL}${apiUrl}`, fetchOptions);
+  // 만약 res가 json이 아니면 console로 res값 출력
+  if (res.headers.get("content-type") !== "application/json") {
+    console.log(res);
+    return res as T;
+  } else {
+    const data = (await res.json()) as T;
+
+    return data;
+  }
+}

@@ -1,10 +1,11 @@
-import { requestWithoutAuth } from "../common/common";
+import { chatbotAnswerType } from "@/types/chatbotType";
+import { requestWikoAI } from "../common/common";
 
 export async function postChatting(
   question: string
 ): Promise<chatbotAnswerType> {
   try {
-    const data = await requestWithoutAuth<chatbotAnswerType>(
+    const data = await requestWikoAI<chatbotAnswerType>(
       `chatbot`,
       "POST",
       { question: question },
@@ -12,17 +13,7 @@ export async function postChatting(
     );
     return data;
   } catch (error) {
-    console.error("채팅방 목록 조회 중 오류 발생:", error);
-    throw new Error(`채팅방 목록 조회 실패: ${error}`);
+    console.error("챗봇 응답 에러", error);
+    throw new Error(`챗봇 응답 에러 ${error}`);
   }
-}
-
-export interface chatbotAnswerType {
-  answer: string;
-  sub_questions: string[] | null | centerDataType;
-}
-export interface centerDataType {
-  center_name: string;
-  address: string;
-  telephone: string;
 }
