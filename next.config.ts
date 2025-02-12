@@ -6,7 +6,7 @@ const withNextIntl = createNextIntlPlugin();
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ["picsum.photos", "cdn.pixabay.com"],
+    domains: ["picsum.photos", "cdn.pixabay.com", "imgs.albamon.kr"],
   },
 };
 

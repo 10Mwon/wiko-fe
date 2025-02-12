@@ -1,4 +1,4 @@
-"use client";
+"use";
 import BackButton from "@/components/ui/button/BackButton";
 import Image from "next/image";
 

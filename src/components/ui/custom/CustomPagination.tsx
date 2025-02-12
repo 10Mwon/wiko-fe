@@ -14,11 +14,13 @@ import React from "react";
 interface PaginationProps {
   currentPage: number; // 현재 페이지
   totalPages: number; // 전체 페이지 수
+  className?: string;
 }
 
 const CustomPagination: React.FC<PaginationProps> = ({
   currentPage,
   totalPages,
+  className = "",
 }) => {
   // Helper function to create a range of pages
   const getPageNumbers = () => {
@@ -47,10 +49,10 @@ const CustomPagination: React.FC<PaginationProps> = ({
   };
 
   return (
-    <Pagination className="w-full mx-auto my-6 text-white">
+    <Pagination className={`w-full mx-auto my-6 text-white ${className}`}>
       <PaginationContent>
         {/* 이전 버튼 */}
-        {currentPage != 1 && (
+        {currentPage != 0 && (
           <PaginationItem>
             <PaginationPrevious onClick={() => handleSearch(currentPage - 2)} />
           </PaginationItem>
@@ -61,13 +63,13 @@ const CustomPagination: React.FC<PaginationProps> = ({
           <PaginationItem key={page}>
             <PaginationLink
               // href={`job?page=${page}`}
-              isActive={page === currentPage}
+              isActive={page === currentPage + 1}
               className={`${
-                page === currentPage
+                page === currentPage + 1
                   ? "bg-[#D9D3F9] text-black font-semibold"
                   : "font-semibold"
               }`}
-              onClick={() => handleSearch(page)}
+              onClick={() => handleSearch(page - 1)}
             >
               {page}
             </PaginationLink>
@@ -82,7 +84,7 @@ const CustomPagination: React.FC<PaginationProps> = ({
         )}
 
         {/* 다음 버튼 */}
-        {currentPage != totalPages && (
+        {currentPage != totalPages - 1 && (
           <PaginationItem>
             <PaginationNext onClick={() => handleSearch(currentPage + 2)} />
           </PaginationItem>

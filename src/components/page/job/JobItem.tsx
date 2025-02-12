@@ -30,9 +30,7 @@ export default function JobItem({ props }: { props: JobPosting }) {
           {props.title}
         </li>
         <li className="text-[#777777] gap-2 text-[10px]">{props.location}</li>
-        <li className="text-[#777777] gap-2 text-[10px]">
-          {formattedPay.toLocaleString()}
-        </li>
+        <li className="text-[#777777] gap-2 text-[10px]">연봉 {props.pay}원</li>
       </ul>
     </Link>
   );

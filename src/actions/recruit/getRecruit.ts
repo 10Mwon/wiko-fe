@@ -3,23 +3,6 @@ import { jobDetailType } from "@/types/jobDetailType";
 import { JobQueryParams, JobResponse } from "@/types/RecruitDataType";
 import { requestWithoutAuth } from "../common/common";
 
-// const createQueryString = <T extends Record<string, any>>(params: T) => {
-//   const searchParams = new URLSearchParams();
-
-//   Object.entries(params).forEach(([key, value]) => {
-//     if (value === undefined) return;
-
-//     if (Array.isArray(value)) {
-//       value.forEach((item) => searchParams.append(key, item));
-//     } else {
-//       searchParams.append(key, value.toString());
-//     }
-//   });
-
-//   return searchParams.toString();
-// };
-const ReturnSearchParams = (queries: string[]) => {};
-
 //검색조회
 export async function getSearchedRecruitList({
   keyword,
@@ -52,9 +35,9 @@ export async function getFilteredRecruitList({
   minSalary = 0,
   maxSalary = 50000000,
   page,
-}: JobQueryParams): Promise<JobResponse> {
+}: JobQueryParams) {
   try {
-    const newSearchParams = new URLSearchParams("/recruit/search");
+    const newSearchParams = new URLSearchParams("");
     newSearchParams.set("industryTypeList", industryTypeList.join(","));
     newSearchParams.set("startAddress", startAddress);
     newSearchParams.set("endAddress", endAddress);
@@ -63,15 +46,16 @@ export async function getFilteredRecruitList({
     newSearchParams.set("page", page.toString());
     // const queryString = createQueryString(question);
     const endpoint = `recruit/search?${newSearchParams}`;
+    console.log(endpoint);
 
-    const data = await requestWithoutAuth<JobResponse>(
-      endpoint,
-      "GET",
-      undefined,
-      "no-cache"
-    );
+    // const data = await requestWithoutAuth<JobResponse>(
+    //   endpoint,
+    //   "GET",
+    //   undefined,
+    //   "no-cache"
+    // );
 
-    return data;
+    // return data;
   } catch (error) {
     console.error("채용공고 검색 중 오류 발생:", error);
     throw new Error(`채용공고 검색 실패: ${error}`);
@@ -81,9 +65,7 @@ export async function getFilteredRecruitList({
 //일반조회
 export async function getRecruitList(page: string): Promise<JobResponse> {
   try {
-    const queryString = "";
-    const endpoint = `recruit/search${queryString ? `?${queryString}` : ""}`;
-
+    const endpoint = `recruit/list?page=${page}`;
     const data = await requestWithoutAuth<commonResType<JobResponse>>(
       endpoint,
       "GET",
@@ -98,6 +80,7 @@ export async function getRecruitList(page: string): Promise<JobResponse> {
   }
 }
 
+//공고 상세 페이지
 export async function getRecruitDetail(
   recruitId: string
 ): Promise<jobDetailType> {
