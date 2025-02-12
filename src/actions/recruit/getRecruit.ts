@@ -3,30 +3,30 @@ import { jobDetailType } from "@/types/jobDetailType";
 import { JobQueryParams, JobResponse } from "@/types/RecruitDataType";
 import { requestWithoutAuth } from "../common/common";
 
-//검색조회
-// export async function getSearchedRecruitList({
-//   keyword,
-//   page,
-// }: {
-//   keyword: string;
-//   page: string;
-// }): Promise<JobResponse> {
-//   try {
-//     const endpoint = `recruit/search?keyword=${keyword}&page=${page}}`;
+// 검색조회;
+export async function getSearchedRecruitList({
+  keyword,
+  page,
+}: {
+  keyword: string;
+  page: string;
+}): Promise<JobResponse> {
+  try {
+    const endpoint = `recruit/search?keyword=${keyword}&page=${page}}`;
 
-//     const data = await requestWithoutAuth<JobResponse>(
-//       endpoint,
-//       "GET",
-//       undefined,
-//       "no-cache"
-//     );
-//     const res = data as commonResType<JobResponse>;
-//     return res.result;
-//   } catch (error) {
-//     console.error("채용공고 검색 중 오류 발생:", error);
-//     throw new Error(`채용공고 검색 실패: ${error}`);
-//   }
-// }
+    const data = await requestWithoutAuth<commonResType<JobResponse>>(
+      endpoint,
+      "GET",
+      undefined,
+      "no-cache"
+    );
+    const res = data as commonResType<JobResponse>;
+    return res.result;
+  } catch (error) {
+    console.error("채용공고 검색 중 오류 발생:", error);
+    throw new Error(`채용공고 검색 실패: ${error}`);
+  }
+}
 
 export async function getFilteredRecruitList({
   industryTypeList = [],
