@@ -1,5 +1,6 @@
 import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import GoogleProvider from "next-auth/providers/google";
 
 export const options: NextAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
@@ -49,11 +50,22 @@ export const options: NextAuthOptions = {
         }
       },
     }),
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID || "",
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
+    }),
   ],
   callbacks: {
+    async signIn({ profile, user, account }) {
+      if (account?.provider === "google") {
+        console.log(account);
+      }
+      // 여기서 백엔드에 provider 값이랑 proivderID 값으로 로그인 요청을 보내서
+      // jwtToken을 받아오기 구현 필요
+      return true; // or return a string if needed
+    },
     async jwt({ token, user }) {
       if (user) {
-        // ✅ user가 있으면 jwtToken을 토큰에 저장
         token.jwtToken = user.jwtToken;
       }
       return token;
