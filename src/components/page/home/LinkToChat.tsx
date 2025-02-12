@@ -70,7 +70,7 @@ export function LinkToChat() {
       <div
         ref={dragRef}
         className={`absolute top-0 left-0 h-full px-8 bg-[#ADE6BB] rounded-full 
-          flex items-center justify-center select-none
+          flex flex-col items-center justify-center select-none
           ${
             isDragging
               ? "transition-none"
@@ -80,7 +80,10 @@ export function LinkToChat() {
         onMouseDown={(e) => handleStart(e.clientX)}
         onTouchStart={(e) => handleStart(e.touches[0].clientX)}
       >
-        <span className="text-gray-600 text-xl font-semibold whitespace-nowrap">
+        <span className="font-extrabold text-sm font-lexend text-wikoBlue">
+          Wikobot
+        </span>
+        <span className="text-[#8A8894] text-xl font-semibold  font-lexend leading-none">
           chat
         </span>
       </div>

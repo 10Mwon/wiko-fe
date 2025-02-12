@@ -5,7 +5,7 @@
 // import UserBubble from "@/components/page/chat/UserBubble";
 // import WikoBubble from "@/components/page/chat/WikoBubble";
 
-import Chatbot from "@/components/page/chat/Example";
+import Chatbot from "@/components/page/chat/Chatbot";
 
 export default async function page() {
   return (
