@@ -36,9 +36,7 @@ export default function LocationFilterDrawer({
   const b = useTranslations("button");
   return (
     <Drawer>
-      <DrawerTrigger className="bg-white py-1.5 px-7 text-[#4C4C4C] font-semibold rounded-3xl shadow-xl">
-        {l("location")}
-      </DrawerTrigger>
+      <DrawerTrigger className="drawer_button">{l("location")}</DrawerTrigger>
       <DrawerContent>
         <DrawerHeader className="">
           <DrawerTitle>{l("wishLocation")} </DrawerTitle>

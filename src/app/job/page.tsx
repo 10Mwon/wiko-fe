@@ -41,10 +41,10 @@ export default async function Page(props: { searchParams: SearchParams }) {
   });
 
   return (
-    <main className=" bg-wikoBlue px-6 pb-20 relative">
+    <main className=" bg-white px-6 pb-20 relative">
       <div className="min-h-[calc(100vh-160px)] pt-8 ">
         <SearchInput query={query} />
-        <section className="mt-14 flex justify-between">
+        <section className="mt-8 flex justify-between">
           <JobFilter industry={industry} />
           <PayFilterDrawer start={minPay} end={maxPay} />
           <LocationFilterDrawer location={location} />

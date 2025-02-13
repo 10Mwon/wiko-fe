@@ -19,7 +19,7 @@ export default function SearchInput({ query = "" }: { query?: string }) {
   return (
     <div className="relative">
       <input
-        className="bg-white w-full h-[44px] rounded-xl px-4"
+        className="bg-[#F0F1F5] w-full h-[44px] rounded-xl px-4 outline-none"
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)} // 입력값을 상태에 저장
         placeholder={t("searchBarPlaceHolder")}

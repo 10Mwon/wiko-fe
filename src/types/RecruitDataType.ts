@@ -21,6 +21,7 @@ export interface JobPosting {
   location: string;
   payType: string; // "월급" 등의 급여 유형
   pay: string;
+  company: string;
 }
 
 export interface JobResponse {

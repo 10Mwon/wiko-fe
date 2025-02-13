@@ -13,4 +13,5 @@ export interface jobDetailType {
   owner: string;
   phone: string;
   email: string;
+  payType: string;
 }
