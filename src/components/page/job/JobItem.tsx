@@ -9,8 +9,8 @@ export default function JobItem({ props }: { props: JobPosting }) {
       className="bg-white min-h-[134px]  rounded-xl px-3 py-4 shadow-[2px_2px_10px_rgba(0,0,0,0.15)]"
     >
       {props.imgUrl ? (
-        <div className="relative mx-auto h-[70px] w-auto aspect-square overflow-hidden rounded-lg mb-3">
-          <Image src={props.imgUrl} alt="" fill />
+        <div className="relative mx-auto h-[70px] w-auto overflow-hidden rounded-lg mb-3">
+          <Image src={props.imgUrl} alt="" fill objectFit="contain" />
         </div>
       ) : (
         <div

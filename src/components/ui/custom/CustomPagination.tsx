@@ -50,11 +50,15 @@ const CustomPagination: React.FC<PaginationProps> = ({
 
   return (
     <Pagination className={`w-full mx-auto my-6 text-white ${className}`}>
-      <PaginationContent>
+      <PaginationContent className="text-black">
         {/* 이전 버튼 */}
         {currentPage != 0 && (
-          <PaginationItem>
-            <PaginationPrevious onClick={() => handleSearch(currentPage - 2)} />
+          <PaginationItem className="text-black">
+            <PaginationPrevious
+              onClick={() =>
+                handleSearch(currentPage - 2 >= 0 ? currentPage - 2 : 0)
+              }
+            />
           </PaginationItem>
         )}
 
@@ -78,15 +82,23 @@ const CustomPagination: React.FC<PaginationProps> = ({
 
         {/* 중간 생략(엘리시스) */}
         {currentPage < totalPages - 2 && (
-          <PaginationItem>
+          <PaginationItem className="text-black">
             <PaginationEllipsis />
           </PaginationItem>
         )}
 
         {/* 다음 버튼 */}
         {currentPage != totalPages - 1 && (
-          <PaginationItem>
-            <PaginationNext onClick={() => handleSearch(currentPage + 2)} />
+          <PaginationItem className="text-black">
+            <PaginationNext
+              onClick={() =>
+                handleSearch(
+                  currentPage + 2 >= totalPages
+                    ? totalPages - 1
+                    : currentPage + 2
+                )
+              }
+            />
           </PaginationItem>
         )}
       </PaginationContent>
