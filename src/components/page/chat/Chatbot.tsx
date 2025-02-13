@@ -30,15 +30,17 @@ export default function Chatbot() {
 
     try {
       const response = await postChatting(messageText);
-
+      console.log("채팅 결과값:", response);
       // 응답으로 sub question 받은 경우 message 객체에 컴포넌트
       //sub question 객체 타입이 두가지여서 배열인 경우 아닌경우 분리
       if (response.sub_questions && !Array.isArray(response.sub_questions)) {
         //배열 아닌 경우(응답 제대로 안와서 테스트 못함)
         const centerData = response.sub_questions as centerDataType;
+        const translatedCenterData =
+          response.translated_sub_questions as centerDataType;
         const botMessage: Message = {
           sender: "bot",
-          text: `${centerData.center_name}\n${centerData.address}\n${centerData.telephone}`,
+          text: `${translatedCenterData.center_name}\n${centerData.address}\n${centerData.telephone}`,
         };
         setMessages((prev) => [...prev, botMessage]);
       } else if (Array.isArray(response.sub_questions)) {
@@ -61,7 +63,6 @@ export default function Chatbot() {
         };
         setMessages((prev) => [...prev, botMessage]);
       }
-
       setInput("");
     } catch (error) {
       console.error(error);
@@ -92,8 +93,7 @@ export default function Chatbot() {
             key={index}
             className={`p-2 my-1 ${
               msg.sender === "user" ? "text-right" : "text-left"
-            }`}
-          >
+            }`}>
             {msg.sender === "user" ? (
               <UserBubble text={msg.text} />
             ) : (
