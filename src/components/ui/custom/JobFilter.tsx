@@ -50,11 +50,12 @@ export default function JobFilter({ industry }: { industry: string }) {
               <li
                 key={item.code}
                 className={`py-2 px-5 rounded-full shadow-[2px_2px_3px_#D9D9D9] bg-white ${
-                  selectedIndustries.includes(item.industryName)
+                  selectedIndustries.includes(item.code)
                     ? "bg-wikoGreen font-semibold"
                     : ""
                 }`}
-                onClick={() => toggleIndustrySelection(item.industryName)}>
+                onClick={() => toggleIndustrySelection(item.code)}
+              >
                 {i(item.industryName)}
               </li>
             ))}
@@ -62,13 +63,15 @@ export default function JobFilter({ industry }: { industry: string }) {
           <DrawerFooter className="flex-row px-8 gap-5 mb-8 mt-14 pt-7 pb-0 border-t-[1px] border-[#F0F1F5]">
             <button
               onClick={() => setSelectedIndustries([])}
-              className="font-semibold bg-[#F0F1F5]  px-6 py-3 rounded-xl flex-1 ">
+              className="font-semibold bg-[#F0F1F5]  px-6 py-3 rounded-xl flex-1 "
+            >
               {b("reset")}
             </button>
             <DrawerClose asChild>
               <button
                 onClick={handleSearch}
-                className="bg-wikoGreen px-6 py-3 rounded-xl font-semibold flex-1 ">
+                className="bg-wikoGreen px-6 py-3 rounded-xl font-semibold flex-1 "
+              >
                 {b("apply")}
               </button>
             </DrawerClose>

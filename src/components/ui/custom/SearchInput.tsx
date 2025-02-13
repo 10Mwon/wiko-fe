@@ -11,9 +11,9 @@ export default function SearchInput({ query = "" }: { query?: string }) {
 
   // 검색 버튼 클릭 시 처리
   const handler = () => {
-    if (searchQuery.trim()) {
-      router.push(`/job?query=${searchQuery}`);
-    }
+    router.push(`/job?query=${searchQuery}`);
+
+    setSearchQuery("");
   };
   const t = useTranslations("job");
   return (
