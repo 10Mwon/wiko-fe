@@ -1,12 +1,11 @@
 "use client";
-
+import GoogleLoginB from "@/components/icon/GoogleLoginB";
 import PasswordInput from "@/components/ui/input/PasswordInput";
 import { signIn } from "next-auth/react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-
 function SignInForm() {
   const [loginId, setLoginId] = useState("");
   const [password, setPassword] = useState("");
@@ -79,6 +78,11 @@ function SignInForm() {
         className="px-3 py-4 rounded-[0.625rem] bg-white text-black"
         type="submit">
         {t("login")}
+      </button>
+      <button
+        onClick={() => signIn("google", { callbackUrl: "/" })}
+        className="px-3 font-semibold flex gap-4 justify-center py-4 rounded-[0.625rem] bg-white text-black">
+        <GoogleLoginB /> Log in with Google
       </button>
     </form>
   );

@@ -1,5 +1,6 @@
 import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import GoogleProvider from "next-auth/providers/google";
 
 export const options: NextAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
@@ -26,12 +27,11 @@ export const options: NextAuthOptions = {
         if (res.ok) {
           if (contentType && contentType.includes("application/json")) {
             const data = await res.json();
-
+            console.log("로그인 후 데이터", data);
             if (!data.jwtToken) {
               throw new Error("JWT Token이 없습니다.");
             }
 
-            // 🔥 NextAuth가 필요로 하는 `user` 객체에 jwtToken 포함
             return {
               id: credentials.loginId, // 사용자 ID 포함
               loginId: credentials.loginId, // 필요하면 사용자 ID 포함
@@ -49,11 +49,38 @@ export const options: NextAuthOptions = {
         }
       },
     }),
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID || "",
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
+    }),
   ],
   callbacks: {
+    async signIn({ profile, user, account }) {
+      if (account?.provider === "google") {
+        try {
+          const token = `${account.id_token}`;
+          const res = await fetch(`${process.env.BACKEND_URL}api/auth/google`, {
+            method: "POST",
+            body: JSON.stringify({ idToken: token }),
+            headers: { "Content-Type": "application/json" },
+          });
+          if (res.ok) {
+            const data = await res.json();
+            user.jwtToken = data.jwtToken;
+            return true;
+          } else {
+            console.error("Social login failed:", await res.text());
+            return false;
+          }
+        } catch (error) {
+          console.error("Error during social sign-in:", error);
+          return false;
+        }
+      }
+      return true;
+    },
     async jwt({ token, user }) {
       if (user) {
-        // ✅ user가 있으면 jwtToken을 토큰에 저장
         token.jwtToken = user.jwtToken;
       }
       return token;

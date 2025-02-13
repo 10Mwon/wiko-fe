@@ -4,9 +4,9 @@ export interface Message {
   component?: React.ReactNode;
 }
 
-export interface ChatbotResponse {
-  answer: string;
-  sub_questions: string[] | centerDataType | null;
+export interface ChatbotResponse extends chatbotAnswerType {
+  translated_answer: string;
+  translated_sub_questions: string[] | centerDataType | null;
 }
 
 export interface chatbotAnswerType {
