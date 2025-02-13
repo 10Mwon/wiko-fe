@@ -27,12 +27,11 @@ export const options: NextAuthOptions = {
         if (res.ok) {
           if (contentType && contentType.includes("application/json")) {
             const data = await res.json();
-
+            console.log("로그인 후 데이터", data);
             if (!data.jwtToken) {
               throw new Error("JWT Token이 없습니다.");
             }
 
-            // 🔥 NextAuth가 필요로 하는 `user` 객체에 jwtToken 포함
             return {
               id: credentials.loginId, // 사용자 ID 포함
               loginId: credentials.loginId, // 필요하면 사용자 ID 포함
@@ -58,11 +57,27 @@ export const options: NextAuthOptions = {
   callbacks: {
     async signIn({ profile, user, account }) {
       if (account?.provider === "google") {
-        console.log(account);
+        try {
+          const token = `${account.id_token}`;
+          const res = await fetch(`${process.env.BACKEND_URL}api/auth/google`, {
+            method: "POST",
+            body: JSON.stringify({ idToken: token }),
+            headers: { "Content-Type": "application/json" },
+          });
+          if (res.ok) {
+            const data = await res.json();
+            user.jwtToken = data.jwtToken;
+            return true;
+          } else {
+            console.error("Social login failed:", await res.text());
+            return false;
+          }
+        } catch (error) {
+          console.error("Error during social sign-in:", error);
+          return false;
+        }
       }
-      // 여기서 백엔드에 provider 값이랑 proivderID 값으로 로그인 요청을 보내서
-      // jwtToken을 받아오기 구현 필요
-      return true; // or return a string if needed
+      return true;
     },
     async jwt({ token, user }) {
       if (user) {
