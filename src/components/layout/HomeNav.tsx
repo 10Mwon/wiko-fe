@@ -6,7 +6,7 @@ export default async function HomeNav({ isAuth }: { isAuth: boolean }) {
       <Link href="/job" className="nav-link">
         job
       </Link>
-      <Link href="/mypage/resume" className="nav-link">
+      <Link href="resume/create" className="nav-link">
         resume
       </Link>
       {isAuth ? (
@@ -14,7 +14,7 @@ export default async function HomeNav({ isAuth }: { isAuth: boolean }) {
           My page
         </Link>
       ) : (
-        <Link href="/login" className="nav-link">
+        <Link href="/signin" className="nav-link">
           Login
         </Link>
       )}

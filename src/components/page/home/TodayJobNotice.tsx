@@ -1,12 +1,11 @@
+import { getUserLocale } from "@/actions/common/getCookie";
 import { getTodayRecruitList } from "@/actions/recruit/getRecruit";
-import { getLocale } from "next-intl/server";
 import CommunityItem from "./JobNoticeItem";
 import TodayRecruitHeader from "./TodayRecruitHeader";
 
 export default async function TodayJobNotice() {
-  const lang = await getLocale();
+  const lang = await getUserLocale();
   const data = await getTodayRecruitList(lang);
-  console.log("오늘의 공고 데이터", data);
 
   return (
     <section className="my-10 px-4">
