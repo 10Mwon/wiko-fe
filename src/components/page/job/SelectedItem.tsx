@@ -44,7 +44,11 @@ export default function SelectedItem({
     console.log(str);
     str.map((x) => selectedItems.push(i(x)));
   }
-
+  if (selectedItems.length == 0) {
+    console.log("selectedItems", selectedItems);
+    return;
+  }
+  // console.log(selectedItems);
   return (
     <section className="flex flex-wrap bg-[#F6F6F6] w-full mt-6 gap-1 py-2.5 px-3.5">
       {selectedItems.map((item) => (
