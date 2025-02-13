@@ -1,10 +1,17 @@
 {
   "home": {
-    "chat": "trò chuyện",
-    "greeting": "Chúng tôi ủng hộ thử thách mới của bạn!",
-    "jobInfo": "Thông tin việc làm",
-    "createResume": "bản tóm tắt\nviết",
-    "todayRecruit": "Thông báo hôm nay"
+    "지방단체 연계 일자리": "Việc làm liên quan đến chính quyền địa phương",
+    "소개": "giới thiệu",
+    "슬로건": "khẩu hiệu",
+    "todayRecruit": "Thông báo hôm nay",
+    "MyPage": "Trang của tôi",
+    "resume": "Viết sơ yếu lý lịch",
+    "job": "công việc",
+    "밀양": "Miryang",
+    "보령": "Boryeong",
+    "태백": "Taebaek",
+    "상주": "Người dân",
+    "문경": "Mungyeong"
   },
   "chatbot": {
     "비자 정보": "Thông tin thị thực",

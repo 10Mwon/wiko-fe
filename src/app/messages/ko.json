@@ -1,11 +1,18 @@
 {
   "langSetting": "언어 설정",
   "home": {
-    "Job information": "공고고",
-    "Local government-linked jobs": "지역 일자리",
-    "Job": "일자리\n정보",
-    "Resume": "이력서\n작성",
-    "MyPage": "Today 공고"
+    "지방단체 연계 일자리": "지방단체 연계 일자리",
+    "소개": "소개",
+    "슬로건": "슬로건",
+    "todayRecruit": "오늘의 공고",
+    "MyPage": "마이페이지",
+    "resume": "이력서 작성",
+    "job": "일자리",
+    "밀양": "밀양",
+    "보령": "보령",
+    "태백": "태백",
+    "상주": "상주",
+    "문경": "문경"
   },
   "validation": {
     "noresults": "검색 결과가 존재하지 않습니다.",
