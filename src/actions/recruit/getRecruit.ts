@@ -134,3 +134,24 @@ export async function getRecruitDetail(
     throw new Error(`채용공고 상세페이지 오류: ${error}`);
   }
 }
+
+export async function getTodayRecruitList(lang: string) {
+  try {
+    const data = await requestWithoutAuth<commonResType<JobResponse>>(
+      `recruit/today?page=0&size=6&lang=${lang}`,
+      "GET",
+      undefined,
+      "no-cache"
+    );
+    const res = data as commonResType<JobResponse>;
+
+    for (let i = 0; i < res.result.content.length; i++) {
+      res.result.content[i].pay = res.result.content[i].pay
+        .toString()
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+    return res.result;
+  } catch (error) {
+    return null;
+  }
+}
