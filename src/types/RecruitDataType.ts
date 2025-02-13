@@ -20,7 +20,7 @@ export interface JobPosting {
   jobName: string;
   location: string;
   payType: string; // "월급" 등의 급여 유형
-  pay: number;
+  pay: string;
 }
 
 export interface JobResponse {

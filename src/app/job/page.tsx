@@ -7,6 +7,7 @@ import JobFilter from "@/components/ui/custom/JobFilter";
 import LocationFilterDrawer from "@/components/ui/custom/LocationFilterDrawer";
 import PayFilterDrawer from "@/components/ui/custom/PayFilterDrawer";
 import SearchInput from "@/components/ui/custom/SearchInput";
+import JobItemFallback from "@/components/ui/skeleton/JobItemFallback";
 
 type SearchParams = Promise<{
   industry: string;
@@ -50,9 +51,13 @@ export default async function Page(props: { searchParams: SearchParams }) {
         </section>
         {recruitList ? (
           <section className="mt-9 grid grid-cols-2 gap-5">
-            {recruitList.content.map((item) => (
-              <JobItem key={item.id} props={item} />
-            ))}
+            {recruitList
+              ? recruitList.content.map((item) => (
+                  <JobItem key={item.id} props={item} />
+                ))
+              : Array.from({ length: 6 }).map((_, index) => (
+                  <JobItemFallback key={index} />
+                ))}
           </section>
         ) : (
           <Noresults />
