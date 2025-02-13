@@ -1,5 +1,6 @@
+"use server";
+import { getUserLocale } from "@/actions/common/getCookie";
 import { v2 as Translate } from "@google-cloud/translate";
-import { cookies } from "next/headers";
 
 const credentialsJson = process.env.GOOGLE_APPLICATION_CREDENTIALS_BASE64
   ? JSON.parse(
@@ -23,7 +24,7 @@ export const googleTranslate = async <T extends Record<string, any>>(
   data: T
 ): Promise<T> => {
   const translatedData: Partial<T> = {};
-  const userLanguage = (await cookies()).get("NEXT_LOCALE")?.value || "ko";
+  const userLanguage = await getUserLocale();
   const translateText = async (text: string): Promise<string> => {
     try {
       const [translation] = await translate.translate(text, userLanguage);
