@@ -1,11 +1,11 @@
 {
   "langSetting": "언어 설정",
   "home": {
-    "chat": "chat",
-    "greeting": "새로운 도전을 응원해요!",
-    "jobInfo": "일자리\n정보",
-    "createResume": "이력서\n작성",
-    "todayRecruit": "Today 공고"
+    "Job information": "공고고",
+    "Local government-linked jobs": "지역 일자리",
+    "Job": "일자리\n정보",
+    "Resume": "이력서\n작성",
+    "MyPage": "Today 공고"
   },
   "validation": {
     "name_required": "이름을 입력해주세요",

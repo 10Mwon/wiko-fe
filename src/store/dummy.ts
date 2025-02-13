@@ -1,7 +1,13 @@
 import { JobItemType } from "@/types/jobFilterDataType";
 import { MyKeywordType } from "@/types/myKeywordType";
 import { MyProfileType } from "@/types/myPageType";
+import boryeong from "../../public/assets/home/boryeong.png";
+import miryang from "../../public/assets/home/miryang.png";
+import mungyeong from "../../public/assets/home/mungyeong.png";
+import sangju from "../../public/assets/home/sangju.png";
+import taeback from "../../public/assets/home/taeback.png";
 
+import { LocalJob } from "@/types/homeLocalType";
 import { ResumeCategoryType, ResumeDataType } from "@/types/resumeType";
 
 export const dummyJobItems: JobItemType[] = [
@@ -106,3 +112,31 @@ export const ResumeData: ResumeDataType = {
     "목공",
   ],
 };
+
+export const relatedLocalJobs: LocalJob[] = [
+  {
+    id: 1,
+    local: "문경",
+    imgUrl: mungyeong,
+  },
+  {
+    id: 2,
+    local: "태백",
+    imgUrl: taeback,
+  },
+  {
+    id: 3,
+    local: "상주",
+    imgUrl: sangju,
+  },
+  {
+    id: 4,
+    local: "보령",
+    imgUrl: boryeong,
+  },
+  {
+    id: 5,
+    local: "밀양",
+    imgUrl: miryang,
+  },
+];
