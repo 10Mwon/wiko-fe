@@ -17,13 +17,13 @@ export default function JobItem({ props }: { props: JobPosting }) {
         <div
           className="h-[50px] text-center flex items-center justify-center text-xl font-bold text-[#999999]
         ">
-          {props.jobName}
+          {props.company}
         </div>
       )}
       <hr className="h-[1px] border-b-[1px] border-[#F0F1F5] mt-1 mb-2" />
       <ul>
         <li className="text-xs font-semibold text-wrap mb-1.5 ">
-          {props.jobName}
+          {props.company}
         </li>
         <li className="text-[14px] font-semibold text-wrap mb-6 h-6 line-clamp-2">
           {props.title}
