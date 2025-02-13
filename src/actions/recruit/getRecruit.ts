@@ -40,6 +40,7 @@ export async function getSearchedRecruitList({
   }
 }
 
+// 이거씀
 //필터링+검색
 export async function getFilteredRecruitList({
   industryTypeList = "",
@@ -49,6 +50,7 @@ export async function getFilteredRecruitList({
   maxPay = "50000000",
   page,
   keyword = "",
+  lang,
 }: JobQueryParams) {
   try {
     const newSearchParams = new URLSearchParams("");
@@ -61,6 +63,7 @@ export async function getFilteredRecruitList({
     newSearchParams.set("maxPay", maxPay);
     newSearchParams.set("page", page.toString());
     newSearchParams.set("keyword", keyword.toString());
+    newSearchParams.set("lang", lang);
     const endpoint = `recruit/filterList?${newSearchParams}`;
     console.log(endpoint, "endpoint------------");
     const data = await requestWithoutAuth<commonResType<JobResponse>>(
