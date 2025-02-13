@@ -1,3 +1,4 @@
+import tailwindcssLineClamp from "@tailwindcss/line-clamp";
 import tailwindScrollbarHide from "tailwind-scrollbar-hide";
 import type { Config } from "tailwindcss";
 import tailwindcssAnimate from "tailwindcss-animate";
@@ -84,5 +85,5 @@ export default {
       },
     },
   },
-  plugins: [tailwindcssAnimate, tailwindScrollbarHide],
+  plugins: [tailwindcssAnimate, tailwindScrollbarHide, tailwindcssLineClamp],
 } satisfies Config;

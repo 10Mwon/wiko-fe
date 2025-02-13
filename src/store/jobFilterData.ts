@@ -4,52 +4,52 @@ export const industryData: industryDataType[] = [
   {
     id: 1,
     industryName: "food_beverage",
-    code: "1",
+    code: "외식_음료",
   },
   {
     id: 2,
     industryName: "sales",
-    code: "2",
+    code: "유통_판매_영업",
   },
   {
     id: 3,
     industryName: "leisure",
-    code: "3",
+    code: "문화_여가_생활",
   },
   {
     id: 4,
     industryName: "service",
-    code: "4",
+    code: "서비스",
   },
   {
     id: 5,
     industryName: "office",
-    code: "5",
+    code: "사무_회계",
   },
   {
     id: 6,
     industryName: "consulting",
-    code: "6",
+    code: "고객상담_리서치",
   },
   {
     id: 7,
     industryName: "production",
-    code: "7",
+    code: "생산_건설_노무",
   },
   {
     id: 8,
     industryName: "translation",
-    code: "8",
+    code: "통역_번역",
   },
   {
     id: 9,
     industryName: "delivery",
-    code: "9",
+    code: "운전_배달",
   },
   {
     id: 10,
     industryName: "education",
-    code: "10",
+    code: "교육_강사",
   },
 ];
 

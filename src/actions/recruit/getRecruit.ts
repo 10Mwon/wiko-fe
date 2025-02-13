@@ -28,33 +28,37 @@ export async function getSearchedRecruitList({
   }
 }
 
+//필터링+검색
 export async function getFilteredRecruitList({
-  industryTypeList = [],
+  industryTypeList = "",
   startAddress = "",
   endAddress = "",
-  minSalary = 0,
-  maxSalary = 50000000,
+  minPay = "0",
+  maxPay = "50000000",
   page,
+  keyword = "",
 }: JobQueryParams) {
   try {
     const newSearchParams = new URLSearchParams("");
-    newSearchParams.set("industryTypeList", industryTypeList.join(","));
-    newSearchParams.set("startAddress", startAddress);
-    newSearchParams.set("endAddress", endAddress);
-    newSearchParams.set("minSalary", minSalary.toString());
-    newSearchParams.set("maxSalary", maxSalary.toString());
+    industryTypeList.split(",").forEach((industry) => {
+      newSearchParams.append("industryTypeList", industry);
+    });
+    // newSearchParams.set("startAddress", startAddress);
+    // newSearchParams.set("endAddress", endAddress);
+    newSearchParams.set("minPay", minPay.toString());
+    newSearchParams.set("maxPay", maxPay);
     newSearchParams.set("page", page.toString());
-    // const queryString = createQueryString(question);
-    const endpoint = `recruit/search?${newSearchParams}`;
-
-    // const data = await requestWithoutAuth<JobResponse>(
-    //   endpoint,
-    //   "GET",
-    //   undefined,
-    //   "no-cache"
-    // );
-
-    // return data;
+    // newSearchParams.set("keyword", keyword.toString());
+    const endpoint = `recruit/filterList?${newSearchParams}`;
+    console.log(endpoint, "endpoint------------");
+    const data = await requestWithoutAuth<commonResType<JobResponse>>(
+      endpoint,
+      "GET",
+      undefined,
+      "no-cache"
+    );
+    const res = data as commonResType<JobResponse>;
+    return res.result;
   } catch (error) {
     console.error("채용공고 검색 중 오류 발생:", error);
     throw new Error(`채용공고 검색 실패: ${error}`);
