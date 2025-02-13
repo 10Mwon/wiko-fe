@@ -4,6 +4,7 @@ import Link from "next/link";
 
 export default function JobItem({ props }: { props: JobPosting }) {
   const formattedPay = Number(props.pay);
+  console.log(props.pay);
   return (
     <Link
       href={`job/detail/${props.id}`}

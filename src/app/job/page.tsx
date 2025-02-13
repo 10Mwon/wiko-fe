@@ -27,6 +27,7 @@ export default async function page(props: { searchParams: SearchParams }) {
   const endAddress = searchParams.endAddress ?? "";
   const industry = searchParams.industry ?? "";
   const page = searchParams.page ?? "0";
+  console.log(minPay, maxPay);
   const recruitList = await getFilteredRecruitList({
     page: page,
     keyword: query,

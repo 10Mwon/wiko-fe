@@ -43,12 +43,12 @@ export async function getFilteredRecruitList({
     industryTypeList.split(",").forEach((industry) => {
       newSearchParams.append("industryTypeList", industry);
     });
-    // newSearchParams.set("startAddress", startAddress);
-    // newSearchParams.set("endAddress", endAddress);
+    newSearchParams.set("startAddress", startAddress);
+    newSearchParams.set("endAddress", endAddress);
     newSearchParams.set("minPay", minPay.toString());
     newSearchParams.set("maxPay", maxPay);
     newSearchParams.set("page", page.toString());
-    // newSearchParams.set("keyword", keyword.toString());
+    newSearchParams.set("keyword", keyword.toString());
     const endpoint = `recruit/filterList?${newSearchParams}`;
     console.log(endpoint, "endpoint------------");
     const data = await requestWithoutAuth<commonResType<JobResponse>>(
