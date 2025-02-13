@@ -12,15 +12,11 @@ import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import CustomRegionSelector from "./CustomRegionSelector";
-//  startAddress: string;
-// endAddress: string;
 export default function LocationFilterDrawer({
   location,
 }: {
   location: string;
 }) {
-  const data = location === "" ? [] : location.split(",");
-  const [selections, setSelections] = useState<string[]>(data);
   const [startAddress, setStartAddress] = useState<string>("");
   const [endAddress, setEndAddress] = useState<string>("");
 
@@ -55,7 +51,6 @@ export default function LocationFilterDrawer({
           <DrawerFooter className="flex-row px-8 gap-5 mb-8 pt-7 pb-0 border-[#F0F1F5]">
             <button
               onClick={() => {
-                setSelections([]);
                 setStartAddress("");
                 setEndAddress("");
                 // 기본 값으로 초기화
