@@ -16,28 +16,20 @@ export default function Chatbot() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState<string>("");
   const messagesEndRef = useRef<HTMLDivElement>(null); // ✅ 스크롤 위치를 참조할 ref
-<<<<<<< HEAD
+
   const [loading, setLoading] = useState(false);
 
-=======
   const t = useTranslations("chatbot");
->>>>>>> dev
-  // ✅ 메시지가 업데이트될 때마다 스크롤을 가장 아래로 이동
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
-<<<<<<< HEAD
-  const sendMessage = async (messageText: string): Promise<void> => {
-    setInput(messageText);
-    setLoading(true);
-=======
   const sendMessage = async (
     translatedText: string,
     messageText: string
   ): Promise<void> => {
     setInput(translatedText);
->>>>>>> dev
+    setLoading(true);
     if (!messageText.trim()) return;
 
     const userMessage: Message = { sender: "user", text: translatedText };
@@ -73,7 +65,6 @@ export default function Chatbot() {
       }
       setLoading(false);
 
-
       setInput("");
     } catch (error) {
       console.error(error);
@@ -104,7 +95,8 @@ export default function Chatbot() {
             key={index}
             className={`p-2 my-1 ${
               msg.sender === "user" ? "text-right" : "text-left"
-            }`}>
+            }`}
+          >
             {msg.sender === "user" ? (
               <UserBubble text={msg.text} />
             ) : (
@@ -136,7 +128,6 @@ export default function Chatbot() {
         loading={loading}
         onKeyDown={(e) => e.key === "Enter" && sendMessage(input, input)}
         onClick={() => sendMessage(input, input)}
-
       />
     </div>
   );
