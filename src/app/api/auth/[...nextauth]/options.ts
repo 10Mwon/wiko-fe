@@ -58,11 +58,27 @@ export const options: NextAuthOptions = {
   callbacks: {
     async signIn({ profile, user, account }) {
       if (account?.provider === "google") {
-        console.log(account);
+        try {
+          const token = `${account.id_token}`;
+          const res = await fetch(`${process.env.BACKEND_URL}api/auth/google`, {
+            method: "POST",
+            body: JSON.stringify({ token: token }),
+            headers: { "Content-Type": "application/json" },
+          });
+          if (res.ok) {
+            const data = await res.json();
+            user.jwtToken = data.jwtToken;
+            return true;
+          } else {
+            console.error("Social login failed:", await res.text());
+            return false;
+          }
+        } catch (error) {
+          console.error("Error during social sign-in:", error);
+          return false;
+        }
       }
-      // 여기서 백엔드에 provider 값이랑 proivderID 값으로 로그인 요청을 보내서
-      // jwtToken을 받아오기 구현 필요
-      return true; // or return a string if needed
+      return true;
     },
     async jwt({ token, user }) {
       if (user) {
