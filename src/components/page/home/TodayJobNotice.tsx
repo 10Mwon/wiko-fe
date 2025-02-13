@@ -5,11 +5,11 @@ import CommunityItem from "./JobNoticeItem";
 export default function TodayJobNotice() {
   const t = useTranslations("home");
   return (
-    <section className="my-10 px-[11px]">
+    <section className="my-10 px-4">
       <h1 className="text-xl font-semibold font-lexend pl-1">
         {t("todayRecruit")}
       </h1>
-      <div className="flex justify-between gap-3  mt-4">
+      <div className="grid grid-cols-2 mt-4 justify-items-center gap-y-3">
         {dummyJobItems.slice(0, 3).map((item, index) => (
           <CommunityItem
             key={index}

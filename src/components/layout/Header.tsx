@@ -3,7 +3,7 @@ import LangButton from "./LangButton";
 
 export default function Header({ isAuth }: { isAuth: boolean }) {
   return (
-    <header className="w-full items-cen ter justify-end gap-4 p-4 fixed top-0 right-0">
+    <header className="w-full items-cen ter justify-end gap-4 p-4 fixed top-0 right-0 bg-white z-10">
       <div className="relative w-full">
         <h1 className="text-[40px] font-semibold font-lexend text-center text-wikoBlue">
           WIKO

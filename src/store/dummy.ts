@@ -136,7 +136,7 @@ export const relatedLocalJobs: LocalJob[] = [
   },
   {
     id: 5,
-    local: "미량",
+    local: "밀양",
     imgUrl: miryang,
   },
 ];
