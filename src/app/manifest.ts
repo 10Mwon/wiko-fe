@@ -14,13 +14,13 @@ export default function manifest(): MetadataRoute.Manifest {
     background_color: "#6A51E6",
     icons: [
       {
-        src: "/wTmp-192x192.png",
+        src: "/wiko-192x192.png",
         sizes: "192x192",
         type: "image/png",
         purpose: "maskable",
       },
       {
-        src: "/wTmp-512x512.png",
+        src: "/wiko-512x512.png",
         sizes: "512x512",
         type: "image/png",
         purpose: "maskable",
