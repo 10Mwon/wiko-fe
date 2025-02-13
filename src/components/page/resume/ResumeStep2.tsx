@@ -33,7 +33,7 @@ export default function ResumeStep2() {
     postResume(completeResumeData);
   };
   return (
-    <div className="text-sm pt-12 flex flex-col  px-4">
+    <div className="text-sm pt-6 flex flex-col  px-4">
       <ul className="flex flex-col gap-[1.44rem]">
         <Education data={data.education} />
         <hr />
@@ -48,7 +48,8 @@ export default function ResumeStep2() {
         <SelfIntroduce />
         <button
           onClick={handleSubmit}
-          className="w-4/5 mb-12 text-lg rounded-2xl p-3 mx-auto font-extrabold text-white bg-wikoBlue">
+          className="w-4/5 mb-12 text-lg rounded-2xl p-3 mx-auto font-extrabold text-white bg-wikoBlue"
+        >
           {t("save")}
         </button>
       </ul>

@@ -11,8 +11,8 @@ export default function Education({ data }: { data: string[] }) {
   const t = useTranslations("createResume");
   return (
     <li className="flex flex-col gap-4">
-      <h2 className="font-semibold text-base">{t("education")}</h2>
-      <ul className="flex flex-wrap gap-2">
+      <h2 className="font-semibold text-lg">{t("education")}</h2>
+      <ul className="flex flex-wrap gap-y-6 gap-x-1.5">
         {data.map((item, index) => (
           <li key={index}>
             <label
@@ -20,7 +20,8 @@ export default function Education({ data }: { data: string[] }) {
                 resumeData.education === item
                   ? "bg-wikoYellow font-semibold"
                   : ""
-              }`}>
+              }`}
+            >
               <input
                 type="radio"
                 name="education"

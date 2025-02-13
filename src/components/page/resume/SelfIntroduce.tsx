@@ -13,11 +13,12 @@ export default function SelfIntroduce() {
         rows={10}
         cols={6}
         placeholder={t("selfIntroductionPlaceholder")}
-        className="rounded-xl text-base p-2 w-full bg-wikoGray"
+        className="rounded-xl text-lg p-2 w-full bg-wikoGray"
         name="introduce"
         id="introduce"
         value={resumeData.introduction || ""}
-        onChange={(e) => setIntroduction(e.target.value)}></textarea>
+        onChange={(e) => setIntroduction(e.target.value)}
+      ></textarea>
     </li>
   );
 }

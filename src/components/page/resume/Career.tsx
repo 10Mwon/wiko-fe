@@ -17,14 +17,15 @@ export default function Career({ data }: { data: string[] }) {
   return (
     <>
       <li className="flex flex-col gap-4">
-        <h2 className="font-semibold text-base">{t("career")}</h2>
+        <h2 className="font-semibold text-lg">{t("career")}</h2>
         <ul className="flex flex-wrap gap-2">
           {data.map((item, index) => (
             <li key={index}>
               <label
                 className={` bg-gray-100 rounded-md px-4 p-2 ${
                   selected === item ? "bg-wikoYellow font-semibold" : ""
-                }`}>
+                }`}
+              >
                 <input
                   type="radio"
                   name="career"
