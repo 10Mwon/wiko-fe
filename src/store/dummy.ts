@@ -1,4 +1,3 @@
-import { JobItemType } from "@/types/jobFilterDataType";
 import { MyKeywordType } from "@/types/myKeywordType";
 import { MyProfileType } from "@/types/myPageType";
 import boryeong from "../../public/assets/home/boryeong.png";
@@ -9,35 +8,6 @@ import taeback from "../../public/assets/home/taeback.png";
 
 import { LocalJob } from "@/types/homeLocalType";
 import { ResumeCategoryType, ResumeDataType } from "@/types/resumeType";
-
-export const dummyJobItems: JobItemType[] = [
-  {
-    id: 1,
-    jobName: "한화 오션",
-    title: "한화 오션, 삼성 중공업 현장업무",
-    location: "경상남도 거제시",
-    pay: "42000000",
-    imgUrl:
-      "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
-  },
-  {
-    id: 2,
-    jobName: "삼성중공업",
-    title: "용접 기술자",
-    location: "경상남도 거제시",
-    pay: "45000000",
-    imgUrl: "",
-  },
-  {
-    id: 3,
-    jobName: "LG전자",
-    title: "가전제품 조립",
-    location: "경기도 평택시",
-    pay: "40000000",
-    imgUrl:
-      "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
-  },
-];
 
 export const keywordData: MyKeywordType[] = [
   {
@@ -116,27 +86,37 @@ export const ResumeData: ResumeDataType = {
 export const relatedLocalJobs: LocalJob[] = [
   {
     id: 1,
-    local: "문경",
+    location: "문경",
     imgUrl: mungyeong,
+    startAddress: "경상북도",
+    endAddress: "문경",
   },
   {
     id: 2,
-    local: "태백",
+    location: "태백",
+    startAddress: "강원도",
+    endAddress: "태백",
     imgUrl: taeback,
   },
   {
     id: 3,
-    local: "상주",
+    location: "상주",
+    startAddress: "경상북도",
+    endAddress: "상주",
     imgUrl: sangju,
   },
   {
     id: 4,
-    local: "보령",
+    location: "보령",
+    startAddress: "충청남도",
+    endAddress: "보령",
     imgUrl: boryeong,
   },
   {
     id: 5,
-    local: "밀양",
+    location: "밀양",
+    startAddress: "경상남도",
+    endAddress: "밀양",
     imgUrl: miryang,
   },
 ];

@@ -37,9 +37,7 @@ export default function JobFilter({ industry }: { industry: string }) {
   const b = useTranslations("button");
   return (
     <Drawer>
-      <DrawerTrigger className=" py-1.5 px-7 text-[#4C4C4C] font-semibold rounded-3xl shadow-xl bg-white">
-        {t("industry")}
-      </DrawerTrigger>
+      <DrawerTrigger className=" drawer_button">{t("industry")}</DrawerTrigger>
       <DrawerContent>
         <DrawerHeader>
           <DrawerTitle>{t("industry")}</DrawerTitle>

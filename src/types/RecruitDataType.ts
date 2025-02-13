@@ -17,7 +17,7 @@ export interface JobPosting {
   id: string;
   title: string;
   imgUrl: string;
-  jobName: string;
+  company: string;
   location: string;
   payType: string; // "월급" 등의 급여 유형
   pay: string;
@@ -47,4 +47,5 @@ export interface JobQueryParams {
   page: string; // 페이지 번호 (기본값 0)
   size?: string; // 페이지 크기 (기본값 10)
   keyword?: string;
+  lang: string;
 }

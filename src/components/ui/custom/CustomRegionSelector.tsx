@@ -17,7 +17,6 @@ export default function CustomRegionSelector({
 }) {
   const l = useTranslations("location");
   const k = useTranslations("koreanMap");
-  console.log(endAddress);
   return (
     <div className="w-full max-w-3xl mx-auto py -4">
       <div className="border-b rounded-lg">

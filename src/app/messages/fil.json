@@ -1,10 +1,17 @@
 {
   "home": {
-    "chat": "chat",
-    "greeting": "Sinusuportahan namin ang iyong bagong hamon!",
-    "jobInfo": "Impormasyon sa Trabaho",
-    "createResume": "ipagpatuloy\nmagsulat",
-    "todayRecruit": "Ang anunsyo ngayong araw"
+    "지방단체 연계 일자리": "Mga trabahong nauugnay sa lokal na pamahalaan",
+    "소개": "pagpapakilala",
+    "슬로건": "slogan",
+    "todayRecruit": "Anunsyo ngayong araw",
+    "MyPage": "Aking Pahina",
+    "resume": "Pagsusulat ng Resume",
+    "job": "trabaho",
+    "밀양": "Miryang",
+    "보령": "Boryeong",
+    "태백": "Taebaek",
+    "상주": "Residente",
+    "문경": "Mungyeong"
   },
   "validation": {
     "name_required": "Pakilagay ang iyong pangalan",
