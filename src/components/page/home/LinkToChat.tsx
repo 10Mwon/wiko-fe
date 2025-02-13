@@ -1,4 +1,5 @@
 "use client";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 
@@ -86,6 +87,16 @@ export function LinkToChat() {
         <span className="text-[#8A8894] text-xl font-semibold  font-lexend leading-none">
           chat
         </span>
+      </div>
+      <div
+        className="w-[80px] absolute top-2 right-24"
+        style={{ transform: "rotate(-90deg)" }}
+      >
+        <DotLottieReact
+          src="https://lottie.host/24f4567e-6d5e-409a-828a-49032aca4d20/PAdPGCSgrG.lottie"
+          loop
+          autoplay
+        />
       </div>
     </div>
   );

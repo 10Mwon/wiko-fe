@@ -10,4 +10,7 @@ export interface jobDetailType {
   workPeriod: string;
   workHours: string;
   preferredQualifications: string;
+  owner: string;
+  phone: string;
+  email: string;
 }

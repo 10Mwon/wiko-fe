@@ -45,9 +45,9 @@ export default async function Page({
       {/* Bottom Buttons */}
       <div className="fixed bottom-0 left-0 right-0 p-4 flex gap-3 bg-white border-t">
         <ContactDrawer
-          owner="김예진"
-          phone="010-1234-1234"
-          email="ajaa@naver.com"
+          owner={data.owner}
+          phone={data.phone}
+          email={data.email}
         />
         <ApplyButton />
       </div>
