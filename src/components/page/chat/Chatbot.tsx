@@ -15,6 +15,7 @@ export default function Chatbot() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState<string>("");
   const messagesEndRef = useRef<HTMLDivElement>(null); // ✅ 스크롤 위치를 참조할 ref
+  const [loading, setLoading] = useState(false);
 
   // ✅ 메시지가 업데이트될 때마다 스크롤을 가장 아래로 이동
   useEffect(() => {
@@ -23,6 +24,7 @@ export default function Chatbot() {
 
   const sendMessage = async (messageText: string): Promise<void> => {
     setInput(messageText);
+    setLoading(true);
     if (!messageText.trim()) return;
 
     const userMessage: Message = { sender: "user", text: messageText };
@@ -61,6 +63,7 @@ export default function Chatbot() {
         };
         setMessages((prev) => [...prev, botMessage]);
       }
+      setLoading(false);
 
       setInput("");
     } catch (error) {
@@ -124,6 +127,7 @@ export default function Chatbot() {
         onChange={(e) => setInput(e.target.value)}
         onKeyDown={(e) => e.key === "Enter" && sendMessage(input)}
         onClick={() => sendMessage(input)}
+        loading={loading}
       />
     </div>
   );

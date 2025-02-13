@@ -4,6 +4,7 @@ import Header from "@/components/layout/Header";
 import HomeBanner from "@/components/page/home/HomeBanner";
 import LocalJob from "@/components/page/home/LocalJob";
 import TodayJobNotice from "@/components/page/home/TodayJobNotice";
+import ChatBotButton from "@/components/ui/button/ChatBotButton";
 import { getServerSession } from "next-auth";
 import { options } from "./api/auth/[...nextauth]/options";
 
@@ -17,6 +18,7 @@ export default async function Home() {
       <HomeBanner />
       <TodayJobNotice />
       <AppBar />
+      <ChatBotButton />
     </main>
   );
 }

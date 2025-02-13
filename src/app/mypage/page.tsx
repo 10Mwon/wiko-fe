@@ -1,5 +1,6 @@
 import MyPageMenu from "@/components/page/mypage/MyPageMenu";
 import Profile from "@/components/page/mypage/Profile";
+import ChatBotButton from "@/components/ui/button/ChatBotButton";
 
 export default function Page() {
   return (
@@ -10,6 +11,7 @@ export default function Page() {
       <section className="mx-8 ">
         <MyPageMenu />
       </section>
+      <ChatBotButton />
     </div>
   );
 }
