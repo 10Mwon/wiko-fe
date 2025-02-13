@@ -43,6 +43,7 @@
     "근로자 보호 및 복지 제도": "Ishchilarni himoya qilish va ijtimoiy himoya qilish tizimi"
   },
   "validation": {
+    "noresults": "Hech qanday qidiruv natijalari topilmadi.",
     "name_required": "Iltimos, ismingizni kiriting",
     "nation_required": "Iltimos, millatingizni kiriting",
     "id_min": "Iltimos, faqat kichik inglizcha harflar va raqamlardan foydalangan holda kamida 6 ta belgidan iborat ID kiriting.",
@@ -88,7 +89,10 @@
     "searchBarPlaceHolder": "Iltimos, qidiruv so'zini kiriting",
     "industry": "Sanoat",
     "salary": "ish haqi",
-    "location": "mintaqa"
+    "location": "mintaqa",
+    "연봉": "Yillik ish haqi",
+    "월급": "ish haqi",
+    "시급": "Shoshilinch"
   },
   "jobDetail": {
     "introduction": "Biz haqimizda",

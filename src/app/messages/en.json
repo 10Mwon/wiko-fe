@@ -7,6 +7,7 @@
     "todayRecruit": "Today's announcement"
   },
   "validation": {
+    "noresults": "No search results found.",
     "name_required": "Please enter your name",
     "nation_required": "Please enter your nationality",
     "id_min": "Please enter an ID of at least 6 characters using only lowercase English letters and numbers.",
@@ -52,7 +53,10 @@
     "searchBarPlaceHolder": "Please enter your search term",
     "industry": "Industry",
     "salary": "salary",
-    "location": "region"
+    "location": "region",
+    "연봉": "Annual salary",
+    "월급": "salary",
+    "시급": "Urgent"
   },
   "industryData": {
     "food_beverage": "Dining & Drinks",

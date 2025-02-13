@@ -8,6 +8,7 @@
   },
   "validation": {
     "name_required": "Pakilagay ang iyong pangalan",
+    "noresults": "Walang nakitang resulta ng paghahanap.",
     "nation_required": "Mangyaring ipasok ang iyong nasyonalidad",
     "id_min": "Mangyaring maglagay ng ID ng hindi bababa sa 6 na character gamit lamang ang maliliit na letra at numero sa Ingles.",
     "id_max": "Mangyaring maglagay ng ID ng hindi bababa sa 6 na character gamit lamang ang maliliit na letra at numero sa Ingles.",
@@ -52,7 +53,10 @@
     "searchBarPlaceHolder": "Mangyaring ipasok ang iyong termino para sa paghahanap",
     "industry": "Industriya",
     "salary": "suweldo",
-    "location": "rehiyon"
+    "location": "rehiyon",
+    "연봉": "Taunang suweldo",
+    "월급": "suweldo",
+    "시급": "Urgent"
   },
   "jobDetail": {
     "introduction": "Tungkol sa Amin",

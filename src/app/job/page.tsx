@@ -1,11 +1,13 @@
 import { getFilteredRecruitList } from "@/actions/recruit/getRecruit";
 import AppBar from "@/components/layout/AppBar";
 import JobItem from "@/components/page/job/JobItem";
+import Noresults from "@/components/page/job/Noresults";
 import CustomPagination from "@/components/ui/custom/CustomPagination";
 import JobFilter from "@/components/ui/custom/JobFilter";
 import LocationFilterDrawer from "@/components/ui/custom/LocationFilterDrawer";
 import PayFilterDrawer from "@/components/ui/custom/PayFilterDrawer";
 import SearchInput from "@/components/ui/custom/SearchInput";
+import JobItemFallback from "@/components/ui/skeleton/JobItemFallback";
 
 type SearchParams = Promise<{
   industry: string;
@@ -17,7 +19,7 @@ type SearchParams = Promise<{
   startAddress: string;
   endAddress: string;
 }>;
-export default async function page(props: { searchParams: SearchParams }) {
+export default async function Page(props: { searchParams: SearchParams }) {
   const searchParams = await props.searchParams;
   const query = searchParams.query ?? "";
   const minPay = searchParams.minPay ?? "0";
@@ -49,12 +51,16 @@ export default async function page(props: { searchParams: SearchParams }) {
         </section>
         {recruitList ? (
           <section className="mt-9 grid grid-cols-2 gap-5">
-            {recruitList.content.map((item) => (
-              <JobItem key={item.id} props={item} />
-            ))}
+            {recruitList
+              ? recruitList.content.map((item) => (
+                  <JobItem key={item.id} props={item} />
+                ))
+              : Array.from({ length: 6 }).map((_, index) => (
+                  <JobItemFallback key={index} />
+                ))}
           </section>
         ) : (
-          <div>검색 결과가 존재하지 않습니다.</div>
+          <Noresults />
         )}
       </div>
       {recruitList && (
