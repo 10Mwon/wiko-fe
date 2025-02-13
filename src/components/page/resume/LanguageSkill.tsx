@@ -11,11 +11,11 @@ export default function LanguageSkill({ data }: { data: string[] }) {
   const t = useTranslations("createResume");
   return (
     <li className="flex flex-col gap-4">
-      <h2 className="font-semibold text-base">{t("langSkill")}</h2>
-      <ul className="grid grid-cols-2 gap-2">
+      <h2 className="font-semibold text-lg">{t("langSkill")}</h2>
+      <ul className="grid grid-cols-2 gap-2 gap-y-3">
         {data.map((item, index) => (
           <li key={index}>
-            <label>
+            <label className="flex items-center">
               <input
                 type="radio"
                 name="langSkill"

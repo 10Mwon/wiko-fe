@@ -17,7 +17,7 @@ export default function Strength({ data }: { data: string[] }) {
   const t = useTranslations("createResume");
   return (
     <li className="flex flex-col gap-4">
-      <h2 className="font-semibold text-base">{t("strength")}</h2>
+      <h2 className="font-semibold text-lg">{t("strength")}</h2>
       <ul className="flex flex-wrap justify-center text-xs gap-2 gap-y-6">
         {data.map((item, index) => (
           <li key={index}>
@@ -26,7 +26,8 @@ export default function Strength({ data }: { data: string[] }) {
                 (resumeData.strength || []).includes(item)
                   ? "bg-wikoYellow font-semibold"
                   : ""
-              }`}>
+              }`}
+            >
               <input
                 type="checkbox"
                 name="strength"

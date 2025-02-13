@@ -5,15 +5,36 @@ import { signIn } from "next-auth/react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
-function SignInForm() {
+import { useEffect, useState } from "react";
+function SignInForm({ autoLogin }: { autoLogin: boolean }) {
   const [loginId, setLoginId] = useState("");
   const [password, setPassword] = useState("");
   const [remember, setRemember] = useState(false);
   const [error, setError] = useState(""); // 로그인 에러 상태 추가
   const t = useTranslations("input");
   const router = useRouter();
+  const [loginError, setLoginError] = useState<string | null>(null); // 에러 메시지 상태
 
+  // autoLogin 값이 true일 경우 자동으로 로그인
+  useEffect(() => {
+    if (autoLogin) {
+      (async () => {
+        const result = await signIn("credentials", {
+          loginId: "test",
+          password: "qwerty123",
+          callbackUrl: "/",
+          redirect: false, // 에러 핸들링을 위해 redirect를 false로 설정
+        });
+
+        if (result?.error) {
+          setLoginError("자동 로그인에 실패했습니다.");
+        } else {
+          setLoginError(null);
+          window.location.href = "/"; // 성공 시 리다이렉트
+        }
+      })();
+    }
+  }, [autoLogin]);
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError(""); // 기존 에러 초기화

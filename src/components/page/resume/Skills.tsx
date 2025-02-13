@@ -17,7 +17,7 @@ export default function Skills({ data }: { data: string[] }) {
   const t = useTranslations("createResume");
   return (
     <li className="flex flex-col  gap-4">
-      <h2 className="font-semibold text-base">{t("skills")}</h2>
+      <h2 className="font-semibold text-lg">{t("skills")}</h2>
       <ul className="flex flex-wrap justify-center text-xs gap-2 gap-y-6">
         {data.map((item, index) => (
           <li key={index}>
@@ -26,7 +26,8 @@ export default function Skills({ data }: { data: string[] }) {
                 (resumeData.jobSkill || []).includes(item)
                   ? "bg-wikoYellow font-semibold"
                   : ""
-              }`}>
+              }`}
+            >
               <input
                 type="checkbox"
                 name="skills"
@@ -55,7 +56,8 @@ export default function Skills({ data }: { data: string[] }) {
               (resumeData.jobSkill || []).includes(item) && (
                 <li
                   className="rounded-md flex items-center gap-2 p-2 font-semibold bg-wikoYellow"
-                  key={index}>
+                  key={index}
+                >
                   {t(item)}
                   <X
                     onClick={() => handleSelect(item)}
