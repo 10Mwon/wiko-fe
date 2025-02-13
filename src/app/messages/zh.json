@@ -43,6 +43,7 @@
     "근로자 보호 및 복지 제도": "劳工保障及福利制度"
   },
   "validation": {
+    "noresults": "未找到搜索结果。",
     "name_required": "请输入您的姓名",
     "nation_required": "请输入您的国籍",
     "id_min": "请输入至少 6 个字符的 ID，仅使用小写英文字母和数字。",

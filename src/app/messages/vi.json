@@ -43,6 +43,7 @@
     "근로자 보호 및 복지 제도": "Hệ thống bảo vệ và phúc lợi người lao động"
   },
   "validation": {
+    "noresults": "Không tìm thấy kết quả tìm kiếm nào.",
     "name_required": "Vui lòng nhập tên của bạn",
     "nation_required": "Vui lòng nhập quốc tịch của bạn",
     "id_min": "Vui lòng nhập ID có ít nhất 6 ký tự, chỉ sử dụng chữ cái tiếng Anh thường và số.",

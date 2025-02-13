@@ -1,6 +1,7 @@
 import { getFilteredRecruitList } from "@/actions/recruit/getRecruit";
 import AppBar from "@/components/layout/AppBar";
 import JobItem from "@/components/page/job/JobItem";
+import Noresults from "@/components/page/job/Noresults";
 import CustomPagination from "@/components/ui/custom/CustomPagination";
 import JobFilter from "@/components/ui/custom/JobFilter";
 import LocationFilterDrawer from "@/components/ui/custom/LocationFilterDrawer";
@@ -17,7 +18,7 @@ type SearchParams = Promise<{
   startAddress: string;
   endAddress: string;
 }>;
-export default async function page(props: { searchParams: SearchParams }) {
+export default async function Page(props: { searchParams: SearchParams }) {
   const searchParams = await props.searchParams;
   const query = searchParams.query ?? "";
   const minPay = searchParams.minPay ?? "0";
@@ -54,7 +55,7 @@ export default async function page(props: { searchParams: SearchParams }) {
             ))}
           </section>
         ) : (
-          <div>검색 결과가 존재하지 않습니다.</div>
+          <Noresults />
         )}
       </div>
       {recruitList && (

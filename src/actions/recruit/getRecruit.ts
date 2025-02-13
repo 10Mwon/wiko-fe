@@ -71,8 +71,7 @@ export async function getFilteredRecruitList({
     res.result.content = tmp;
     return res.result;
   } catch (error) {
-    console.error("채용공고 검색 중 오류 발생:", error);
-    throw new Error(`채용공고 검색 실패: ${error}`);
+    return null;
   }
 }
 
