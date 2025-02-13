@@ -40,15 +40,13 @@ export default function SelectedItem({
   }
 
   if (industryTypeList !== "") {
-    selectedItems.push(industryTypeList);
-    const data = industryTypeList.replaceAll("_", "·");
-    const str = data.split(",");
+    const str = industryTypeList.split(",");
     console.log(str);
-    str.map((x) => console.log(i(x)));
+    str.map((x) => selectedItems.push(i(x)));
   }
 
   return (
-    <section className="flex flex-wrap bg-[#F6F6F6] w-full mt-6 gap-1 py-2.5 px-2">
+    <section className="flex flex-wrap bg-[#F6F6F6] w-full mt-6 gap-1 py-2.5 px-3.5">
       {selectedItems.map((item) => (
         <div className="gap-2" key={item}>
           {item}
