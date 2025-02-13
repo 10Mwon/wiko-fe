@@ -21,7 +21,7 @@ function SignInForm() {
     const result = await signIn("credentials", {
       loginId, // `id` 대신 `loginId` 사용
       password,
-      redirect: false, // 자동 리디렉트 방지
+      redirect: true, // 자동 리디렉트 방지
     });
     if (result?.error) {
       setError("로그인 실패: 아이디 또는 비밀번호를 확인하세요.");
@@ -80,8 +80,8 @@ function SignInForm() {
         {t("login")}
       </button>
       <button
-      onClick={() => signIn("google")}
-      className="px-3 font-semibold flex gap-4 justify-center py-4 rounded-[0.625rem] bg-white text-black">
+        onClick={() => signIn("google", { callbackUrl: "/" })}
+        className="px-3 font-semibold flex gap-4 justify-center py-4 rounded-[0.625rem] bg-white text-black">
         <GoogleLoginB /> Log in with Google
       </button>
     </form>
