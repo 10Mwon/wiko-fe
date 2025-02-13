@@ -8,7 +8,7 @@ function Page() {
   const t = useTranslations("input");
   const searchParams = useSearchParams();
   // autoLogin 값이 존재하면 문자열로 변환 후 "true"와 비교
-  const autoLogin = searchParams.get("autoLogin") === "true";
+  const autoLogin = searchParams.get("autologin") === "true";
 
   return (
     <div className="tracking-[0.1125rem] text-white px-4">
