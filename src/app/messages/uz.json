@@ -13,6 +13,19 @@
     "상주": "Rezident",
     "문경": "Mungyeong"
   },
+  "reverseIndustryData": {
+    "외식_음료": "Ovqatlanish va ichimliklar",
+    "유통_판매_영업": "Tarqatish, sotish va biznes",
+    "문화_여가_생활": "Madaniyat, dam olish, hayot",
+    "서비스": "xizmat",
+    "사무_회계": "Ofis/Buxgalteriya",
+    "고객상담_리서치": "Mijozlarga maslahat berish/tadqiq qilish",
+    "생산_건설_노무": "Ishlab chiqarish, qurilish, mehnat",
+    "통역_번역": "Tarjima/tarjima",
+    "운전_배달": "Haydash/Etkazib berish",
+    "교육_강사": "Ta'lim / o'qituvchi",
+    "lang": "uz"
+  },
   "chatbot": {
     "비자 정보": "Viza haqida ma'lumot",
     "강원특별자치도": "Gangvon maxsus o'zini o'zi boshqarish provinsiyasi",

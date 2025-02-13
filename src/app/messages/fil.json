@@ -13,6 +13,19 @@
     "상주": "Residente",
     "문경": "Mungyeong"
   },
+  "reverseIndustryData": {
+    "외식_음료": "Kainan at Inumin",
+    "유통_판매_영업": "Distribusyon, benta, at negosyo",
+    "문화_여가_생활": "Kultura, Paglilibang, Buhay",
+    "서비스": "serbisyo",
+    "사무_회계": "Opisina/Accounting",
+    "고객상담_리서치": "Customer Consulting/Research",
+    "생산_건설_노무": "Produksyon, Konstruksyon, Paggawa",
+    "통역_번역": "Interpretasyon/Pagsasalin",
+    "운전_배달": "Pagmamaneho/Paghahatid",
+    "교육_강사": "Edukasyon/Instruktor",
+    "lang": "fil"
+  },
   "validation": {
     "name_required": "Pakilagay ang iyong pangalan",
     "noresults": "Walang nakitang resulta ng paghahanap.",

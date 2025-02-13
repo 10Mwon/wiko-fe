@@ -13,6 +13,19 @@
     "상주": "Người dân",
     "문경": "Mungyeong"
   },
+  "reverseIndustryData": {
+    "외식_음료": "Ăn uống & Đồ uống",
+    "유통_판매_영업": "Phân phối, bán hàng và kinh doanh",
+    "문화_여가_생활": "Văn hóa, Giải trí, Cuộc sống",
+    "서비스": "dịch vụ",
+    "사무_회계": "Văn phòng/Kế toán",
+    "고객상담_리서치": "Tư vấn/Nghiên cứu khách hàng",
+    "생산_건설_노무": "Sản xuất, Xây dựng, Lao động",
+    "통역_번역": "Phiên dịch/Biên dịch",
+    "운전_배달": "Lái xe/Giao hàng",
+    "교육_강사": "Giáo dục/Giảng viên",
+    "lang": "vi"
+  },
   "chatbot": {
     "비자 정보": "Thông tin thị thực",
     "경기도": "gyeonggi-do",

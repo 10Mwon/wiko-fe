@@ -72,11 +72,11 @@ export async function getFilteredRecruitList({
       "no-cache"
     );
     const res = data as commonResType<JobResponse>;
-    const tmp = [];
-    for (let i = 0; i < res.result.content.length; i++) {
-      tmp.push(await googleTranslate(res.result.content[i]));
-    }
-    res.result.content = tmp;
+    // const tmp = [];
+    // for (let i = 0; i < res.result.content.length; i++) {
+    //   tmp.push(await googleTranslate(res.result.content[i]));
+    // }
+    // res.result.content = tmp;
     for (let i = 0; i < res.result.content.length; i++) {
       res.result.content[i].pay = res.result.content[i].pay
         .toString()

@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function JobItem({ props }: { props: JobPosting }) {
+  console.log(props.imgUrl);
   return (
     <Link
       href={`job/detail/${props.id}`}
