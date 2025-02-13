@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: "WIKO",
   description: "",
   icons: {
-    icon: "/wTmp-192x192.png",
+    icon: "/wiko-192x192.png",
   },
 };
 

@@ -21,13 +21,12 @@ function SignInForm() {
     const result = await signIn("credentials", {
       loginId, // `id` 대신 `loginId` 사용
       password,
-      redirect: false, // 자동 리디렉트 방지
+      redirect: true, // 자동 리디렉트 방지
     });
     if (result?.error) {
       setError("로그인 실패: 아이디 또는 비밀번호를 확인하세요.");
     } else {
       console.log("로그인 성공");
-      router.push("/");
     }
   };
 
