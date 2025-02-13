@@ -116,27 +116,37 @@ export const ResumeData: ResumeDataType = {
 export const relatedLocalJobs: LocalJob[] = [
   {
     id: 1,
-    local: "문경",
+    location: "문경",
     imgUrl: mungyeong,
+    startAddress: "경상북도",
+    endAddress: "문경",
   },
   {
     id: 2,
-    local: "태백",
+    location: "태백",
+    startAddress: "강원도",
+    endAddress: "태백",
     imgUrl: taeback,
   },
   {
     id: 3,
-    local: "상주",
+    location: "상주",
+    startAddress: "경상북도",
+    endAddress: "상주",
     imgUrl: sangju,
   },
   {
     id: 4,
-    local: "보령",
+    location: "보령",
+    startAddress: "충청남도",
+    endAddress: "보령",
     imgUrl: boryeong,
   },
   {
     id: 5,
-    local: "밀양",
+    location: "밀양",
+    startAddress: "경상남도",
+    endAddress: "밀양",
     imgUrl: miryang,
   },
 ];

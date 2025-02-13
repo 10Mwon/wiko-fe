@@ -1,3 +1,4 @@
+import { getUserLocale } from "@/actions/common/getCookie";
 import { getLocalRecruitList } from "@/actions/recruit/getRecruit";
 import JobItem from "@/components/page/job/JobItem";
 import LocationSelector from "@/components/page/job/locationSelector";
@@ -22,12 +23,13 @@ export default async function Page(props: { searchParams: SearchParams }) {
   const startAddress = searchParams.startAddress ?? "";
   const endAddress = searchParams.endAddress ?? "";
   const page = searchParams.page ?? "0";
-
+  const lang = await getUserLocale();
   const recruitList = await getLocalRecruitList({
     page: page,
     keyword: query,
     startAddress: startAddress,
     endAddress: endAddress,
+    lang: lang,
   });
   return (
     <main className=" bg-white px-6 pb-20 relative">
