@@ -28,6 +28,6 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/types/FormType"
-  ],
+, "src/utils/googleTranslate.ts"  ],
   "exclude": ["node_modules"]
 }
