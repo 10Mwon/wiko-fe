@@ -1,4 +1,3 @@
-import { JobItemType } from "@/types/jobFilterDataType";
 import { MyKeywordType } from "@/types/myKeywordType";
 import { MyProfileType } from "@/types/myPageType";
 import boryeong from "../../public/assets/home/boryeong.png";
@@ -9,35 +8,6 @@ import taeback from "../../public/assets/home/taeback.png";
 
 import { LocalJob } from "@/types/homeLocalType";
 import { ResumeCategoryType, ResumeDataType } from "@/types/resumeType";
-
-export const dummyJobItems: JobItemType[] = [
-  {
-    id: 1,
-    jobName: "한화 오션",
-    title: "한화 오션, 삼성 중공업 현장업무",
-    location: "경상남도 거제시",
-    pay: "42000000",
-    imgUrl:
-      "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
-  },
-  {
-    id: 2,
-    jobName: "삼성중공업",
-    title: "용접 기술자",
-    location: "경상남도 거제시",
-    pay: "45000000",
-    imgUrl: "",
-  },
-  {
-    id: 3,
-    jobName: "LG전자",
-    title: "가전제품 조립",
-    location: "경기도 평택시",
-    pay: "40000000",
-    imgUrl:
-      "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
-  },
-];
 
 export const keywordData: MyKeywordType[] = [
   {

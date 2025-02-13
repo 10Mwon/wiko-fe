@@ -5,8 +5,8 @@ export interface industryDataType {
 }
 
 export interface JobItemType {
-  id: number;
-  jobName: string;
+  id: string;
+  company: string;
   title: string;
   location: string;
   pay?: string;

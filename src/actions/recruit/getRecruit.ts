@@ -111,11 +111,10 @@ export async function getRecruitDetail(
   }
 }
 
-//오늘의 공고
-export async function getTodayRecruitList() {
+export async function getTodayRecruitList(lang: string) {
   try {
     const data = await requestWithoutAuth<commonResType<JobResponse>>(
-      "recruit/today?page=0&size=6",
+      `recruit/today?page=0&size=6&lang=${lang}`,
       "GET",
       undefined,
       "no-cache"
