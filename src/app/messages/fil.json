@@ -53,7 +53,10 @@
     "searchBarPlaceHolder": "Mangyaring ipasok ang iyong termino para sa paghahanap",
     "industry": "Industriya",
     "salary": "suweldo",
-    "location": "rehiyon"
+    "location": "rehiyon",
+    "연봉": "Taunang suweldo",
+    "월급": "suweldo",
+    "시급": "Urgent"
   },
   "jobDetail": {
     "introduction": "Tungkol sa Amin",

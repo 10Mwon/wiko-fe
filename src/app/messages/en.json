@@ -53,7 +53,10 @@
     "searchBarPlaceHolder": "Please enter your search term",
     "industry": "Industry",
     "salary": "salary",
-    "location": "region"
+    "location": "region",
+    "연봉": "Annual salary",
+    "월급": "salary",
+    "시급": "Urgent"
   },
   "industryData": {
     "food_beverage": "Dining & Drinks",

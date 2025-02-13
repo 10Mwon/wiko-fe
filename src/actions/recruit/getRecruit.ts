@@ -23,15 +23,16 @@ export async function getSearchedRecruitList({
     );
     const res = data as commonResType<JobResponse>;
     const tmp = [];
-    for (let i = 0; i < res.result.content.length; i++) {
-      res.result.content[i].pay = res.result.content[0].pay
-        .toString()
-        .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    }
+
     for (let i = 0; i < res.result.content.length; i++) {
       tmp.push(await googleTranslate(res.result.content[i]));
     }
     res.result.content = tmp;
+    for (let i = 0; i < res.result.content.length; i++) {
+      res.result.content[i].pay = res.result.content[i].pay
+        .toString()
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
     return res.result;
   } catch (error) {
     console.error("채용공고 검색 중 오류 발생:", error);
@@ -74,6 +75,11 @@ export async function getFilteredRecruitList({
       tmp.push(await googleTranslate(res.result.content[i]));
     }
     res.result.content = tmp;
+    for (let i = 0; i < res.result.content.length; i++) {
+      res.result.content[i].pay = res.result.content[i].pay
+        .toString()
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
     return res.result;
   } catch (error) {
     return null;

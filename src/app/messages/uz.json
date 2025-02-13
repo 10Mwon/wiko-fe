@@ -89,7 +89,10 @@
     "searchBarPlaceHolder": "Iltimos, qidiruv so'zini kiriting",
     "industry": "Sanoat",
     "salary": "ish haqi",
-    "location": "mintaqa"
+    "location": "mintaqa",
+    "연봉": "Yillik ish haqi",
+    "월급": "ish haqi",
+    "시급": "Shoshilinch"
   },
   "jobDetail": {
     "introduction": "Biz haqimizda",

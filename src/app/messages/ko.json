@@ -54,7 +54,10 @@
     "searchBarPlaceHolder": "검색어를 입력하세요",
     "industry": "업종",
     "salary": "급여",
-    "location": "지역"
+    "location": "지역",
+    "연봉": "연봉",
+    "월급": "월급",
+    "시급": "시급"
   },
 
   "industryData": {

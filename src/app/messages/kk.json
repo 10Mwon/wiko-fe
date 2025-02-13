@@ -53,7 +53,10 @@
     "searchBarPlaceHolder": "Іздеу сөзіңізді енгізіңіз",
     "industry": "Өнеркәсіп",
     "salary": "жалақы",
-    "location": "аймақ"
+    "location": "аймақ",
+    "연봉": "Жылдық жалақы",
+    "월급": "жалақы",
+    "시급": "Шұғыл"
   },
   "jobDetail": {
     "introduction": "Біз туралы",

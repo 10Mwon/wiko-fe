@@ -89,7 +89,10 @@
     "searchBarPlaceHolder": "Vui lòng nhập từ khóa tìm kiếm của bạn",
     "industry": "Ngành công nghiệp",
     "salary": "lương",
-    "location": "vùng đất"
+    "location": "vùng đất",
+    "연봉": "Lương hàng năm",
+    "월급": "lương",
+    "시급": "Cấp bách"
   },
   "jobDetail": {
     "introduction": "Giới thiệu về chúng tôi",
