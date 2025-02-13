@@ -37,6 +37,9 @@ input[type="checkbox"]:checked::after {
   box-shadow: -6px 0px 47px 27px rgba(217, 217, 217, 0.26);
   @apply fixed bottom-[-1px] right-0 flex justify-between w-full py-3 px-10 items-center;
 }
+.app-bar-link {
+  @apply flex flex-col items-center gap-1;
+}
 
 @layer base {
   :root {
