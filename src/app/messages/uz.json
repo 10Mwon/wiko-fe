@@ -27,6 +27,8 @@
     "임금 지급": "Ish haqini to'lash",
     "국민건강보험": "Milliy sog'liqni sug'urtasi",
     "고용보험": "Mehnat sug'urtasi",
+    "workingVisaInfo": "Koreyada ish vizalarining bir nechta turlari mavjud.\n  Har bir vizada turli talablar va shartlar mavjud, shuning uchun siz o'zingizning vaziyatingizga mos keladigan vizani tanlashingiz va ariza topshirishingiz kerak.\n  Qaysi ish vizasi haqida ma'lumot olishni xohlaysiz?",
+    "otherService": "Iltimos, so'rashni istagan xizmatni tanlang.",
     "국민연금": "Milliy pensiya",
     "qa0": "Nimaga qiziqasiz?",
     "noanswer": "Kechirasiz😥\n Javob olinmadi",

@@ -418,6 +418,8 @@
     "임금 지급": "Pagbabayad ng sahod",
     "국민건강보험": "National Health Insurance",
     "고용보험": "Seguro sa Pagtatrabaho",
-    "국민연금": "Pambansang Pensiyon"
+    "국민연금": "Pambansang Pensiyon",
+    "workingVisaInfo": "Mayroong ilang mga uri ng work visa na inisyu sa Korea.\n  Ang bawat visa ay may iba't ibang kwalipikasyon at kundisyon sa aplikasyon, kaya dapat kang pumili at mag-apply para sa visa na pinakaangkop sa iyong sitwasyon.\n  Aling work visa ang gusto mong impormasyon?",
+    "otherService": "Mangyaring piliin ang serbisyong gusto mong tanungin."
   }
 }

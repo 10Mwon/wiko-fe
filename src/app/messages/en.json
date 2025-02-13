@@ -418,6 +418,8 @@
     "임금 지급": "Payment of wages",
     "국민건강보험": "National Health Insurance",
     "고용보험": "Employment Insurance",
-    "국민연금": "National Pension"
+    "국민연금": "National Pension",
+    "workingVisaInfo": "There are several types of work visas issued in Korea.\nEach visa has different application qualifications and conditions, so you should choose the one that best suits your situation and apply.\nWhat kind of work visa would you like information on?",
+    "otherService": "Please select the service you would like to inquire about."
   }
 }
