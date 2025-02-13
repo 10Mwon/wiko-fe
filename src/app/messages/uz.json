@@ -1,10 +1,17 @@
 {
   "home": {
-    "chat": "suhbat",
-    "greeting": "Biz sizning yangi chaqiruvingizni qo'llab-quvvatlaymiz!",
-    "jobInfo": "Ish haqida ma'lumot",
-    "createResume": "Rezyume; qayta boshlash\nyozish",
-    "todayRecruit": "Bugungi e'lon"
+    "지방단체 연계 일자리": "Mahalliy hukumat bilan bog'liq ishlar",
+    "소개": "kirish",
+    "슬로건": "shiori",
+    "todayRecruit": "Bugungi e'lon",
+    "MyPage": "Mening sahifam",
+    "resume": "Rezyume yozish",
+    "job": "ish",
+    "밀양": "Miryang",
+    "보령": "Boryeong",
+    "태백": "Taebek",
+    "상주": "Rezident",
+    "문경": "Mungyeong"
   },
   "chatbot": {
     "비자 정보": "Viza haqida ma'lumot",
