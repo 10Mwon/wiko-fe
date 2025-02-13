@@ -1,3 +1,5 @@
+import { useTranslations } from "next-intl";
+
 const data = [
   "강원특별자치도",
   "경상남도",
@@ -18,21 +20,23 @@ const data = [
 export default function ChatRegionSelector({
   data,
   sendMessage,
+  translatedData,
 }: {
   data: string[];
-  sendMessage: (input: string) => void;
+  translatedData: string[];
+  sendMessage: (translatedData: string, input: string) => void;
 }) {
+  const t = useTranslations("chatbot");
   return (
     <div className="rounded-b-3xl rounded-r-3xl inline-block bg-wikoGray p-4 mb-2">
-      어느 지역으로 기관을 찾아드릴까요?
+      {t("qa1")}
       <ul className="py-3">
-        {data.map((item) => (
+        {data.map((item, index) => (
           <li
             key={item}
             className="bg-white py-1 text-center mt-2 rounded-lg"
-            onClick={() => sendMessage(item)}
-          >
-            {item}
+            onClick={() => sendMessage(translatedData[index], item)}>
+            {translatedData[index]}
           </li>
         ))}
       </ul>

@@ -1,4 +1,4 @@
-export default function WikoChatBot({ className }: { className: string }) {
+export default function WikoChatBot({ className }: { className?: string }) {
   return (
     <svg
       className={className}

@@ -11,21 +11,21 @@ export default function SearchInput({ query = "" }: { query?: string }) {
 
   // 검색 버튼 클릭 시 처리
   const handler = () => {
-    if (searchQuery.trim()) {
-      router.push(`/job?query=${searchQuery}`);
-    }
+    router.push(`/job?query=${searchQuery}`);
+
+    setSearchQuery("");
   };
   const t = useTranslations("job");
   return (
     <div className="relative">
       <input
-        className="bg-white w-full h-[34px] rounded-xl px-4"
+        className="bg-white w-full h-[44px] rounded-xl px-4"
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)} // 입력값을 상태에 저장
         placeholder={t("searchBarPlaceHolder")}
       />
       <Search
-        className="absolute top-0 right-2.5 h-[34px] cursor-pointer"
+        className="absolute top-1 right-2.5 h-[34px] cursor-pointer"
         handler={handler} // 검색 버튼 클릭 시 handler 호출
       />
     </div>

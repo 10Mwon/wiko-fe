@@ -12,8 +12,8 @@ import { useRouter } from "next/navigation";
 import React from "react";
 
 interface PaginationProps {
-  currentPage: number; // 현재 페이지
-  totalPages: number; // 전체 페이지 수
+  currentPage: number;
+  totalPages: number;
   className?: string;
 }
 

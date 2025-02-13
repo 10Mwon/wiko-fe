@@ -1,9 +1,17 @@
 "use client";
 
-import { ChevronLeft } from "lucide-react";
 import { useRouter } from "next/navigation";
+import Back from "../../../../public/assets/icons/Back";
 
-export default function BackButton({ className = "" }: { className?: string }) {
+export default function BackButton({
+  className = "",
+  size = "28",
+  color = "black",
+}: {
+  className?: string;
+  size?: string;
+  color?: string;
+}) {
   const router = useRouter();
 
   return (
@@ -12,7 +20,7 @@ export default function BackButton({ className = "" }: { className?: string }) {
       aria-label="뒤로가기"
       className={`${className}`}
     >
-      <ChevronLeft className="w-6 h-6" />
+      <Back size={size} color={color} />
     </button>
   );
 }

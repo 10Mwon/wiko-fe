@@ -7,6 +7,7 @@
     "todayRecruit": "Today's announcement"
   },
   "validation": {
+    "noresults": "No search results found.",
     "name_required": "Please enter your name",
     "nation_required": "Please enter your nationality",
     "id_min": "Please enter an ID of at least 6 characters using only lowercase English letters and numbers.",
@@ -52,7 +53,10 @@
     "searchBarPlaceHolder": "Please enter your search term",
     "industry": "Industry",
     "salary": "salary",
-    "location": "region"
+    "location": "region",
+    "연봉": "Annual salary",
+    "월급": "salary",
+    "시급": "Urgent"
   },
   "industryData": {
     "food_beverage": "Dining & Drinks",
@@ -385,5 +389,41 @@
     "owner": "owner",
     "phone": "phone",
     "email": "email"
+  },
+  "chatbot": {
+    "비자 정보": "Visa Information",
+    "지원 기관 정보": "Support agency information",
+    "강원특별자치도": "Gangwon Special Self-Governing Province",
+    "경상남도": "Gyeongsangnam-do",
+    "경상북도": "Gyeongsangbuk-do",
+    "광주광역시": "Gwangju Metropolitan City",
+    "대구광역시": "Daegu Metropolitan City",
+    "대전광역시": "Daejeon Metropolitan City",
+    "부산광역시": "Busan Metropolitan City",
+    "세종특별자치시": "Sejong Special Self-Governing City",
+    "울산광역시": "Ulsan Metropolitan City",
+    "전라남도": "Jeollanam-do",
+    "전북특별자치도": "Jeonbuk Special Self-Governing Province",
+    "제주특별자치도": "Jeju Special Self-Governing Province",
+    "충청남도": "Chungcheongnam-do",
+    "충청북도": "Chungcheongbuk-do",
+    "경기도": "gyeonggi-do",
+    "인천광역시": "Incheon Metropolitan City",
+    "서울특별시": "Seoul Metropolitan City",
+    "qa1": "In which area would you like us to find your institution?",
+    "근로자 보호 및 복지 제도": "Worker Protection and Welfare System",
+    "메시지를 입력해주세요": "Please enter your message",
+    "hello": "hello",
+    "qa0": "What are you curious about?",
+    "noanswer": "Sorry😥\nCould not get your response",
+    "근로시간 및 연장근로": "Working hours and overtime",
+    "표준근로계약서의 작성": "Preparation of a standard employment contract",
+    "산업재해보상보험": "Industrial Accident Compensation Insurance",
+    "임금 지급": "Payment of wages",
+    "국민건강보험": "National Health Insurance",
+    "고용보험": "Employment Insurance",
+    "국민연금": "National Pension",
+    "workingVisaInfo": "There are several types of work visas issued in Korea.\nEach visa has different application qualifications and conditions, so you should choose the one that best suits your situation and apply.\nWhat kind of work visa would you like information on?",
+    "otherService": "Please select the service you would like to inquire about."
   }
 }

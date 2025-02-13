@@ -20,7 +20,7 @@ export interface JobPosting {
   jobName: string;
   location: string;
   payType: string; // "월급" 등의 급여 유형
-  pay: number;
+  pay: string;
 }
 
 export interface JobResponse {
@@ -38,11 +38,13 @@ export interface JobResponse {
 }
 
 export interface JobQueryParams {
-  industryTypeList?: string[]; // 업종 리스트 (선택적)
+  // industryTypeList?: string[]; // 업종 리스트 (선택적)
+  industryTypeList?: string; // 업종 리스트 (선택적)
   startAddress?: string; // 시작 주소 (선택적)
   endAddress?: string; // 종료 주소 (선택적)
-  minSalary?: number; // 최소 급여 (선택적)
-  maxSalary?: number; // 최대 급여 (선택적)
+  minPay?: string; // 최소 급여 (선택적)
+  maxPay?: string; // 최대 급여 (선택적)
   page: string; // 페이지 번호 (기본값 0)
   size?: string; // 페이지 크기 (기본값 10)
+  keyword?: string;
 }

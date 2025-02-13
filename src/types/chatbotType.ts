@@ -4,9 +4,9 @@ export interface Message {
   component?: React.ReactNode;
 }
 
-export interface ChatbotResponse {
-  answer: string;
-  sub_questions: string[] | centerDataType | null;
+export interface ChatbotResponse extends chatbotAnswerType {
+  translated_answer: string;
+  translated_sub_questions: string[] | centerDataType | null;
 }
 
 export interface chatbotAnswerType {
@@ -25,4 +25,5 @@ export interface ChatInputProps {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void;
   onClick: () => void;
+  loading: boolean;
 }

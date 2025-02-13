@@ -26,8 +26,8 @@ export default function PayFilterDrawer({
 
   const handleSearch = () => {
     const newSearchParams = new URLSearchParams(window.location.search);
-    newSearchParams.set("start", range[0].toString());
-    newSearchParams.set("end", range[1].toString());
+    newSearchParams.set("minPay", range[0].toString());
+    newSearchParams.set("maxPay", range[1].toString());
 
     router.push(`?${newSearchParams.toString()}`);
   };

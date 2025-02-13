@@ -8,6 +8,7 @@
   },
   "validation": {
     "name_required": "Pakilagay ang iyong pangalan",
+    "noresults": "Walang nakitang resulta ng paghahanap.",
     "nation_required": "Mangyaring ipasok ang iyong nasyonalidad",
     "id_min": "Mangyaring maglagay ng ID ng hindi bababa sa 6 na character gamit lamang ang maliliit na letra at numero sa Ingles.",
     "id_max": "Mangyaring maglagay ng ID ng hindi bababa sa 6 na character gamit lamang ang maliliit na letra at numero sa Ingles.",
@@ -52,7 +53,10 @@
     "searchBarPlaceHolder": "Mangyaring ipasok ang iyong termino para sa paghahanap",
     "industry": "Industriya",
     "salary": "suweldo",
-    "location": "rehiyon"
+    "location": "rehiyon",
+    "연봉": "Taunang suweldo",
+    "월급": "suweldo",
+    "시급": "Urgent"
   },
   "jobDetail": {
     "introduction": "Tungkol sa Amin",
@@ -385,5 +389,41 @@
     "workDayPer": "Nagtatrabaho sa panahon",
     "day": "Araw"
   },
-  "langSetting": "Mga setting ng wika"
+  "langSetting": "Mga setting ng wika",
+  "chatbot": {
+    "비자 정보": "Impormasyon sa Visa",
+    "강원특별자치도": "Gangwon Special Self-Governing Province",
+    "경상남도": "Gyeongsangnam-do",
+    "경상북도": "Gyeongsangbuk-do",
+    "광주광역시": "Gwangju Metropolitan City",
+    "대구광역시": "Lungsod ng Daegu Metropolitan",
+    "대전광역시": "Daejeon Metropolitan City",
+    "부산광역시": "Lungsod ng Busan Metropolitan",
+    "세종특별자치시": "Espesyal na Self-Governing City ng Sejong",
+    "울산광역시": "Lungsod ng Ulsan Metropolitan",
+    "전라남도": "Jeollanam-do",
+    "전북특별자치도": "Espesyal na Self-Governing Province ng Jeonbuk",
+    "제주특별자치도": "Espesyal na Self-Governing Province ng Jeju",
+    "충청남도": "Chungcheongnam-do",
+    "충청북도": "Chungcheongbuk-do",
+    "경기도": "gyeonggi-do",
+    "hello": "hello",
+    "qa0": "Ano ang gusto mong malaman?",
+    "noanswer": "pasensya na😥\n Hindi makakuha ng tugon",
+    "인천광역시": "Lungsod ng Incheon Metropolitan",
+    "서울특별시": "Lungsod ng Seoul Metropolitan",
+    "qa1": "Saang lugar mo gustong hanapin namin ang iyong institusyon?",
+    "메시지를 입력해주세요": "Pakilagay ang iyong mensahe",
+    "지원 기관 정보": "Suporta sa impormasyon ng ahensya",
+    "근로자 보호 및 복지 제도": "Sistema ng Proteksyon at Kapakanan ng Manggagawa",
+    "근로시간 및 연장근로": "Oras ng trabaho at overtime",
+    "표준근로계약서의 작성": "Paghahanda ng isang karaniwang kontrata sa pagtatrabaho",
+    "산업재해보상보험": "Insurance sa Kabayaran sa Aksidente sa Industriya",
+    "임금 지급": "Pagbabayad ng sahod",
+    "국민건강보험": "National Health Insurance",
+    "고용보험": "Seguro sa Pagtatrabaho",
+    "국민연금": "Pambansang Pensiyon",
+    "workingVisaInfo": "Mayroong ilang mga uri ng work visa na inisyu sa Korea.\n  Ang bawat visa ay may iba't ibang kwalipikasyon at kundisyon sa aplikasyon, kaya dapat kang pumili at mag-apply para sa visa na pinakaangkop sa iyong sitwasyon.\n  Aling work visa ang gusto mong impormasyon?",
+    "otherService": "Mangyaring piliin ang serbisyong gusto mong tanungin."
+  }
 }

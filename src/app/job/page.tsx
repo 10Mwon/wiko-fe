@@ -1,55 +1,75 @@
-import { getRecruitList } from "@/actions/recruit/getRecruit";
+import { getFilteredRecruitList } from "@/actions/recruit/getRecruit";
 import AppBar from "@/components/layout/AppBar";
 import JobItem from "@/components/page/job/JobItem";
+import Noresults from "@/components/page/job/Noresults";
 import CustomPagination from "@/components/ui/custom/CustomPagination";
 import JobFilter from "@/components/ui/custom/JobFilter";
 import LocationFilterDrawer from "@/components/ui/custom/LocationFilterDrawer";
 import PayFilterDrawer from "@/components/ui/custom/PayFilterDrawer";
 import SearchInput from "@/components/ui/custom/SearchInput";
+import JobItemFallback from "@/components/ui/skeleton/JobItemFallback";
 
 type SearchParams = Promise<{
   industry: string;
-  start: string;
-  end: string;
+  minPay: string;
+  maxPay: string;
   location: string;
   query: string;
   page: string;
+  startAddress: string;
+  endAddress: string;
 }>;
-export default async function page(props: { searchParams: SearchParams }) {
+export default async function Page(props: { searchParams: SearchParams }) {
   const searchParams = await props.searchParams;
   const query = searchParams.query ?? "";
-  const start = searchParams.start ?? "0";
-  const end = searchParams.end ?? "5000000";
+  const minPay = searchParams.minPay ?? "0";
+  const maxPay = searchParams.maxPay ?? "50000000";
   const location = searchParams.location ?? "";
+  const startAddress = searchParams.startAddress ?? "";
+  const endAddress = searchParams.endAddress ?? "";
   const industry = searchParams.industry ?? "";
   const page = searchParams.page ?? "0";
-  // const recruitList = await getSearchedRecruitList({
-  //   keyword: query,
-  //   page: page,
-  // });
-  const recruitList = await getRecruitList(page);
+  console.log(minPay, maxPay);
+  const recruitList = await getFilteredRecruitList({
+    page: page,
+    keyword: query,
+    minPay: minPay,
+    maxPay: maxPay,
+    startAddress: startAddress,
+    endAddress: endAddress,
+    industryTypeList: industry,
+  });
 
-  console.log(searchParams);
   return (
-    <main className="min-h-screen bg-wikoBlue px-6 pb-20">
-      <div className="min-h-[calc(100vh-80px)] pt-8  relative">
+    <main className=" bg-wikoBlue px-6 pb-20 relative">
+      <div className="min-h-[calc(100vh-160px)] pt-8 ">
         <SearchInput query={query} />
         <section className="mt-14 flex justify-between">
           <JobFilter industry={industry} />
-          <PayFilterDrawer start={start} end={end} />
+          <PayFilterDrawer start={minPay} end={maxPay} />
           <LocationFilterDrawer location={location} />
         </section>
-        <section className="mt-9 grid grid-cols-2 gap-5">
-          {recruitList.content.map((item) => (
-            <JobItem key={item.id} props={item} />
-          ))}
-        </section>
+        {recruitList ? (
+          <section className="mt-9 grid grid-cols-2 gap-5">
+            {recruitList
+              ? recruitList.content.map((item) => (
+                  <JobItem key={item.id} props={item} />
+                ))
+              : Array.from({ length: 6 }).map((_, index) => (
+                  <JobItemFallback key={index} />
+                ))}
+          </section>
+        ) : (
+          <Noresults />
+        )}
+      </div>
+      {recruitList && (
         <CustomPagination
           currentPage={Number(page)}
-          totalPages={Number(recruitList.totalPages)}
-          className="absolute bottom-3"
+          totalPages={Number(recruitList.totalPages) ?? 0}
+          className=""
         />
-      </div>
+      )}
       <AppBar />
     </main>
   );
