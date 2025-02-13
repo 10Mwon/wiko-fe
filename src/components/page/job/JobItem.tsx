@@ -18,13 +18,13 @@ export default function JobItem({ props }: { props: JobPosting }) {
         "
         >
           {/* 회사명 */}
-          {props.jobName}
+          {props.company}
         </div>
       )}
       <hr className="h-[1px] border-b-[1px] border-[#F0F1F5] mt-1 mb-2" />
       <ul>
         <p className="text-[12px] font-semibold mb-1 w-[90%] truncate">
-          {props.jobName}
+          {props.company}
         </p>
         <li className=" font-semibold mb-2 h-6 line-clamp-2 text-sm">
           {props.title}

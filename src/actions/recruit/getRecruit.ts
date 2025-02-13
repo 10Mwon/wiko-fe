@@ -40,6 +40,7 @@ export async function getSearchedRecruitList({
   }
 }
 
+// 이거씀
 //필터링+검색
 export async function getFilteredRecruitList({
   industryTypeList = "",

@@ -1,3 +1,4 @@
+import { getUserLocale } from "@/actions/common/getCookie";
 import { getFilteredRecruitList } from "@/actions/recruit/getRecruit";
 import AppBar from "@/components/layout/AppBar";
 import JobItem from "@/components/page/job/JobItem";
@@ -29,6 +30,7 @@ export default async function Page(props: { searchParams: SearchParams }) {
   const endAddress = searchParams.endAddress ?? "";
   const industry = searchParams.industry ?? "";
   const page = searchParams.page ?? "0";
+  const lang = await getUserLocale();
 
   const recruitList = await getFilteredRecruitList({
     page: page,
@@ -38,6 +40,7 @@ export default async function Page(props: { searchParams: SearchParams }) {
     startAddress: startAddress,
     endAddress: endAddress,
     industryTypeList: industry,
+    lang: lang,
   });
 
   return (

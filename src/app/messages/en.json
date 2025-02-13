@@ -1,10 +1,17 @@
 {
   "home": {
-    "chat": "chat",
-    "greeting": "We support your new challenge!",
-    "jobInfo": "Job Information",
-    "createResume": "Resume\nwriting",
-    "todayRecruit": "Today's announcement"
+    "지방단체 연계 일자리": "Local government-linked jobs",
+    "소개": "introduction",
+    "슬로건": "slogan",
+    "todayRecruit": "Today's Announcement",
+    "MyPage": "My Page",
+    "resume": "Writing a Resume",
+    "job": "job",
+    "밀양": "Miryang",
+    "보령": "Boryeong",
+    "태백": "Taebaek",
+    "상주": "Resident",
+    "문경": "Mungyeong"
   },
   "validation": {
     "noresults": "No search results found.",
