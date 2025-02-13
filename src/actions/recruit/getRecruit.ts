@@ -50,7 +50,7 @@ export async function getFilteredRecruitList({
   maxPay = "50000000",
   page,
   keyword = "",
-  lang,
+  lang = "en",
 }: JobQueryParams) {
   try {
     const newSearchParams = new URLSearchParams("");
@@ -63,9 +63,8 @@ export async function getFilteredRecruitList({
     newSearchParams.set("maxPay", maxPay);
     newSearchParams.set("page", page.toString());
     newSearchParams.set("keyword", keyword.toString());
-    newSearchParams.set("lang", lang);
+    newSearchParams.set("lang", lang.toString());
     const endpoint = `recruit/filterList?${newSearchParams}`;
-    console.log(endpoint, "endpoint------------");
     const data = await requestWithoutAuth<commonResType<JobResponse>>(
       endpoint,
       "GET",
@@ -86,29 +85,6 @@ export async function getFilteredRecruitList({
     return res.result;
   } catch (error) {
     return null;
-  }
-}
-
-//일반조회
-export async function getRecruitList(page: string): Promise<JobResponse> {
-  try {
-    const endpoint = `recruit/list?page=${page}`;
-    const data = await requestWithoutAuth<commonResType<JobResponse>>(
-      endpoint,
-      "GET",
-      undefined,
-      "no-cache"
-    );
-    const res = data as commonResType<JobResponse>;
-    const tmp = [];
-    for (let i = 0; i < res.result.content.length; i++) {
-      tmp.push(await googleTranslate(res.result.content[i]));
-    }
-    res.result.content = tmp;
-    return res.result;
-  } catch (error) {
-    console.error("채용공고 리스트 오류:", error);
-    throw new Error(`채용공고 리스트 오류: ${error}`);
   }
 }
 
@@ -144,7 +120,50 @@ export async function getTodayRecruitList(lang: string) {
       "no-cache"
     );
     const res = data as commonResType<JobResponse>;
+    const tmp = [];
+    for (let i = 0; i < res.result.content.length; i++) {
+      tmp.push(await googleTranslate(res.result.content[i]));
+    }
+    res.result.content = tmp;
+    for (let i = 0; i < res.result.content.length; i++) {
+      res.result.content[i].pay = res.result.content[i].pay
+        .toString()
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+    return res.result;
+  } catch (error) {
+    return null;
+  }
+}
 
+//지역연계일자리 리스트
+export async function getLocalRecruitList({
+  startAddress = "",
+  endAddress = "",
+  page,
+  keyword = "",
+  lang = "en",
+}: JobQueryParams) {
+  try {
+    const newSearchParams = new URLSearchParams("");
+    newSearchParams.set("startAddress", startAddress);
+    newSearchParams.set("endAddress", endAddress);
+    newSearchParams.set("page", page.toString());
+    newSearchParams.set("keyword", keyword.toString());
+    newSearchParams.set("lang", lang.toString());
+    const endpoint = `recruit/localFilter?${newSearchParams}`;
+    const data = await requestWithoutAuth<commonResType<JobResponse>>(
+      endpoint,
+      "GET",
+      undefined,
+      "no-cache"
+    );
+    const res = data as commonResType<JobResponse>;
+    const tmp = [];
+    for (let i = 0; i < res.result.content.length; i++) {
+      tmp.push(await googleTranslate(res.result.content[i]));
+    }
+    res.result.content = tmp;
     for (let i = 0; i < res.result.content.length; i++) {
       res.result.content[i].pay = res.result.content[i].pay
         .toString()

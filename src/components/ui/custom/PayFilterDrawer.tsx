@@ -52,9 +52,7 @@ export default function PayFilterDrawer({
   const p = useTranslations("pay");
   return (
     <Drawer>
-      <DrawerTrigger className="py-1.5 px-7 text-[#4C4C4C] font-semibold rounded-3xl shadow-xl bg-white">
-        {p("pay")}
-      </DrawerTrigger>
+      <DrawerTrigger className="drawer_button">{p("pay")}</DrawerTrigger>
       <DrawerContent>
         <DrawerHeader>
           <DrawerTitle>{p("pay")}</DrawerTitle>

@@ -1,9 +1,8 @@
 import { getRecruitDetail } from "@/actions/recruit/getRecruit";
-import JobCondition from "@/components/page/job/JobCondition";
 import RecruitDetailCard from "@/components/page/job/RecruitDetailCard";
 import RecruitDetailHeader from "@/components/page/job/RecruitDetailHeader";
-import ApplyButton from "@/components/ui/button/ApplyButton";
 import ContactDrawer from "@/components/ui/custom/ContactDrawer";
+import { jobDetailType } from "@/types/jobDetailType";
 interface ProductPageProps {
   params: { id: string };
 }
@@ -13,9 +12,9 @@ export default async function Page({
   params: Promise<{ id: string }>;
 }) {
   const PageParams = await params;
-  const data = await getRecruitDetail(PageParams.id);
+  const data: jobDetailType = await getRecruitDetail(PageParams.id);
   return (
-    <div className="max-w-md mx-auto min-h-screen">
+    <div className="max-w-md mx-auto min-h-screen pb-20">
       {/* Header */}
       <RecruitDetailHeader
         imgUrl={data.imgUrl}
@@ -25,21 +24,9 @@ export default async function Page({
 
       {/* Content */}
       <section>
-        <div className="px-4 py-6 bg-white rounded-2xl z-10">
+        <div className="pb-6 pt-[60px] bg-white rounded-2xl z-10">
           {/* Job Details Card */}
-          <RecruitDetailCard
-            companyInfo={data.companyInfo}
-            responsibilities={data.responsibilities}
-            qualifications={data.qualifications}
-          />
-
-          <JobCondition
-            pay={data.pay}
-            workHours={data.workHours}
-            workPeriod={data.workPeriod}
-            employmentType={data.employmentType}
-            preferredQualifications={data.preferredQualifications}
-          />
+          <RecruitDetailCard data={data} />
         </div>
       </section>
       {/* Bottom Buttons */}
@@ -49,7 +36,6 @@ export default async function Page({
           phone={data.phone}
           email={data.email}
         />
-        <ApplyButton />
       </div>
     </div>
   );
