@@ -1,14 +1,11 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
 import Home from "../../../public/assets/icons/HomeIcon";
 import Newspaper from "../../../public/assets/icons/Newspaper";
 import Person from "../../../public/assets/icons/Person";
 import BackButton from "../ui/button/BackButton";
 
 export default function AppBar() {
-  const [openSideMenu, setOpenSideMenu] = useState(false);
-
   return (
     <nav className="app-bar bg-white [&>a>span]:text-[10px] [&>a>span]:text-center">
       <div className="flex flex-col gap-1 items-center text-[10px]">

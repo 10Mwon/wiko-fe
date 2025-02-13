@@ -1,18 +1,17 @@
-"use client";
+// "use client";
 import AppBar from "@/components/layout/AppBar";
 import Header from "@/components/layout/Header";
-import JobMenuGrid from "@/components/page/home/JobMenuGrid";
-import { LinkToChat } from "@/components/page/home/LinkToChat";
-import TodayJobNotice from "@/components/page/home/TodayJobNotice";
-import { useTranslations } from "next-intl";
+import { getServerSession } from "next-auth";
+import { options } from "./api/auth/[...nextauth]/options";
 
-export default function Home() {
-  const t = useTranslations("home");
+export default async function Home() {
+  // const t = useTranslations("home");
   const name = "Tom";
+  const isAuth = await getServerSession(options);
   return (
     <main className="w-full " style={{ height: "calc(100vh - 56px)" }}>
-      <Header />
-      <div className="px-6 mb-[68px]">
+      <Header isAuth={isAuth ? true : false} />
+      {/* <div className="px-6 mb-[68px]">
         <h1 className="text-2xl font-semibold mb-11 mt-14 text-black font-lexend">
           Tom,
           <br />
@@ -21,7 +20,7 @@ export default function Home() {
         <LinkToChat />
         <JobMenuGrid />
       </div>
-      <TodayJobNotice />
+      <TodayJobNotice /> */}
       <AppBar />
     </main>
   );

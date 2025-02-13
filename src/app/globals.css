@@ -40,6 +40,9 @@ input[type="checkbox"]:checked::after {
 .app-bar-link {
   @apply flex flex-col items-center gap-1;
 }
+.nav-link {
+  @apply flex-1 text-center;
+}
 
 @layer base {
   :root {
