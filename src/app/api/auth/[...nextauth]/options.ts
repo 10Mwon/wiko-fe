@@ -66,6 +66,7 @@ export const options: NextAuthOptions = {
           });
           if (res.ok) {
             const data = await res.json();
+            console.log("Google login data:", data);
             user.jwtToken = data.jwtToken;
             return true;
           } else {
