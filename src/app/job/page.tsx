@@ -3,6 +3,7 @@ import { getFilteredRecruitList } from "@/actions/recruit/getRecruit";
 import AppBar from "@/components/layout/AppBar";
 import JobItem from "@/components/page/job/JobItem";
 import Noresults from "@/components/page/job/Noresults";
+import SelectedItem from "@/components/page/job/SelectedItem";
 import CustomPagination from "@/components/ui/custom/CustomPagination";
 import JobFilter from "@/components/ui/custom/JobFilter";
 import LocationFilterDrawer from "@/components/ui/custom/LocationFilterDrawer";
@@ -52,6 +53,14 @@ export default async function Page(props: { searchParams: SearchParams }) {
           <PayFilterDrawer start={minPay} end={maxPay} />
           <LocationFilterDrawer location={location} />
         </section>
+        <SelectedItem
+          keyword={query}
+          industryTypeList={industry}
+          startAddress={startAddress}
+          endAddress={endAddress}
+          minPay={minPay}
+          maxPay={maxPay}
+        />
         {recruitList ? (
           <section className="mt-9 grid grid-cols-2 gap-5">
             {recruitList
