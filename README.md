@@ -69,30 +69,33 @@
 
 ## 🎯 프로젝트 목표
 
-1. ****  
-   
+1. **비개발자와 개발자의 협업 강화**    
+   기획, 디자인, 개발 간 원활한 커뮤니케이션을 통해 완성도 높은 서비스 제작
 2. **프론트엔드와 백엔드 협업**  
    효율적인 협업을 통해 통합된 웹 서비스 구축
-3. ****  
-   
+3. **실사용자 중심의 UX/UI 개선**  
+   외국인 근로자를 포함한 다양한 사용자의 접근성을 고려하여 직관적인 UI 제공
 
 ---
 
 ## 🔎 화면 구성
 
+| 로그인 | 회원가입 |
+| --- | --- |
+| <img src="https://github.com/user-attachments/assets/95dd1d6b-2de8-4124-aa6b-e627e4fb6927" alt="login_page" height="600" width="300" /> | <img src="https://github.com/user-attachments/assets/9f8e07f2-1044-487c-8302-54ab5fc5aac6" alt="join_page" height="600" width="300" /> |
+
+
 | 메인 페이지 | 공고 리스트 | 공고 상세 페이지 |
 | --- | --- | --- |
-| <img src="" alt="main_page" width="300" /> | <img src="" alt="login_page" width="300" /> | <img src="" alt="agreement_page" width="300" /> |
+| <img src="https://github.com/user-attachments/assets/3c34e172-27d2-42d0-b13e-5bdedd359497" alt="main_page" height="600" width="300" />| <img src="https://github.com/user-attachments/assets/f5ebf274-e77f-4140-a582-5aff4819d099" alt="recruitList_page" height="600" width="300" /> | <img src="https://github.com/user-attachments/assets/58ac9ada-c935-4a17-945b-f0f8584f0e26" alt="recruitDetail_page" height="600" width="300" /> |
+
+| 공고 필터링 페이지 |
+| --- |
+| <img src="https://github.com/user-attachments/assets/68960e93-1bd4-4a9b-8542-83884ec98ecb" alt="RecruitFilter_page" height="600" width="250" /> <img src="https://github.com/user-attachments/assets/0ce2a6ac-812c-40df-ba72-f1a92e706de5" alt="RecruitFilter_page" height="600" width="250" /> <img src="https://github.com/user-attachments/assets/37aaf7e0-65b9-4fed-b5da-0c025502a031" alt="RecruitFilter_page" height="600" width="250" />|
 
 | AI 챗봇 | 이력서 | 언어 선택 |
 | --- | --- | --- |
-| <img src="" alt="my_page" width="300" /> | <img src="" alt="search_page" width="300" /> | <img src="" alt="favorite_page" width="300" /> |
-
-| 로그인 | 회원가입 | --- |
-| --- | --- | --- |
-| <img src="" alt="best_page" width="300" /> | <img src="" alt="cart_page" width="300" /> | <img src="" alt="coupon_page" width="300" /> |
-
-
+| <img src="https://github.com/user-attachments/assets/d4ab4c8b-4ccb-4baa-a6fc-746e40a27876" alt="AIchatbot_page" height="600" width="300" /> | <img src="https://github.com/user-attachments/assets/19327e45-3fb5-42a8-87a2-3c653cfdd14d" alt="resume_page" height="600" width="300" /> | <img src="https://github.com/user-attachments/assets/9657d4ad-5bd4-4eb8-b31b-9ba47c4b3a8b" alt="language_page" height="600" width="300" /> |
 
 ---
 
